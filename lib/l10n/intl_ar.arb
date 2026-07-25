@@ -34,5 +34,111 @@
     "snack_boiled_eggs": "بيض مسلوق",
     "snack_protein_smoothie": "سموثي بروتين",
     "snack_cottage_cheese": "جبن قريش مع الفاكهة",
-    "get_started": "ابدأ الآن"
+    "get_started": "ابدأ الآن",
+    "home": "الرئيسية",
+    "tips": "النصائح",
+    "scan": "المسح",
+    "chat": "الدردشة",
+    "profile": "حسابي",
+    "goodMorning": "صباح الفل ",
+    "newDayNewStep": "يوم جديد، خطوة جديدة نحو صحتك",
+    "todayMeals": "وجبات اليوم",
+    "noMealLogged": "مفيش وجبة متسجلة لسه",
+    "todayNutritionSummary": "ملخص اليوم الغذائي",
+    "caloriesUnit": "سعر حراري",
+    "remainingCaloriesMessage": "متبقي {remaining} سعر حراري لهدفك اليومي",
+    "@remainingCaloriesMessage": {
+        "placeholders": {
+            "remaining": {
+                "type": "int"
+            }
+        }
+    },
+    "weeklyOverview": "نظرة على الأسبوع",
+    "last7Days": "آخر 7 أيام",
+    "caloriesTooltip": "{value} سعر",
+    "@caloriesTooltip": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
+    "daySaturdayShort": "سبت",
+    "daySundayShort": "حد",
+    "dayMondayShort": "إتنين",
+    "dayTuesdayShort": "تلات",
+    "dayWednesdayShort": "أربع",
+    "dayThursdayShort": "خميس",
+    "dayFridayShort": "جمعة",
+    "mealBreakfast": "فطار",
+    "mealLunch": "غداء",
+    "mealDinner": "عشاء",
+    "drinkEnoughWater": "اشربي مية كفاية",
+    "drinkEnoughWaterDesc": "حاولي توصلي لـ 8 أكواب مية يوميًا، ده بيحسن مزاجك وطاقتك خلال اليوم.",
+    "dontCompareYourself": "بلاش تقارني نفسك بحد",
+    "dontCompareYourselfDesc": "رحلة كل شخص مختلفة، ركزي على تقدمك انتي مش على غيرك.",
+    "dailyWalk": "20 دقيقة مشي يومية",
+    "dailyWalkDesc": "مشي بسيط بعد الأكل بيساعد على الهضم وبيحسن الحالة النفسية.",
+    "sleepIsImportant": "نومك مهم زي أكلك",
+    "sleepIsImportantDesc": "قلة النوم بتأثر على الهرمونات المسؤولة عن الجوع والشبع.",
+    "spreadProtein": "وزعي البروتين على وجباتك",
+    "spreadProteinDesc": "بدل ما تاخديه في وجبة واحدة، وزعيه على اليوم كله عشان استفادة أكبر.",
+    "nutritionCategory": "تغذية",
+    "mentalCategory": "نفسية",
+    "sportCategory": "رياضة",
+    "all": "الكل",
+    "tipsTitle": "نصايح ليكي",
+    "tipsSubtitle": "حاجات بسيطة تفرق معاكي كل يوم",
+    "scanTitle": "سكان الوجبة",
+    "scanIdleHint": "وجّهي الكاميرا على وجبتك",
+    "scanIdleDescription": "التقطي صورة للوجبة عشان نحسبلك\nالسعرات والبروتين والكارب أوتوماتيك",
+    "scanAiBadge": "بيتحلل بالذكاء الاصطناعي",
+    "scanAnalyzingTitle": "بيتم تحليل الوجبة دلوقتي",
+    "scanAnalyzingSubtitle": "بنبعت الصورة للذكاء الاصطناعي عشان نطلعلك القيم الغذائية",
+    "scanResultMealName": "صدور فراخ مشوية مع أرز وسلطة",
+    "scanResultEstimateNote": "تقدير تقريبي بناءً على الصورة",
+    "scanCaloriesLabel": "السعرات الحرارية",
+    "scanCaloriesValue": "{value} سعر",
+    "@scanCaloriesValue": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
+    "scanProteinLabel": "بروتين",
+    "scanCarbsLabel": "كارب",
+    "scanFatLabel": "دهون",
+    "scanGramValue": "{value}g",
+    "@scanGramValue": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
+    "scanRetryButton": "إعادة المحاولة",
+    "scanSaveButton": "حفظ الوجبة",
+    "chatbotAppBarTitle": "مساعدك الصحي",
+    "chatbotOnlineStatus": "متصل الآن",
+    "chatbotWelcomeMessage": "أهلاً بيكي \ud83c\udf31 أنا هنا أساعدك في أي سؤال عن أكلك أو حالتك النفسية اليوم. اسأليني براحتك.",
+    "chatbotSampleReply": "شكرًا لمشاركتك ده. تذكري إن كل جسم مختلف، ومحاولتك النهاردة كفاية. تحبي نتكلم أكتر عن اللي حاسة بيه؟",
+    "chatbotSuggestionOverate": "اكلت زيادة النهاردة",
+    "chatbotSuggestionHealthyMeal": "مقترحات لوجبة صحية",
+    "chatbotSuggestionAnxiety": "حاسة بقلق حوالين الأكل",
+    "chatbotInputHint": "اكتبي سؤالك هنا...",
+    "profileTitle": "البروفايل",
+    "profileEditProfile": "تعديل الملف الشخصي",
+    "profileSettingsSection": "الإعدادات",
+    "profileLanguageTitle": "اللغة",
+    "profileLanguageSubtitle": "اختاري لغة التطبيق",
+    "profileNotificationsTitle": "الإشعارات",
+    "profileAboutTitle": "عن التطبيق",
+    "profileLogoutTitle": "تسجيل الخروج",
+    "profileThemeTitle": "المظهر",
+    "profileThemeSubtitle": "اختاري شكل التطبيق",
+    "profileThemeLight": "فاتح",
+    "profileThemeDark": "غامق",
+    "profileThemeSystem": "تلقائي"
 }

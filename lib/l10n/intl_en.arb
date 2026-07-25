@@ -34,5 +34,111 @@
     "snack_boiled_eggs": "Boiled eggs",
     "snack_protein_smoothie": "Protein smoothie",
     "snack_cottage_cheese": "Cottage cheese with fruits",
-    "get_started": "Get Started"
+    "get_started": "Get Started",
+    "home": "Home",
+    "tips": "Tips",
+    "scan": "Scan",
+    "chat": "Chat",
+    "profile": "Profile",
+    "goodMorning": "Good morning",
+    "newDayNewStep": "A new day, a new step towards your health",
+    "todayMeals": "Today's Meals",
+    "noMealLogged": "No meal logged yet",
+    "todayNutritionSummary": "Today's Nutrition Summary",
+    "caloriesUnit": "kcal",
+    "remainingCaloriesMessage": "{remaining} kcal remaining to reach your goal",
+    "@remainingCaloriesMessage": {
+        "placeholders": {
+            "remaining": {
+                "type": "int"
+            }
+        }
+    },
+    "weeklyOverview": "Weekly Overview",
+    "last7Days": "Last 7 days",
+    "caloriesTooltip": "{value} kcal",
+    "@caloriesTooltip": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
+    "daySaturdayShort": "Sat",
+    "daySundayShort": "Sun",
+    "dayMondayShort": "Mon",
+    "dayTuesdayShort": "Tue",
+    "dayWednesdayShort": "Wed",
+    "dayThursdayShort": "Thu",
+    "dayFridayShort": "Fri",
+    "mealBreakfast": "Breakfast",
+    "mealLunch": "Lunch",
+    "mealDinner": "Dinner",
+    "drinkEnoughWater": "Drink enough water",
+    "drinkEnoughWaterDesc": "Try to drink 8 cups of water daily. It improves your mood and energy.",
+    "dontCompareYourself": "Don't compare yourself",
+    "dontCompareYourselfDesc": "Everyone's journey is different. Focus on your progress.",
+    "dailyWalk": "20 minutes daily walk",
+    "dailyWalkDesc": "A simple walk after meals helps digestion and improves your mood.",
+    "sleepIsImportant": "Sleep is as important as food",
+    "sleepIsImportantDesc": "Lack of sleep affects hunger and fullness hormones.",
+    "spreadProtein": "Spread protein across meals",
+    "spreadProteinDesc": "Distribute protein throughout the day for better benefits.",
+    "nutritionCategory": "Nutrition",
+    "mentalCategory": "Mental Health",
+    "sportCategory": "Fitness",
+    "all": "All",
+    "tipsTitle": "Tips for You",
+    "tipsSubtitle": "Simple things that make a difference every day",
+    "scanTitle": "Meal Scan",
+    "scanIdleHint": "Point the camera at your meal",
+    "scanIdleDescription": "Take a photo of your meal and we'll\ncalculate calories, protein, and carbs automatically",
+    "scanAiBadge": "Analyzing with AI",
+    "scanAnalyzingTitle": "Analyzing your meal",
+    "scanAnalyzingSubtitle": "Sending the photo to AI to get its nutritional values",
+    "scanResultMealName": "Grilled chicken breast with rice and salad",
+    "scanResultEstimateNote": "Approximate estimate based on the photo",
+    "scanCaloriesLabel": "Calories",
+    "scanCaloriesValue": "{value} cal",
+    "@scanCaloriesValue": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
+    "scanProteinLabel": "Protein",
+    "scanCarbsLabel": "Carbs",
+    "scanFatLabel": "Fat",
+    "scanGramValue": "{value}g",
+    "@scanGramValue": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
+    "scanRetryButton": "Retry",
+    "scanSaveButton": "Save Meal",
+    "chatbotAppBarTitle": "Health Assistant",
+    "chatbotOnlineStatus": "Online now",
+    "chatbotWelcomeMessage": "Hi \ud83c\udf31 I'm here to help with any question about your food or how you're feeling today. Ask me anything.",
+    "chatbotSampleReply": "Thanks for sharing that. Remember every body is different, and today's effort is enough. Want to talk more about how you're feeling?",
+    "chatbotSuggestionOverate": "I overate today",
+    "chatbotSuggestionHealthyMeal": "Healthy meal ideas",
+    "chatbotSuggestionAnxiety": "Feeling anxious about food",
+    "chatbotInputHint": "Type your question here...",
+    "profileTitle": "Profile",
+    "profileEditProfile": "Edit Profile",
+    "profileSettingsSection": "Settings",
+    "profileLanguageTitle": "Language",
+    "profileLanguageSubtitle": "Choose the app language",
+    "profileNotificationsTitle": "Notifications",
+    "profileAboutTitle": "About the app",
+    "profileLogoutTitle": "Log out",
+    "profileThemeTitle": "Appearance",
+    "profileThemeSubtitle": "Choose the app theme",
+    "profileThemeLight": "Light",
+    "profileThemeDark": "Dark",
+    "profileThemeSystem": "System"
 }

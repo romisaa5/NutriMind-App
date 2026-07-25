@@ -3,6 +3,7 @@ import 'package:nutri_mind/core/routing/routes.dart';
 import 'package:nutri_mind/features/auth/presentation/screens/forget_password.dart';
 import 'package:nutri_mind/features/auth/presentation/screens/login_screen.dart';
 import 'package:nutri_mind/features/auth/presentation/screens/register_screen.dart';
+import 'package:nutri_mind/features/nav_bar/main_nav_screen.dart';
 import 'package:nutri_mind/features/onboarding/screens/onboarding_screen.dart';
 import 'package:nutri_mind/features/splash/screens/splash_screen.dart';
 
@@ -11,7 +12,7 @@ abstract class AppRouter {
 
   static void initRouter() {
     router = GoRouter(
-      initialLocation: Routes.splashScreen,
+      initialLocation: Routes.mainNavScreen,
       routes: [
         GoRoute(
           path: Routes.splashScreen,
@@ -32,6 +33,10 @@ abstract class AppRouter {
         GoRoute(
           path: Routes.forgetPasswordScreen,
           builder: (context, state) => const ForgetPassword(),
+        ),
+        GoRoute(
+          path: Routes.mainNavScreen,
+          builder: (context, state) => const MainNavScreen(),
         ),
       ],
     );

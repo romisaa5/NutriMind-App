@@ -348,6 +348,651 @@ class S {
   String get get_started {
     return Intl.message('Get Started', name: 'get_started', desc: '', args: []);
   }
+
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
+  }
+
+  /// `Tips`
+  String get tips {
+    return Intl.message('Tips', name: 'tips', desc: '', args: []);
+  }
+
+  /// `Scan`
+  String get scan {
+    return Intl.message('Scan', name: 'scan', desc: '', args: []);
+  }
+
+  /// `Chat`
+  String get chat {
+    return Intl.message('Chat', name: 'chat', desc: '', args: []);
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message('Profile', name: 'profile', desc: '', args: []);
+  }
+
+  /// `Good morning`
+  String get goodMorning {
+    return Intl.message(
+      'Good morning',
+      name: 'goodMorning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A new day, a new step towards your health`
+  String get newDayNewStep {
+    return Intl.message(
+      'A new day, a new step towards your health',
+      name: 'newDayNewStep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Today's Meals`
+  String get todayMeals {
+    return Intl.message(
+      'Today\'s Meals',
+      name: 'todayMeals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No meal logged yet`
+  String get noMealLogged {
+    return Intl.message(
+      'No meal logged yet',
+      name: 'noMealLogged',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Today's Nutrition Summary`
+  String get todayNutritionSummary {
+    return Intl.message(
+      'Today\'s Nutrition Summary',
+      name: 'todayNutritionSummary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `kcal`
+  String get caloriesUnit {
+    return Intl.message('kcal', name: 'caloriesUnit', desc: '', args: []);
+  }
+
+  /// `{remaining} kcal remaining to reach your goal`
+  String remainingCaloriesMessage(int remaining) {
+    return Intl.message(
+      '$remaining kcal remaining to reach your goal',
+      name: 'remainingCaloriesMessage',
+      desc: '',
+      args: [remaining],
+    );
+  }
+
+  /// `Weekly Overview`
+  String get weeklyOverview {
+    return Intl.message(
+      'Weekly Overview',
+      name: 'weeklyOverview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last 7 days`
+  String get last7Days {
+    return Intl.message('Last 7 days', name: 'last7Days', desc: '', args: []);
+  }
+
+  /// `{value} kcal`
+  String caloriesTooltip(int value) {
+    return Intl.message(
+      '$value kcal',
+      name: 'caloriesTooltip',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Sat`
+  String get daySaturdayShort {
+    return Intl.message('Sat', name: 'daySaturdayShort', desc: '', args: []);
+  }
+
+  /// `Sun`
+  String get daySundayShort {
+    return Intl.message('Sun', name: 'daySundayShort', desc: '', args: []);
+  }
+
+  /// `Mon`
+  String get dayMondayShort {
+    return Intl.message('Mon', name: 'dayMondayShort', desc: '', args: []);
+  }
+
+  /// `Tue`
+  String get dayTuesdayShort {
+    return Intl.message('Tue', name: 'dayTuesdayShort', desc: '', args: []);
+  }
+
+  /// `Wed`
+  String get dayWednesdayShort {
+    return Intl.message('Wed', name: 'dayWednesdayShort', desc: '', args: []);
+  }
+
+  /// `Thu`
+  String get dayThursdayShort {
+    return Intl.message('Thu', name: 'dayThursdayShort', desc: '', args: []);
+  }
+
+  /// `Fri`
+  String get dayFridayShort {
+    return Intl.message('Fri', name: 'dayFridayShort', desc: '', args: []);
+  }
+
+  /// `Breakfast`
+  String get mealBreakfast {
+    return Intl.message('Breakfast', name: 'mealBreakfast', desc: '', args: []);
+  }
+
+  /// `Lunch`
+  String get mealLunch {
+    return Intl.message('Lunch', name: 'mealLunch', desc: '', args: []);
+  }
+
+  /// `Dinner`
+  String get mealDinner {
+    return Intl.message('Dinner', name: 'mealDinner', desc: '', args: []);
+  }
+
+  /// `Drink enough water`
+  String get drinkEnoughWater {
+    return Intl.message(
+      'Drink enough water',
+      name: 'drinkEnoughWater',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try to drink 8 cups of water daily. It improves your mood and energy.`
+  String get drinkEnoughWaterDesc {
+    return Intl.message(
+      'Try to drink 8 cups of water daily. It improves your mood and energy.',
+      name: 'drinkEnoughWaterDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't compare yourself`
+  String get dontCompareYourself {
+    return Intl.message(
+      'Don\'t compare yourself',
+      name: 'dontCompareYourself',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Everyone's journey is different. Focus on your progress.`
+  String get dontCompareYourselfDesc {
+    return Intl.message(
+      'Everyone\'s journey is different. Focus on your progress.',
+      name: 'dontCompareYourselfDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `20 minutes daily walk`
+  String get dailyWalk {
+    return Intl.message(
+      '20 minutes daily walk',
+      name: 'dailyWalk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A simple walk after meals helps digestion and improves your mood.`
+  String get dailyWalkDesc {
+    return Intl.message(
+      'A simple walk after meals helps digestion and improves your mood.',
+      name: 'dailyWalkDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sleep is as important as food`
+  String get sleepIsImportant {
+    return Intl.message(
+      'Sleep is as important as food',
+      name: 'sleepIsImportant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lack of sleep affects hunger and fullness hormones.`
+  String get sleepIsImportantDesc {
+    return Intl.message(
+      'Lack of sleep affects hunger and fullness hormones.',
+      name: 'sleepIsImportantDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Spread protein across meals`
+  String get spreadProtein {
+    return Intl.message(
+      'Spread protein across meals',
+      name: 'spreadProtein',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Distribute protein throughout the day for better benefits.`
+  String get spreadProteinDesc {
+    return Intl.message(
+      'Distribute protein throughout the day for better benefits.',
+      name: 'spreadProteinDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nutrition`
+  String get nutritionCategory {
+    return Intl.message(
+      'Nutrition',
+      name: 'nutritionCategory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mental Health`
+  String get mentalCategory {
+    return Intl.message(
+      'Mental Health',
+      name: 'mentalCategory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fitness`
+  String get sportCategory {
+    return Intl.message('Fitness', name: 'sportCategory', desc: '', args: []);
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message('All', name: 'all', desc: '', args: []);
+  }
+
+  /// `Tips for You`
+  String get tipsTitle {
+    return Intl.message('Tips for You', name: 'tipsTitle', desc: '', args: []);
+  }
+
+  /// `Simple things that make a difference every day`
+  String get tipsSubtitle {
+    return Intl.message(
+      'Simple things that make a difference every day',
+      name: 'tipsSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Meal Scan`
+  String get scanTitle {
+    return Intl.message('Meal Scan', name: 'scanTitle', desc: '', args: []);
+  }
+
+  /// `Point the camera at your meal`
+  String get scanIdleHint {
+    return Intl.message(
+      'Point the camera at your meal',
+      name: 'scanIdleHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take a photo of your meal and we'll\ncalculate calories, protein, and carbs automatically`
+  String get scanIdleDescription {
+    return Intl.message(
+      'Take a photo of your meal and we\'ll\ncalculate calories, protein, and carbs automatically',
+      name: 'scanIdleDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Analyzing with AI`
+  String get scanAiBadge {
+    return Intl.message(
+      'Analyzing with AI',
+      name: 'scanAiBadge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Analyzing your meal`
+  String get scanAnalyzingTitle {
+    return Intl.message(
+      'Analyzing your meal',
+      name: 'scanAnalyzingTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sending the photo to AI to get its nutritional values`
+  String get scanAnalyzingSubtitle {
+    return Intl.message(
+      'Sending the photo to AI to get its nutritional values',
+      name: 'scanAnalyzingSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grilled chicken breast with rice and salad`
+  String get scanResultMealName {
+    return Intl.message(
+      'Grilled chicken breast with rice and salad',
+      name: 'scanResultMealName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approximate estimate based on the photo`
+  String get scanResultEstimateNote {
+    return Intl.message(
+      'Approximate estimate based on the photo',
+      name: 'scanResultEstimateNote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Calories`
+  String get scanCaloriesLabel {
+    return Intl.message(
+      'Calories',
+      name: 'scanCaloriesLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value} cal`
+  String scanCaloriesValue(int value) {
+    return Intl.message(
+      '$value cal',
+      name: 'scanCaloriesValue',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Protein`
+  String get scanProteinLabel {
+    return Intl.message(
+      'Protein',
+      name: 'scanProteinLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Carbs`
+  String get scanCarbsLabel {
+    return Intl.message('Carbs', name: 'scanCarbsLabel', desc: '', args: []);
+  }
+
+  /// `Fat`
+  String get scanFatLabel {
+    return Intl.message('Fat', name: 'scanFatLabel', desc: '', args: []);
+  }
+
+  /// `{value}g`
+  String scanGramValue(int value) {
+    return Intl.message(
+      '${value}g',
+      name: 'scanGramValue',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Retry`
+  String get scanRetryButton {
+    return Intl.message('Retry', name: 'scanRetryButton', desc: '', args: []);
+  }
+
+  /// `Save Meal`
+  String get scanSaveButton {
+    return Intl.message(
+      'Save Meal',
+      name: 'scanSaveButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Health Assistant`
+  String get chatbotAppBarTitle {
+    return Intl.message(
+      'Health Assistant',
+      name: 'chatbotAppBarTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Online now`
+  String get chatbotOnlineStatus {
+    return Intl.message(
+      'Online now',
+      name: 'chatbotOnlineStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hi 🌱 I'm here to help with any question about your food or how you're feeling today. Ask me anything.`
+  String get chatbotWelcomeMessage {
+    return Intl.message(
+      'Hi 🌱 I\'m here to help with any question about your food or how you\'re feeling today. Ask me anything.',
+      name: 'chatbotWelcomeMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thanks for sharing that. Remember every body is different, and today's effort is enough. Want to talk more about how you're feeling?`
+  String get chatbotSampleReply {
+    return Intl.message(
+      'Thanks for sharing that. Remember every body is different, and today\'s effort is enough. Want to talk more about how you\'re feeling?',
+      name: 'chatbotSampleReply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I overate today`
+  String get chatbotSuggestionOverate {
+    return Intl.message(
+      'I overate today',
+      name: 'chatbotSuggestionOverate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Healthy meal ideas`
+  String get chatbotSuggestionHealthyMeal {
+    return Intl.message(
+      'Healthy meal ideas',
+      name: 'chatbotSuggestionHealthyMeal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Feeling anxious about food`
+  String get chatbotSuggestionAnxiety {
+    return Intl.message(
+      'Feeling anxious about food',
+      name: 'chatbotSuggestionAnxiety',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type your question here...`
+  String get chatbotInputHint {
+    return Intl.message(
+      'Type your question here...',
+      name: 'chatbotInputHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profileTitle {
+    return Intl.message('Profile', name: 'profileTitle', desc: '', args: []);
+  }
+
+  /// `Edit Profile`
+  String get profileEditProfile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'profileEditProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get profileSettingsSection {
+    return Intl.message(
+      'Settings',
+      name: 'profileSettingsSection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get profileLanguageTitle {
+    return Intl.message(
+      'Language',
+      name: 'profileLanguageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose the app language`
+  String get profileLanguageSubtitle {
+    return Intl.message(
+      'Choose the app language',
+      name: 'profileLanguageSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get profileNotificationsTitle {
+    return Intl.message(
+      'Notifications',
+      name: 'profileNotificationsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About the app`
+  String get profileAboutTitle {
+    return Intl.message(
+      'About the app',
+      name: 'profileAboutTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log out`
+  String get profileLogoutTitle {
+    return Intl.message(
+      'Log out',
+      name: 'profileLogoutTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appearance`
+  String get profileThemeTitle {
+    return Intl.message(
+      'Appearance',
+      name: 'profileThemeTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose the app theme`
+  String get profileThemeSubtitle {
+    return Intl.message(
+      'Choose the app theme',
+      name: 'profileThemeSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get profileThemeLight {
+    return Intl.message('Light', name: 'profileThemeLight', desc: '', args: []);
+  }
+
+  /// `Dark`
+  String get profileThemeDark {
+    return Intl.message('Dark', name: 'profileThemeDark', desc: '', args: []);
+  }
+
+  /// `System`
+  String get profileThemeSystem {
+    return Intl.message(
+      'System',
+      name: 'profileThemeSystem',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

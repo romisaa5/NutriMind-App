@@ -20,13 +20,26 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(value) => "${value} kcal";
+
+  static String m1(remaining) =>
+      "${remaining} kcal remaining to reach your goal";
+
+  static String m2(value) => "${value} cal";
+
+  static String m3(value) => "${value}g";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "all": MessageLookupByLibrary.simpleMessage("All"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
     "calories": MessageLookupByLibrary.simpleMessage("Calories"),
+    "caloriesTooltip": m0,
+    "caloriesUnit": MessageLookupByLibrary.simpleMessage("kcal"),
     "carbs": MessageLookupByLibrary.simpleMessage("Carbs"),
+    "chat": MessageLookupByLibrary.simpleMessage("Chat"),
     "chat_answer_intro": MessageLookupByLibrary.simpleMessage(
       "Here are some healthy\nhigh-protein snack ideas:",
     ),
@@ -36,8 +49,53 @@ class MessageLookup extends MessageLookupByLibrary {
     "chat_welcome": MessageLookupByLibrary.simpleMessage(
       "Hi there! 👋\nI\'m your AI nutrition assistant.\nHow can I help you today?",
     ),
+    "chatbotAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "Health Assistant",
+    ),
+    "chatbotInputHint": MessageLookupByLibrary.simpleMessage(
+      "Type your question here...",
+    ),
+    "chatbotOnlineStatus": MessageLookupByLibrary.simpleMessage("Online now"),
+    "chatbotSampleReply": MessageLookupByLibrary.simpleMessage(
+      "Thanks for sharing that. Remember every body is different, and today\'s effort is enough. Want to talk more about how you\'re feeling?",
+    ),
+    "chatbotSuggestionAnxiety": MessageLookupByLibrary.simpleMessage(
+      "Feeling anxious about food",
+    ),
+    "chatbotSuggestionHealthyMeal": MessageLookupByLibrary.simpleMessage(
+      "Healthy meal ideas",
+    ),
+    "chatbotSuggestionOverate": MessageLookupByLibrary.simpleMessage(
+      "I overate today",
+    ),
+    "chatbotWelcomeMessage": MessageLookupByLibrary.simpleMessage(
+      "Hi 🌱 I\'m here to help with any question about your food or how you\'re feeling today. Ask me anything.",
+    ),
+    "dailyWalk": MessageLookupByLibrary.simpleMessage("20 minutes daily walk"),
+    "dailyWalkDesc": MessageLookupByLibrary.simpleMessage(
+      "A simple walk after meals helps digestion and improves your mood.",
+    ),
+    "dayFridayShort": MessageLookupByLibrary.simpleMessage("Fri"),
+    "dayMondayShort": MessageLookupByLibrary.simpleMessage("Mon"),
+    "daySaturdayShort": MessageLookupByLibrary.simpleMessage("Sat"),
+    "daySundayShort": MessageLookupByLibrary.simpleMessage("Sun"),
+    "dayThursdayShort": MessageLookupByLibrary.simpleMessage("Thu"),
+    "dayTuesdayShort": MessageLookupByLibrary.simpleMessage("Tue"),
+    "dayWednesdayShort": MessageLookupByLibrary.simpleMessage("Wed"),
+    "dontCompareYourself": MessageLookupByLibrary.simpleMessage(
+      "Don\'t compare yourself",
+    ),
+    "dontCompareYourselfDesc": MessageLookupByLibrary.simpleMessage(
+      "Everyone\'s journey is different. Focus on your progress.",
+    ),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account? ",
+    ),
+    "drinkEnoughWater": MessageLookupByLibrary.simpleMessage(
+      "Drink enough water",
+    ),
+    "drinkEnoughWaterDesc": MessageLookupByLibrary.simpleMessage(
+      "Try to drink 8 cups of water daily. It improves your mood and energy.",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "fat": MessageLookupByLibrary.simpleMessage("Fat"),
@@ -49,10 +107,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please enter your email to reset your password",
     ),
     "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
+    "goodMorning": MessageLookupByLibrary.simpleMessage("Good morning"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "last7Days": MessageLookupByLibrary.simpleMessage("Last 7 days"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginMessage": MessageLookupByLibrary.simpleMessage(
       "Please enter your email and password to login",
     ),
+    "mealBreakfast": MessageLookupByLibrary.simpleMessage("Breakfast"),
+    "mealDinner": MessageLookupByLibrary.simpleMessage("Dinner"),
+    "mealLunch": MessageLookupByLibrary.simpleMessage("Lunch"),
+    "mentalCategory": MessageLookupByLibrary.simpleMessage("Mental Health"),
+    "newDayNewStep": MessageLookupByLibrary.simpleMessage(
+      "A new day, a new step towards your health",
+    ),
+    "noMealLogged": MessageLookupByLibrary.simpleMessage("No meal logged yet"),
+    "nutritionCategory": MessageLookupByLibrary.simpleMessage("Nutrition"),
     "onboarding1_description": MessageLookupByLibrary.simpleMessage(
       "NutriMind AI helps you make healthier food\nchoices every day with the power of AI.",
     ),
@@ -79,7 +149,57 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "onboarding3_title_line2": MessageLookupByLibrary.simpleMessage("Coach"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "profileAboutTitle": MessageLookupByLibrary.simpleMessage("About the app"),
+    "profileEditProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+    "profileLanguageSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Choose the app language",
+    ),
+    "profileLanguageTitle": MessageLookupByLibrary.simpleMessage("Language"),
+    "profileLogoutTitle": MessageLookupByLibrary.simpleMessage("Log out"),
+    "profileNotificationsTitle": MessageLookupByLibrary.simpleMessage(
+      "Notifications",
+    ),
+    "profileSettingsSection": MessageLookupByLibrary.simpleMessage("Settings"),
+    "profileThemeDark": MessageLookupByLibrary.simpleMessage("Dark"),
+    "profileThemeLight": MessageLookupByLibrary.simpleMessage("Light"),
+    "profileThemeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Choose the app theme",
+    ),
+    "profileThemeSystem": MessageLookupByLibrary.simpleMessage("System"),
+    "profileThemeTitle": MessageLookupByLibrary.simpleMessage("Appearance"),
+    "profileTitle": MessageLookupByLibrary.simpleMessage("Profile"),
     "protein": MessageLookupByLibrary.simpleMessage("Protein"),
+    "remainingCaloriesMessage": m1,
+    "scan": MessageLookupByLibrary.simpleMessage("Scan"),
+    "scanAiBadge": MessageLookupByLibrary.simpleMessage("Analyzing with AI"),
+    "scanAnalyzingSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Sending the photo to AI to get its nutritional values",
+    ),
+    "scanAnalyzingTitle": MessageLookupByLibrary.simpleMessage(
+      "Analyzing your meal",
+    ),
+    "scanCaloriesLabel": MessageLookupByLibrary.simpleMessage("Calories"),
+    "scanCaloriesValue": m2,
+    "scanCarbsLabel": MessageLookupByLibrary.simpleMessage("Carbs"),
+    "scanFatLabel": MessageLookupByLibrary.simpleMessage("Fat"),
+    "scanGramValue": m3,
+    "scanIdleDescription": MessageLookupByLibrary.simpleMessage(
+      "Take a photo of your meal and we\'ll\ncalculate calories, protein, and carbs automatically",
+    ),
+    "scanIdleHint": MessageLookupByLibrary.simpleMessage(
+      "Point the camera at your meal",
+    ),
+    "scanProteinLabel": MessageLookupByLibrary.simpleMessage("Protein"),
+    "scanResultEstimateNote": MessageLookupByLibrary.simpleMessage(
+      "Approximate estimate based on the photo",
+    ),
+    "scanResultMealName": MessageLookupByLibrary.simpleMessage(
+      "Grilled chicken breast with rice and salad",
+    ),
+    "scanRetryButton": MessageLookupByLibrary.simpleMessage("Retry"),
+    "scanSaveButton": MessageLookupByLibrary.simpleMessage("Save Meal"),
+    "scanTitle": MessageLookupByLibrary.simpleMessage("Meal Scan"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "signUpHeader": MessageLookupByLibrary.simpleMessage("Create an Account"),
@@ -87,6 +207,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please enter your email and password to create an account",
     ),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "sleepIsImportant": MessageLookupByLibrary.simpleMessage(
+      "Sleep is as important as food",
+    ),
+    "sleepIsImportantDesc": MessageLookupByLibrary.simpleMessage(
+      "Lack of sleep affects hunger and fullness hormones.",
+    ),
     "snack_boiled_eggs": MessageLookupByLibrary.simpleMessage("Boiled eggs"),
     "snack_cottage_cheese": MessageLookupByLibrary.simpleMessage(
       "Cottage cheese with fruits",
@@ -97,5 +223,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "snack_protein_smoothie": MessageLookupByLibrary.simpleMessage(
       "Protein smoothie",
     ),
+    "sportCategory": MessageLookupByLibrary.simpleMessage("Fitness"),
+    "spreadProtein": MessageLookupByLibrary.simpleMessage(
+      "Spread protein across meals",
+    ),
+    "spreadProteinDesc": MessageLookupByLibrary.simpleMessage(
+      "Distribute protein throughout the day for better benefits.",
+    ),
+    "tips": MessageLookupByLibrary.simpleMessage("Tips"),
+    "tipsSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Simple things that make a difference every day",
+    ),
+    "tipsTitle": MessageLookupByLibrary.simpleMessage("Tips for You"),
+    "todayMeals": MessageLookupByLibrary.simpleMessage("Today\'s Meals"),
+    "todayNutritionSummary": MessageLookupByLibrary.simpleMessage(
+      "Today\'s Nutrition Summary",
+    ),
+    "weeklyOverview": MessageLookupByLibrary.simpleMessage("Weekly Overview"),
   };
 }
