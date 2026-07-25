@@ -158,6 +158,196 @@ class S {
       args: [],
     );
   }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `Eat Smarter,`
+  String get onboarding1_title_line1 {
+    return Intl.message(
+      'Eat Smarter,',
+      name: 'onboarding1_title_line1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Live Better`
+  String get onboarding1_title_line2 {
+    return Intl.message(
+      'Live Better',
+      name: 'onboarding1_title_line2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `NutriMind AI helps you make healthier food\nchoices every day with the power of AI.`
+  String get onboarding1_description {
+    return Intl.message(
+      'NutriMind AI helps you make healthier food\nchoices every day with the power of AI.',
+      name: 'onboarding1_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scan Food,`
+  String get onboarding2_title_line1 {
+    return Intl.message(
+      'Scan Food,',
+      name: 'onboarding2_title_line1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Know More`
+  String get onboarding2_title_line2 {
+    return Intl.message(
+      'Know More',
+      name: 'onboarding2_title_line2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take a photo of your meal and get instant\nnutrition analysis, calories, macros, and\nhealth score.`
+  String get onboarding2_description {
+    return Intl.message(
+      'Take a photo of your meal and get instant\nnutrition analysis, calories, macros, and\nhealth score.',
+      name: 'onboarding2_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Calories`
+  String get calories {
+    return Intl.message('Calories', name: 'calories', desc: '', args: []);
+  }
+
+  /// `Protein`
+  String get protein {
+    return Intl.message('Protein', name: 'protein', desc: '', args: []);
+  }
+
+  /// `Carbs`
+  String get carbs {
+    return Intl.message('Carbs', name: 'carbs', desc: '', args: []);
+  }
+
+  /// `Fat`
+  String get fat {
+    return Intl.message('Fat', name: 'fat', desc: '', args: []);
+  }
+
+  /// `Your AI Nutrition`
+  String get onboarding3_title_line1 {
+    return Intl.message(
+      'Your AI Nutrition',
+      name: 'onboarding3_title_line1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coach`
+  String get onboarding3_title_line2 {
+    return Intl.message(
+      'Coach',
+      name: 'onboarding3_title_line2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ask anything about nutrition, get personalized\nadvice and build healthier habits with AI.`
+  String get onboarding3_description {
+    return Intl.message(
+      'Ask anything about nutrition, get personalized\nadvice and build healthier habits with AI.',
+      name: 'onboarding3_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hi there! 👋\nI'm your AI nutrition assistant.\nHow can I help you today?`
+  String get chat_welcome {
+    return Intl.message(
+      'Hi there! 👋\nI\'m your AI nutrition assistant.\nHow can I help you today?',
+      name: 'chat_welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What are some high\nprotein snacks?`
+  String get chat_question {
+    return Intl.message(
+      'What are some high\nprotein snacks?',
+      name: 'chat_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Here are some healthy\nhigh-protein snack ideas:`
+  String get chat_answer_intro {
+    return Intl.message(
+      'Here are some healthy\nhigh-protein snack ideas:',
+      name: 'chat_answer_intro',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Greek yogurt with nuts`
+  String get snack_greek_yogurt {
+    return Intl.message(
+      'Greek yogurt with nuts',
+      name: 'snack_greek_yogurt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Boiled eggs`
+  String get snack_boiled_eggs {
+    return Intl.message(
+      'Boiled eggs',
+      name: 'snack_boiled_eggs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Protein smoothie`
+  String get snack_protein_smoothie {
+    return Intl.message(
+      'Protein smoothie',
+      name: 'snack_protein_smoothie',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cottage cheese with fruits`
+  String get snack_cottage_cheese {
+    return Intl.message(
+      'Cottage cheese with fruits',
+      name: 'snack_cottage_cheese',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Started`
+  String get get_started {
+    return Intl.message('Get Started', name: 'get_started', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

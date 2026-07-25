@@ -25,10 +25,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
+    "calories": MessageLookupByLibrary.simpleMessage("Calories"),
+    "carbs": MessageLookupByLibrary.simpleMessage("Carbs"),
+    "chat_answer_intro": MessageLookupByLibrary.simpleMessage(
+      "Here are some healthy\nhigh-protein snack ideas:",
+    ),
+    "chat_question": MessageLookupByLibrary.simpleMessage(
+      "What are some high\nprotein snacks?",
+    ),
+    "chat_welcome": MessageLookupByLibrary.simpleMessage(
+      "Hi there! 👋\nI\'m your AI nutrition assistant.\nHow can I help you today?",
+    ),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account? ",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "fat": MessageLookupByLibrary.simpleMessage("Fat"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "forgotPasswordHeader": MessageLookupByLibrary.simpleMessage(
       "Forgot Password",
@@ -36,16 +48,54 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgotPasswordMessage": MessageLookupByLibrary.simpleMessage(
       "Please enter your email to reset your password",
     ),
+    "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginMessage": MessageLookupByLibrary.simpleMessage(
       "Please enter your email and password to login",
     ),
+    "onboarding1_description": MessageLookupByLibrary.simpleMessage(
+      "NutriMind AI helps you make healthier food\nchoices every day with the power of AI.",
+    ),
+    "onboarding1_title_line1": MessageLookupByLibrary.simpleMessage(
+      "Eat Smarter,",
+    ),
+    "onboarding1_title_line2": MessageLookupByLibrary.simpleMessage(
+      "Live Better",
+    ),
+    "onboarding2_description": MessageLookupByLibrary.simpleMessage(
+      "Take a photo of your meal and get instant\nnutrition analysis, calories, macros, and\nhealth score.",
+    ),
+    "onboarding2_title_line1": MessageLookupByLibrary.simpleMessage(
+      "Scan Food,",
+    ),
+    "onboarding2_title_line2": MessageLookupByLibrary.simpleMessage(
+      "Know More",
+    ),
+    "onboarding3_description": MessageLookupByLibrary.simpleMessage(
+      "Ask anything about nutrition, get personalized\nadvice and build healthier habits with AI.",
+    ),
+    "onboarding3_title_line1": MessageLookupByLibrary.simpleMessage(
+      "Your AI Nutrition",
+    ),
+    "onboarding3_title_line2": MessageLookupByLibrary.simpleMessage("Coach"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "protein": MessageLookupByLibrary.simpleMessage("Protein"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "signUpHeader": MessageLookupByLibrary.simpleMessage("Create an Account"),
     "signUpMessage": MessageLookupByLibrary.simpleMessage(
       "Please enter your email and password to create an account",
+    ),
+    "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "snack_boiled_eggs": MessageLookupByLibrary.simpleMessage("Boiled eggs"),
+    "snack_cottage_cheese": MessageLookupByLibrary.simpleMessage(
+      "Cottage cheese with fruits",
+    ),
+    "snack_greek_yogurt": MessageLookupByLibrary.simpleMessage(
+      "Greek yogurt with nuts",
+    ),
+    "snack_protein_smoothie": MessageLookupByLibrary.simpleMessage(
+      "Protein smoothie",
     ),
   };
 }
