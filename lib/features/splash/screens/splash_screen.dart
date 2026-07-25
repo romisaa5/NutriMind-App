@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _goNext() {
     if (!mounted) return;
-    GoRouter.of(context).go(Routes.onboardingScreen);
+    GoRouter.of(context).go(Routes.loginScreen);
   }
 
   @override

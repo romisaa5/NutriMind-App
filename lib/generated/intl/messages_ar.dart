@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
+// This is a library that provides messages for a ar locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,27 +18,25 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
+  String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
-      "Already have an account? ",
+      " هل لديك حساب بالفعل؟",
     ),
-    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
-      "Don\'t have an account? ",
-    ),
-    "email": MessageLookupByLibrary.simpleMessage("Email"),
-    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
-    "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(" ليس لديك حساب؟"),
+    "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginMessage": MessageLookupByLibrary.simpleMessage(
-      "Please enter your email and password to login",
+      "الرجاء إدخال بريدك الإلكتروني وكلمة المرور لتسجيل الدخول",
     ),
-    "password": MessageLookupByLibrary.simpleMessage("Password"),
-    "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
-    "signUpHeader": MessageLookupByLibrary.simpleMessage("Create an Account"),
+    "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "signUpHeader": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "signUpMessage": MessageLookupByLibrary.simpleMessage(
-      "Please enter your email and password to create an account",
+      "الرجاء إدخال بريدك الإلكتروني وكلمة المرور لإنشاء حساب",
     ),
   };
 }
