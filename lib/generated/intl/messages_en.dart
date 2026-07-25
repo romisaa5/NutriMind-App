@@ -30,11 +30,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+    "forgotPasswordHeader": MessageLookupByLibrary.simpleMessage(
+      "Forgot Password",
+    ),
+    "forgotPasswordMessage": MessageLookupByLibrary.simpleMessage(
+      "Please enter your email to reset your password",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginMessage": MessageLookupByLibrary.simpleMessage(
       "Please enter your email and password to login",
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "send": MessageLookupByLibrary.simpleMessage("Send"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "signUpHeader": MessageLookupByLibrary.simpleMessage("Create an Account"),
     "signUpMessage": MessageLookupByLibrary.simpleMessage(

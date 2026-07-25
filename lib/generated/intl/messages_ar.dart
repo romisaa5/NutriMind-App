@@ -28,11 +28,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(" ليس لديك حساب؟"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+    "forgotPasswordHeader": MessageLookupByLibrary.simpleMessage(
+      "نسيت كلمة المرور",
+    ),
+    "forgotPasswordMessage": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال بريدك الإلكتروني لإعادة تعيين كلمة المرور",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginMessage": MessageLookupByLibrary.simpleMessage(
       "الرجاء إدخال بريدك الإلكتروني وكلمة المرور لتسجيل الدخول",
     ),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "signUpHeader": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "signUpMessage": MessageLookupByLibrary.simpleMessage(

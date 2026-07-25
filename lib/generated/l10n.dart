@@ -133,6 +133,31 @@ class S {
       args: [],
     );
   }
+
+  /// `Send`
+  String get send {
+    return Intl.message('Send', name: 'send', desc: '', args: []);
+  }
+
+  /// `Forgot Password`
+  String get forgotPasswordHeader {
+    return Intl.message(
+      'Forgot Password',
+      name: 'forgotPasswordHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email to reset your password`
+  String get forgotPasswordMessage {
+    return Intl.message(
+      'Please enter your email to reset your password',
+      name: 'forgotPasswordMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

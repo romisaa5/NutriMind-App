@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:nutri_mind/core/common/widgets/app_images.dart';
 import 'package:nutri_mind/core/common/widgets/custom_button.dart';
@@ -104,10 +105,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   duration: _baseDuration,
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: Text(
-                      S.of(context).forgotPassword,
-                      style: AppTextStyles.font14Regular.copyWith(
-                        color: context.customAppColors.primary500,
+                    child: CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        GoRouter.of(context).push(Routes.forgetPasswordScreen);
+                      },
+                      child: Text(
+                        S.of(context).forgotPassword,
+                        style: AppTextStyles.font14Regular.copyWith(
+                          color: context.customAppColors.primary500,
+                        ),
                       ),
                     ),
                   ),

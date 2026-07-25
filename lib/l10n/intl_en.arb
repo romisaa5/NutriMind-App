@@ -9,5 +9,8 @@
     "forgotPassword": "Forgot Password?",
     "signUpHeader": "Create an Account",
     "signUpMessage": "Please enter your email and password to create an account",
-    "alreadyHaveAccount": "Already have an account? "
+    "alreadyHaveAccount": "Already have an account? ",
+    "send": "Send",
+    "forgotPasswordHeader": "Forgot Password",
+    "forgotPasswordMessage": "Please enter your email to reset your password"
 }

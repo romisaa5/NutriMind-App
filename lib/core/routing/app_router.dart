@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:nutri_mind/core/routing/routes.dart';
+import 'package:nutri_mind/features/auth/presentation/screens/forget_password.dart';
 import 'package:nutri_mind/features/auth/presentation/screens/login_screen.dart';
 import 'package:nutri_mind/features/auth/presentation/screens/register_screen.dart';
 import 'package:nutri_mind/features/onboarding/screens/onboarding_screen.dart';
@@ -27,6 +28,10 @@ abstract class AppRouter {
         GoRoute(
           path: Routes.registerScreen,
           builder: (context, state) => const RegisterScreen(),
+        ),
+        GoRoute(
+          path: Routes.forgetPasswordScreen,
+          builder: (context, state) => const ForgetPassword(),
         ),
       ],
     );
