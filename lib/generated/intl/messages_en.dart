@@ -35,6 +35,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
+    "avoidScreensBeforeBed": MessageLookupByLibrary.simpleMessage(
+      "Avoid screens before bed",
+    ),
+    "avoidScreensBeforeBedDesc": MessageLookupByLibrary.simpleMessage(
+      "Put your phone away 30 minutes before sleeping to fall asleep faster.",
+    ),
     "calories": MessageLookupByLibrary.simpleMessage("Calories"),
     "caloriesTooltip": m0,
     "caloriesUnit": MessageLookupByLibrary.simpleMessage("kcal"),
@@ -71,6 +77,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "chatbotWelcomeMessage": MessageLookupByLibrary.simpleMessage(
       "Hi 🌱 I\'m here to help with any question about your food or how you\'re feeling today. Ask me anything.",
     ),
+    "consistentSleepSchedule": MessageLookupByLibrary.simpleMessage(
+      "Keep a consistent sleep schedule",
+    ),
+    "consistentSleepScheduleDesc": MessageLookupByLibrary.simpleMessage(
+      "Sleeping and waking at the same time daily improves your sleep quality.",
+    ),
     "dailyWalk": MessageLookupByLibrary.simpleMessage("20 minutes daily walk"),
     "dailyWalkDesc": MessageLookupByLibrary.simpleMessage(
       "A simple walk after meals helps digestion and improves your mood.",
@@ -97,6 +109,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "drinkEnoughWaterDesc": MessageLookupByLibrary.simpleMessage(
       "Try to drink 8 cups of water daily. It improves your mood and energy.",
     ),
+    "eatMoreVeggies": MessageLookupByLibrary.simpleMessage(
+      "Eat more vegetables",
+    ),
+    "eatMoreVeggiesDesc": MessageLookupByLibrary.simpleMessage(
+      "Aim to fill half your plate with vegetables at each meal for more fiber and nutrients.",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "fat": MessageLookupByLibrary.simpleMessage("Fat"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
@@ -108,8 +126,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
     "goodMorning": MessageLookupByLibrary.simpleMessage("Good morning"),
+    "habitsCategory": MessageLookupByLibrary.simpleMessage("Habits"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "last7Days": MessageLookupByLibrary.simpleMessage("Last 7 days"),
+    "limitAddedSugar": MessageLookupByLibrary.simpleMessage(
+      "Limit added sugar",
+    ),
+    "limitAddedSugarDesc": MessageLookupByLibrary.simpleMessage(
+      "Cutting back on sugary drinks and snacks helps keep your energy steady all day.",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginMessage": MessageLookupByLibrary.simpleMessage(
       "Please enter your email and password to login",
@@ -122,6 +147,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "A new day, a new step towards your health",
     ),
     "noMealLogged": MessageLookupByLibrary.simpleMessage("No meal logged yet"),
+    "noTipsInCategory": MessageLookupByLibrary.simpleMessage(
+      "No tips in this category yet",
+    ),
     "nutritionCategory": MessageLookupByLibrary.simpleMessage("Nutrition"),
     "onboarding1_description": MessageLookupByLibrary.simpleMessage(
       "NutriMind AI helps you make healthier food\nchoices every day with the power of AI.",
@@ -149,6 +177,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "onboarding3_title_line2": MessageLookupByLibrary.simpleMessage("Coach"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "practiceGratitude": MessageLookupByLibrary.simpleMessage(
+      "Practice gratitude",
+    ),
+    "practiceGratitudeDesc": MessageLookupByLibrary.simpleMessage(
+      "Writing down three things you\'re grateful for can boost your mood over time.",
+    ),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "profileAboutTitle": MessageLookupByLibrary.simpleMessage("About the app"),
     "profileEditProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
@@ -207,11 +241,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please enter your email and password to create an account",
     ),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "sleepCategory": MessageLookupByLibrary.simpleMessage("Sleep"),
     "sleepIsImportant": MessageLookupByLibrary.simpleMessage(
       "Sleep is as important as food",
     ),
     "sleepIsImportantDesc": MessageLookupByLibrary.simpleMessage(
       "Lack of sleep affects hunger and fullness hormones.",
+    ),
+    "smallStepsCount": MessageLookupByLibrary.simpleMessage(
+      "Small steps count",
+    ),
+    "smallStepsCountDesc": MessageLookupByLibrary.simpleMessage(
+      "Consistent small changes lead to lasting results more than drastic ones.",
     ),
     "snack_boiled_eggs": MessageLookupByLibrary.simpleMessage("Boiled eggs"),
     "snack_cottage_cheese": MessageLookupByLibrary.simpleMessage(
@@ -230,6 +271,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "spreadProteinDesc": MessageLookupByLibrary.simpleMessage(
       "Distribute protein throughout the day for better benefits.",
     ),
+    "strengthTraining": MessageLookupByLibrary.simpleMessage(
+      "Add strength training",
+    ),
+    "strengthTrainingDesc": MessageLookupByLibrary.simpleMessage(
+      "Two sessions a week help build muscle and support your metabolism.",
+    ),
+    "stretchDaily": MessageLookupByLibrary.simpleMessage("Stretch daily"),
+    "stretchDailyDesc": MessageLookupByLibrary.simpleMessage(
+      "A few minutes of stretching improves flexibility and reduces muscle tension.",
+    ),
+    "takeBreaks": MessageLookupByLibrary.simpleMessage("Take short breaks"),
+    "takeBreaksDesc": MessageLookupByLibrary.simpleMessage(
+      "A five-minute pause every hour helps you focus and lowers stress.",
+    ),
     "tips": MessageLookupByLibrary.simpleMessage("Tips"),
     "tipsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Simple things that make a difference every day",
@@ -238,6 +293,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "todayMeals": MessageLookupByLibrary.simpleMessage("Today\'s Meals"),
     "todayNutritionSummary": MessageLookupByLibrary.simpleMessage(
       "Today\'s Nutrition Summary",
+    ),
+    "trackYourMeals": MessageLookupByLibrary.simpleMessage("Track your meals"),
+    "trackYourMealsDesc": MessageLookupByLibrary.simpleMessage(
+      "Logging what you eat builds awareness and makes healthy choices easier.",
     ),
     "weeklyOverview": MessageLookupByLibrary.simpleMessage("Weekly Overview"),
   };

@@ -34,6 +34,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       " هل لديك حساب بالفعل؟",
     ),
+    "avoidScreensBeforeBed": MessageLookupByLibrary.simpleMessage(
+      "ابعدي عن الشاشات قبل النوم",
+    ),
+    "avoidScreensBeforeBedDesc": MessageLookupByLibrary.simpleMessage(
+      "سيبي الموبايل ٣٠ دقيقة قبل النوم عشان تنامي أسرع",
+    ),
     "calories": MessageLookupByLibrary.simpleMessage("السعرات"),
     "caloriesTooltip": m0,
     "caloriesUnit": MessageLookupByLibrary.simpleMessage("سعر حراري"),
@@ -68,6 +74,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "chatbotWelcomeMessage": MessageLookupByLibrary.simpleMessage(
       "أهلاً بيكي 🌱 أنا هنا أساعدك في أي سؤال عن أكلك أو حالتك النفسية اليوم. اسأليني براحتك.",
     ),
+    "consistentSleepSchedule": MessageLookupByLibrary.simpleMessage(
+      "حافظي على معاد نوم ثابت",
+    ),
+    "consistentSleepScheduleDesc": MessageLookupByLibrary.simpleMessage(
+      "النوم والصحيان في نفس المعاد يوميًا بيحسّن جودة نومك",
+    ),
     "dailyWalk": MessageLookupByLibrary.simpleMessage("20 دقيقة مشي يومية"),
     "dailyWalkDesc": MessageLookupByLibrary.simpleMessage(
       "مشي بسيط بعد الأكل بيساعد على الهضم وبيحسن الحالة النفسية.",
@@ -90,6 +102,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "drinkEnoughWaterDesc": MessageLookupByLibrary.simpleMessage(
       "حاولي توصلي لـ 8 أكواب مية يوميًا، ده بيحسن مزاجك وطاقتك خلال اليوم.",
     ),
+    "eatMoreVeggies": MessageLookupByLibrary.simpleMessage("كلي خضار أكتر"),
+    "eatMoreVeggiesDesc": MessageLookupByLibrary.simpleMessage(
+      "حاولي نص طبقك يبقى خضار في كل وجبة عشان تاخدي ألياف وفيتامينات أكتر",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "fat": MessageLookupByLibrary.simpleMessage("الدهون"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
@@ -101,8 +117,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "get_started": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
     "goodMorning": MessageLookupByLibrary.simpleMessage("صباح الفل "),
+    "habitsCategory": MessageLookupByLibrary.simpleMessage("العادات"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "last7Days": MessageLookupByLibrary.simpleMessage("آخر 7 أيام"),
+    "limitAddedSugar": MessageLookupByLibrary.simpleMessage(
+      "قلّلي السكر المضاف",
+    ),
+    "limitAddedSugarDesc": MessageLookupByLibrary.simpleMessage(
+      "تقليل المشروبات والسناكس السكرية بيخليكي محافظة على طاقتك طول اليوم",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginMessage": MessageLookupByLibrary.simpleMessage(
       "الرجاء إدخال بريدك الإلكتروني وكلمة المرور لتسجيل الدخول",
@@ -116,6 +139,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "noMealLogged": MessageLookupByLibrary.simpleMessage(
       "مفيش وجبة متسجلة لسه",
+    ),
+    "noTipsInCategory": MessageLookupByLibrary.simpleMessage(
+      "لسه مفيش نصايح في القسم ده",
     ),
     "nutritionCategory": MessageLookupByLibrary.simpleMessage("تغذية"),
     "onboarding1_description": MessageLookupByLibrary.simpleMessage(
@@ -144,6 +170,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "onboarding3_title_line2": MessageLookupByLibrary.simpleMessage("للتغذية"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "practiceGratitude": MessageLookupByLibrary.simpleMessage("مارسي الامتنان"),
+    "practiceGratitudeDesc": MessageLookupByLibrary.simpleMessage(
+      "كتابة ٣ حاجات إنتي شاكرالها بتحسّن مزاجك مع الوقت",
+    ),
     "profile": MessageLookupByLibrary.simpleMessage("حسابي"),
     "profileAboutTitle": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
     "profileEditProfile": MessageLookupByLibrary.simpleMessage(
@@ -208,11 +238,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "الرجاء إدخال بريدك الإلكتروني وكلمة المرور لإنشاء حساب",
     ),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "sleepCategory": MessageLookupByLibrary.simpleMessage("النوم"),
     "sleepIsImportant": MessageLookupByLibrary.simpleMessage(
       "نومك مهم زي أكلك",
     ),
     "sleepIsImportantDesc": MessageLookupByLibrary.simpleMessage(
       "قلة النوم بتأثر على الهرمونات المسؤولة عن الجوع والشبع.",
+    ),
+    "smallStepsCount": MessageLookupByLibrary.simpleMessage(
+      "الخطوات الصغيرة بتفرق",
+    ),
+    "smallStepsCountDesc": MessageLookupByLibrary.simpleMessage(
+      "التغييرات الصغيرة الثابتة بتدي نتيجة أطول من التغييرات الجذرية المفاجئة",
     ),
     "snack_boiled_eggs": MessageLookupByLibrary.simpleMessage("بيض مسلوق"),
     "snack_cottage_cheese": MessageLookupByLibrary.simpleMessage(
@@ -231,6 +268,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "spreadProteinDesc": MessageLookupByLibrary.simpleMessage(
       "بدل ما تاخديه في وجبة واحدة، وزعيه على اليوم كله عشان استفادة أكبر.",
     ),
+    "strengthTraining": MessageLookupByLibrary.simpleMessage(
+      "ضيفي تمارين مقاومة",
+    ),
+    "strengthTrainingDesc": MessageLookupByLibrary.simpleMessage(
+      "جلستين في الأسبوع بتساعدك تبني عضل وتدعمي الأيض",
+    ),
+    "stretchDaily": MessageLookupByLibrary.simpleMessage("اتمططي يوميًا"),
+    "stretchDailyDesc": MessageLookupByLibrary.simpleMessage(
+      "كام دقيقة مطّ بتحسن مرونة جسمك وتقلل شد العضلات",
+    ),
+    "takeBreaks": MessageLookupByLibrary.simpleMessage("خدي بريكات قصيرة"),
+    "takeBreaksDesc": MessageLookupByLibrary.simpleMessage(
+      "وقفة ٥ دقايق كل ساعة بتساعدك تركزي أكتر وتقللي التوتر",
+    ),
     "tips": MessageLookupByLibrary.simpleMessage("النصائح"),
     "tipsSubtitle": MessageLookupByLibrary.simpleMessage(
       "حاجات بسيطة تفرق معاكي كل يوم",
@@ -239,6 +290,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "todayMeals": MessageLookupByLibrary.simpleMessage("وجبات اليوم"),
     "todayNutritionSummary": MessageLookupByLibrary.simpleMessage(
       "ملخص اليوم الغذائي",
+    ),
+    "trackYourMeals": MessageLookupByLibrary.simpleMessage("سجّلي وجباتك"),
+    "trackYourMealsDesc": MessageLookupByLibrary.simpleMessage(
+      "تسجيل اللي بتاكليه بيخلّيكي واعية أكتر وبيسهّل الاختيارات الصحية",
     ),
     "weeklyOverview": MessageLookupByLibrary.simpleMessage("نظرة على الأسبوع"),
   };

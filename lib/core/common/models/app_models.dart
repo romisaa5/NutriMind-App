@@ -115,40 +115,106 @@ class DummyData {
     WeeklyCalorieEntry(dayKey: 'dayThursdayShort', calories: 1380),
     WeeklyCalorieEntry(dayKey: 'dayFridayShort', calories: 800),
   ];
+
   static List<TipModel> tips = [
+    // ---------------- Nutrition ----------------
     const TipModel(
       titleKey: 'drinkEnoughWater',
       descriptionKey: 'drinkEnoughWaterDesc',
       icon: Icons.water_drop_rounded,
       categoryKey: 'nutritionCategory',
     ),
+    const TipModel(
+      titleKey: 'spreadProtein',
+      descriptionKey: 'spreadProteinDesc',
+      icon: Icons.egg_alt_rounded,
+      categoryKey: 'nutritionCategory',
+    ),
+    const TipModel(
+      titleKey: 'eatMoreVeggies',
+      descriptionKey: 'eatMoreVeggiesDesc',
+      icon: Icons.eco_rounded,
+      categoryKey: 'nutritionCategory',
+    ),
+    const TipModel(
+      titleKey: 'limitAddedSugar',
+      descriptionKey: 'limitAddedSugarDesc',
+      icon: Icons.icecream_rounded,
+      categoryKey: 'nutritionCategory',
+    ),
 
+    // ---------------- Mental ----------------
     const TipModel(
       titleKey: 'dontCompareYourself',
       descriptionKey: 'dontCompareYourselfDesc',
       icon: Icons.self_improvement_rounded,
       categoryKey: 'mentalCategory',
     ),
-
-    const TipModel(
-      titleKey: 'dailyWalk',
-      descriptionKey: 'dailyWalkDesc',
-      icon: Icons.directions_walk_rounded,
-      categoryKey: 'sportCategory',
-    ),
-
     const TipModel(
       titleKey: 'sleepIsImportant',
       descriptionKey: 'sleepIsImportantDesc',
       icon: Icons.bedtime_rounded,
       categoryKey: 'mentalCategory',
     ),
-
     const TipModel(
-      titleKey: 'spreadProtein',
-      descriptionKey: 'spreadProteinDesc',
-      icon: Icons.egg_alt_rounded,
-      categoryKey: 'nutritionCategory',
+      titleKey: 'practiceGratitude',
+      descriptionKey: 'practiceGratitudeDesc',
+      icon: Icons.favorite_rounded,
+      categoryKey: 'mentalCategory',
+    ),
+    const TipModel(
+      titleKey: 'takeBreaks',
+      descriptionKey: 'takeBreaksDesc',
+      icon: Icons.pause_circle_rounded,
+      categoryKey: 'mentalCategory',
+    ),
+
+    // ---------------- Sport ----------------
+    const TipModel(
+      titleKey: 'dailyWalk',
+      descriptionKey: 'dailyWalkDesc',
+      icon: Icons.directions_walk_rounded,
+      categoryKey: 'sportCategory',
+    ),
+    const TipModel(
+      titleKey: 'stretchDaily',
+      descriptionKey: 'stretchDailyDesc',
+      icon: Icons.accessibility_new_rounded,
+      categoryKey: 'sportCategory',
+    ),
+    const TipModel(
+      titleKey: 'strengthTraining',
+      descriptionKey: 'strengthTrainingDesc',
+      icon: Icons.fitness_center_rounded,
+      categoryKey: 'sportCategory',
+    ),
+
+    // ---------------- Sleep ----------------
+    const TipModel(
+      titleKey: 'consistentSleepSchedule',
+      descriptionKey: 'consistentSleepScheduleDesc',
+      icon: Icons.schedule_rounded,
+      categoryKey: 'sleepCategory',
+    ),
+    const TipModel(
+      titleKey: 'avoidScreensBeforeBed',
+      descriptionKey: 'avoidScreensBeforeBedDesc',
+      icon: Icons.smartphone_rounded,
+      categoryKey: 'sleepCategory',
+    ),
+
+    // ---------------- Habits ----------------
+    const TipModel(
+      titleKey: 'trackYourMeals',
+      descriptionKey: 'trackYourMealsDesc',
+      icon: Icons.checklist_rounded,
+      categoryKey: 'habitsCategory',
+    ),
+    const TipModel(
+      titleKey: 'smallStepsCount',
+      descriptionKey: 'smallStepsCountDesc',
+      icon: Icons.trending_up_rounded,
+      categoryKey: 'habitsCategory',
     ),
   ];
 }

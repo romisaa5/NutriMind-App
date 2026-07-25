@@ -63,17 +63,47 @@ extension LocalizationExtensions on S {
       case 'drinkEnoughWater':
         return drinkEnoughWater;
 
+      case 'spreadProtein':
+        return spreadProtein;
+
+      case 'eatMoreVeggies':
+        return eatMoreVeggies;
+
+      case 'limitAddedSugar':
+        return limitAddedSugar;
+
       case 'dontCompareYourself':
         return dontCompareYourself;
-
-      case 'dailyWalk':
-        return dailyWalk;
 
       case 'sleepIsImportant':
         return sleepIsImportant;
 
-      case 'spreadProtein':
-        return spreadProtein;
+      case 'practiceGratitude':
+        return practiceGratitude;
+
+      case 'takeBreaks':
+        return takeBreaks;
+
+      case 'dailyWalk':
+        return dailyWalk;
+
+      case 'stretchDaily':
+        return stretchDaily;
+
+      case 'strengthTraining':
+        return strengthTraining;
+
+      case 'consistentSleepSchedule':
+        return consistentSleepSchedule;
+
+      case 'avoidScreensBeforeBed':
+        return avoidScreensBeforeBed;
+
+      case 'trackYourMeals':
+        return trackYourMeals;
+
+      case 'smallStepsCount':
+        return smallStepsCount;
 
       default:
         return '';
@@ -85,17 +115,47 @@ extension LocalizationExtensions on S {
       case 'drinkEnoughWaterDesc':
         return drinkEnoughWaterDesc;
 
+      case 'spreadProteinDesc':
+        return spreadProteinDesc;
+
+      case 'eatMoreVeggiesDesc':
+        return eatMoreVeggiesDesc;
+
+      case 'limitAddedSugarDesc':
+        return limitAddedSugarDesc;
+
       case 'dontCompareYourselfDesc':
         return dontCompareYourselfDesc;
-
-      case 'dailyWalkDesc':
-        return dailyWalkDesc;
 
       case 'sleepIsImportantDesc':
         return sleepIsImportantDesc;
 
-      case 'spreadProteinDesc':
-        return spreadProteinDesc;
+      case 'practiceGratitudeDesc':
+        return practiceGratitudeDesc;
+
+      case 'takeBreaksDesc':
+        return takeBreaksDesc;
+
+      case 'dailyWalkDesc':
+        return dailyWalkDesc;
+
+      case 'stretchDailyDesc':
+        return stretchDailyDesc;
+
+      case 'strengthTrainingDesc':
+        return strengthTrainingDesc;
+
+      case 'consistentSleepScheduleDesc':
+        return consistentSleepScheduleDesc;
+
+      case 'avoidScreensBeforeBedDesc':
+        return avoidScreensBeforeBedDesc;
+
+      case 'trackYourMealsDesc':
+        return trackYourMealsDesc;
+
+      case 'smallStepsCountDesc':
+        return smallStepsCountDesc;
 
       default:
         return '';
@@ -112,6 +172,12 @@ extension LocalizationExtensions on S {
 
       case 'sportCategory':
         return sportCategory;
+
+      case 'sleepCategory':
+        return sleepCategory;
+
+      case 'habitsCategory':
+        return habitsCategory;
 
       default:
         return '';

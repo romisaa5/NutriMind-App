@@ -993,6 +993,226 @@ class S {
       args: [],
     );
   }
+
+  /// `Eat more vegetables`
+  String get eatMoreVeggies {
+    return Intl.message(
+      'Eat more vegetables',
+      name: 'eatMoreVeggies',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aim to fill half your plate with vegetables at each meal for more fiber and nutrients.`
+  String get eatMoreVeggiesDesc {
+    return Intl.message(
+      'Aim to fill half your plate with vegetables at each meal for more fiber and nutrients.',
+      name: 'eatMoreVeggiesDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Limit added sugar`
+  String get limitAddedSugar {
+    return Intl.message(
+      'Limit added sugar',
+      name: 'limitAddedSugar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cutting back on sugary drinks and snacks helps keep your energy steady all day.`
+  String get limitAddedSugarDesc {
+    return Intl.message(
+      'Cutting back on sugary drinks and snacks helps keep your energy steady all day.',
+      name: 'limitAddedSugarDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Practice gratitude`
+  String get practiceGratitude {
+    return Intl.message(
+      'Practice gratitude',
+      name: 'practiceGratitude',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Writing down three things you're grateful for can boost your mood over time.`
+  String get practiceGratitudeDesc {
+    return Intl.message(
+      'Writing down three things you\'re grateful for can boost your mood over time.',
+      name: 'practiceGratitudeDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take short breaks`
+  String get takeBreaks {
+    return Intl.message(
+      'Take short breaks',
+      name: 'takeBreaks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A five-minute pause every hour helps you focus and lowers stress.`
+  String get takeBreaksDesc {
+    return Intl.message(
+      'A five-minute pause every hour helps you focus and lowers stress.',
+      name: 'takeBreaksDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stretch daily`
+  String get stretchDaily {
+    return Intl.message(
+      'Stretch daily',
+      name: 'stretchDaily',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A few minutes of stretching improves flexibility and reduces muscle tension.`
+  String get stretchDailyDesc {
+    return Intl.message(
+      'A few minutes of stretching improves flexibility and reduces muscle tension.',
+      name: 'stretchDailyDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add strength training`
+  String get strengthTraining {
+    return Intl.message(
+      'Add strength training',
+      name: 'strengthTraining',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Two sessions a week help build muscle and support your metabolism.`
+  String get strengthTrainingDesc {
+    return Intl.message(
+      'Two sessions a week help build muscle and support your metabolism.',
+      name: 'strengthTrainingDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Keep a consistent sleep schedule`
+  String get consistentSleepSchedule {
+    return Intl.message(
+      'Keep a consistent sleep schedule',
+      name: 'consistentSleepSchedule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sleeping and waking at the same time daily improves your sleep quality.`
+  String get consistentSleepScheduleDesc {
+    return Intl.message(
+      'Sleeping and waking at the same time daily improves your sleep quality.',
+      name: 'consistentSleepScheduleDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Avoid screens before bed`
+  String get avoidScreensBeforeBed {
+    return Intl.message(
+      'Avoid screens before bed',
+      name: 'avoidScreensBeforeBed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Put your phone away 30 minutes before sleeping to fall asleep faster.`
+  String get avoidScreensBeforeBedDesc {
+    return Intl.message(
+      'Put your phone away 30 minutes before sleeping to fall asleep faster.',
+      name: 'avoidScreensBeforeBedDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Track your meals`
+  String get trackYourMeals {
+    return Intl.message(
+      'Track your meals',
+      name: 'trackYourMeals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logging what you eat builds awareness and makes healthy choices easier.`
+  String get trackYourMealsDesc {
+    return Intl.message(
+      'Logging what you eat builds awareness and makes healthy choices easier.',
+      name: 'trackYourMealsDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Small steps count`
+  String get smallStepsCount {
+    return Intl.message(
+      'Small steps count',
+      name: 'smallStepsCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Consistent small changes lead to lasting results more than drastic ones.`
+  String get smallStepsCountDesc {
+    return Intl.message(
+      'Consistent small changes lead to lasting results more than drastic ones.',
+      name: 'smallStepsCountDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sleep`
+  String get sleepCategory {
+    return Intl.message('Sleep', name: 'sleepCategory', desc: '', args: []);
+  }
+
+  /// `Habits`
+  String get habitsCategory {
+    return Intl.message('Habits', name: 'habitsCategory', desc: '', args: []);
+  }
+
+  /// `No tips in this category yet`
+  String get noTipsInCategory {
+    return Intl.message(
+      'No tips in this category yet',
+      name: 'noTipsInCategory',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
