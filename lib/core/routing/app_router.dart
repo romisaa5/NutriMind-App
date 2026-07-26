@@ -12,7 +12,7 @@ abstract class AppRouter {
 
   static void initRouter() {
     router = GoRouter(
-      initialLocation: Routes.mainNavScreen,
+      initialLocation: Routes.splashScreen,
       routes: [
         GoRoute(
           path: Routes.splashScreen,

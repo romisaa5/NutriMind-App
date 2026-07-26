@@ -139,7 +139,8 @@ class AppTextFormField extends StatelessWidget {
                     ),
                 suffixIcon: suffixIcon,
                 prefixIcon: prefixIcon,
-                fillColor: backgroundColor ?? Colors.white,
+                fillColor:
+                    backgroundColor ?? context.customAppColors.neutral100,
                 filled: true,
               ),
               style:

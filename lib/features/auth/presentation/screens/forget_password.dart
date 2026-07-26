@@ -35,7 +35,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.customAppColors.neutral100,
+      backgroundColor: context.customAppColors.background,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(16.w),
@@ -85,7 +85,6 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     style: AppTextStyles.font16Regular.copyWith(
                       color: context.customAppColors.neutral700,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
                 20.h.ph,

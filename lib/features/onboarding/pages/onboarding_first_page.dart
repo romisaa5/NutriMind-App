@@ -22,7 +22,7 @@ class OnboardingPage1 extends StatelessWidget {
             40.h.ph,
             Center(
               child: AppImages(
-                imagePath: 'food.jpg',
+                imagePath: 'food.png',
                 fit: BoxFit.cover,
                 height: 400.h,
                 width: 300,

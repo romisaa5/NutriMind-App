@@ -29,7 +29,7 @@ class OnboardingPage3 extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(16.w),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: context.customAppColors.neutral100,
                     borderRadius: BorderRadius.circular(22),
                     boxShadow: [
                       BoxShadow(
@@ -67,7 +67,7 @@ class OnboardingPage3 extends StatelessWidget {
                               S.of(context).chat_answer_intro,
                               style: TextStyle(
                                 fontSize: 13,
-                                color: context.customAppColors.neutral900,
+                                color: context.customAppColors.grey900,
                                 height: 1.4,
                               ),
                             ),
@@ -95,11 +95,10 @@ class OnboardingPage3 extends StatelessWidget {
                 onTap: () {
                   GoRouter.of(context).go(Routes.loginScreen);
                 },
-                text: 'Get Started',
+                text: S.of(context).get_started,
               ),
             ),
-
-            80.h.ph,
+            50.h.ph,
           ],
         ),
       ],
@@ -141,9 +140,7 @@ class _ChatBubble extends StatelessWidget {
               style: TextStyle(
                 fontSize: 13,
                 height: 1.4,
-                color: isBot
-                    ? context.customAppColors.neutral900
-                    : Colors.white,
+                color: isBot ? context.customAppColors.grey900 : Colors.white,
               ),
             ),
           ),
@@ -166,9 +163,9 @@ class _Avatar extends StatelessWidget {
           ? context.customAppColors.primary300
           : context.customAppColors.primary500.withValues(alpha: .15),
       child: Icon(
-        isBot ? Icons.eco_rounded : Icons.person_rounded,
+        isBot ? Icons.smart_toy_rounded : Icons.person_rounded,
         size: 18,
-        color: context.customAppColors.primary500,
+        color: context.customAppColors.primary600,
       ),
     );
   }
@@ -195,7 +192,7 @@ class _CheckItem extends StatelessWidget {
               text,
               style: TextStyle(
                 fontSize: 12.5,
-                color: context.customAppColors.neutral900,
+                color: context.customAppColors.grey900,
                 height: 1.4,
               ),
             ),

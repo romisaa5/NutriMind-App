@@ -23,8 +23,8 @@ class OnboardingPage2 extends StatelessWidget {
             Expanded(
               child: Center(
                 child: SizedBox(
-                  width: 340,
-                  height: 360,
+                  width: 340.w,
+                  height: 360.h,
                   child: Stack(
                     clipBehavior: Clip.none,
                     alignment: Alignment.center,
@@ -135,7 +135,7 @@ class _InfoChip extends StatelessWidget {
       width: 84,
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.customAppColors.neutral100,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -147,12 +147,12 @@ class _InfoChip extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Icon(icon, color: iconColor, size: 22),
-          const SizedBox(height: 6),
+          Icon(icon, color: iconColor, size: 22.sp),
+          6.h.ph,
           Text(
             value,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
               color: context.customAppColors.neutral900,
             ),
@@ -160,7 +160,7 @@ class _InfoChip extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-              fontSize: 11,
+              fontSize: 11.sp,
               color: context.customAppColors.neutral700,
             ),
           ),

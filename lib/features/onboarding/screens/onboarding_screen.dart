@@ -1,4 +1,3 @@
-import 'package:nutri_mind/core/routing/routes.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
 import 'package:nutri_mind/core/utils/common_imports.dart';
 import 'package:nutri_mind/features/onboarding/pages/onboarding_first_page.dart';
@@ -27,7 +26,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.customAppColors.neutral100,
+      backgroundColor: context.customAppColors.background,
       body: SafeArea(
         child: Stack(
           children: [
@@ -40,48 +39,55 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 OnboardingPage3(),
               ],
             ),
-            if (_currentPage < 2)
-              Positioned(
-                top: 40.h,
-                right: 24,
-                child: TextButton(
-                  onPressed: () => GoRouter.of(context).go(Routes.loginScreen),
-                  child: Text(
-                    'Skip',
-                    style: TextStyle(
+
+            if (_currentPage < 2) ...[
+              if (Localizations.localeOf(context).languageCode == 'ar') ...[
+                Positioned(
+                  bottom: 28,
+                  left: 10,
+                  child: Container(
+                    height: 60.w,
+                    width: 60.w,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
                       color: context.customAppColors.primary500,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        if (_currentPage < 2) {
+                          _goToPage(_currentPage + 1);
+                        }
+                      },
+                      icon: const Icon(Icons.arrow_forward_ios_rounded),
+                      color: Colors.white,
+                      iconSize: 24.sp,
                     ),
                   ),
                 ),
-              ),
-
-            if (_currentPage < 2) ...[
-              Positioned(
-                bottom: 28,
-                right: 10,
-                child: Container(
-                  height: 60.w,
-                  width: 60.w,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: context.customAppColors.primary500,
-                  ),
-                  child: IconButton(
-                    onPressed: () {
-                      if (_currentPage < 2) {
-                        _goToPage(_currentPage + 1);
-                      } else {
-                        GoRouter.of(context).go(Routes.loginScreen);
-                      }
-                    },
-                    icon: const Icon(Icons.arrow_forward_ios_rounded),
-                    color: Colors.white,
-                    iconSize: 24.sp,
+              ] else ...[
+                Positioned(
+                  bottom: 28,
+                  right: 10,
+                  child: Container(
+                    height: 60.w,
+                    width: 60.w,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: context.customAppColors.primary500,
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        if (_currentPage < 2) {
+                          _goToPage(_currentPage + 1);
+                        }
+                      },
+                      icon: const Icon(Icons.arrow_forward_ios_rounded),
+                      color: Colors.white,
+                      iconSize: 24.sp,
+                    ),
                   ),
                 ),
-              ),
+              ],
             ],
             Positioned(
               bottom: 35.h,

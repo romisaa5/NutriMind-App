@@ -37,94 +37,97 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.customAppColors.neutral100,
+      backgroundColor: context.customAppColors.background,
       body: SafeArea(
-        child: Form(
-          key: _formKey,
-          child: Padding(
-            padding: EdgeInsets.all(16.0.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: ElasticIn(
-                    duration: 900.ms,
-                    child: AppImages(
-                      imagePath: 'app_image.png',
-                      width: 200.w,
-                      height: 200.h,
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Padding(
+              padding: EdgeInsets.all(16.0.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: ElasticIn(
+                      duration: 900.ms,
+                      child: AppImages(
+                        imagePath: 'app_image.png',
+                        width: 200.w,
+                        height: 200.h,
+                      ),
                     ),
                   ),
-                ),
-                FadeInUp(
-                  delay: _delay(2),
-                  duration: _baseDuration,
-                  child: Text(
-                    S.of(context).signUpHeader,
-                    style: AppTextStyles.font32Bold.copyWith(
-                      color: context.customAppColors.neutral900,
+                  FadeInUp(
+                    delay: _delay(2),
+                    duration: _baseDuration,
+                    child: Text(
+                      S.of(context).signUpHeader,
+                      style: AppTextStyles.font32Bold.copyWith(
+                        color: context.customAppColors.neutral900,
+                      ),
                     ),
                   ),
-                ),
-                10.h.ph,
-                FadeInUp(
-                  delay: _delay(3),
-                  duration: _baseDuration,
-                  child: Text(
-                    S.of(context).signUpMessage,
-                    style: AppTextStyles.font18Regular.copyWith(
-                      color: context.customAppColors.neutral700,
+                  10.h.ph,
+                  FadeInUp(
+                    delay: _delay(3),
+                    duration: _baseDuration,
+                    child: Text(
+                      S.of(context).signUpMessage,
+                      style: AppTextStyles.font18Regular.copyWith(
+                        color: context.customAppColors.neutral700,
+                      ),
                     ),
                   ),
-                ),
-                24.h.ph,
-                FadeInUp(
-                  delay: _delay(4),
-                  duration: _baseDuration,
-                  child: AppTextFormField(
-                    controller: _emailController,
-                    hintText: S.of(context).email,
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (value) => AppValidators.validateEmail(value),
+                  24.h.ph,
+                  FadeInUp(
+                    delay: _delay(4),
+                    duration: _baseDuration,
+                    child: AppTextFormField(
+                      controller: _emailController,
+                      hintText: S.of(context).email,
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (value) => AppValidators.validateEmail(value),
+                    ),
                   ),
-                ),
-                16.h.ph,
-                FadeInUp(
-                  delay: _delay(5),
-                  duration: _baseDuration,
-                  child: AppTextFormField(
-                    controller: _passwordController,
-                    hintText: S.of(context).password,
-                    isObscureText: true,
-                    validator: (value) => AppValidators.validatePassword(value),
+                  16.h.ph,
+                  FadeInUp(
+                    delay: _delay(5),
+                    duration: _baseDuration,
+                    child: AppTextFormField(
+                      controller: _passwordController,
+                      hintText: S.of(context).password,
+                      isObscureText: true,
+                      validator: (value) =>
+                          AppValidators.validatePassword(value),
+                    ),
                   ),
-                ),
-                24.h.ph,
-                FadeInUp(
-                  delay: _delay(6),
-                  duration: _baseDuration,
-                  child: CustomButton(
-                    onTap: () {
-                      if (_formKey.currentState!.validate()) {}
-                    },
-                    text: S.of(context).signUp,
-                  ),
-                ),
-                24.h.ph,
-                FadeIn(
-                  delay: _delay(7),
-                  duration: _baseDuration,
-                  child: Center(
-                    child: AuthRichText(
-                      title: S.of(context).alreadyHaveAccount,
-                      actionText: S.of(context).login,
+                  24.h.ph,
+                  FadeInUp(
+                    delay: _delay(6),
+                    duration: _baseDuration,
+                    child: CustomButton(
                       onTap: () {
-                        GoRouter.of(context).push(Routes.loginScreen);
+                        if (_formKey.currentState!.validate()) {}
                       },
+                      text: S.of(context).signUp,
                     ),
                   ),
-                ),
-              ],
+                  24.h.ph,
+                  FadeIn(
+                    delay: _delay(7),
+                    duration: _baseDuration,
+                    child: Center(
+                      child: AuthRichText(
+                        title: S.of(context).alreadyHaveAccount,
+                        actionText: S.of(context).login,
+                        onTap: () {
+                          GoRouter.of(context).push(Routes.loginScreen);
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

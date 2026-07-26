@@ -4,6 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:nutri_mind/core/common/widgets/app_images.dart';
 import 'package:nutri_mind/core/routing/routes.dart';
 import 'package:nutri_mind/core/theme/app_colors/light_app_colors.dart';
+import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
 import 'package:nutri_mind/core/utils/common_imports.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -36,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: context.customAppColors.background,
           body: SafeArea(
             child: SizedBox(
               width: double.infinity,
