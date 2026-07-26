@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:nutri_mind/core/common/widgets/shared_widgets.dart';
+import 'package:nutri_mind/core/helpers/extensions.dart';
 import 'package:nutri_mind/core/theme/app_colors/light_app_colors.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_cubit.dart';
+import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
 import 'package:nutri_mind/features/profile/presentation/cubit/local_cubit.dart';
 import 'package:nutri_mind/generated/l10n.dart';
 
@@ -17,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
     final s = S.of(context);
 
     return Scaffold(
-      backgroundColor: LightAppColors.background,
+      backgroundColor: context.customAppColors.background,
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 40.h),
@@ -27,7 +29,7 @@ class ProfileScreen extends StatelessWidget {
               child: Text(
                 s.profileTitle,
                 style: AppTextStyles.font20Bold.copyWith(
-                  color: LightAppColors.neutral900,
+                  color: context.customAppColors.neutral900,
                 ),
               ),
             ),
@@ -71,13 +73,19 @@ class ProfileScreen extends StatelessWidget {
                       label: s.profileNotificationsTitle,
                       onTap: () {},
                     ),
-                    Divider(color: LightAppColors.grey100, height: 24.h),
+                    Divider(
+                      color: context.customAppColors.grey300,
+                      height: 24.h,
+                    ),
                     _SettingsRow(
                       icon: Icons.info_outline_rounded,
                       label: s.profileAboutTitle,
                       onTap: () {},
                     ),
-                    Divider(color: LightAppColors.grey100, height: 24.h),
+                    Divider(
+                      color: context.customAppColors.grey300,
+                      height: 24.h,
+                    ),
                     _SettingsRow(
                       icon: Icons.logout_rounded,
                       label: s.profileLogoutTitle,
@@ -105,35 +113,36 @@ class _SectionLabel extends StatelessWidget {
     return Text(
       text,
       style: AppTextStyles.font14SemiBold.copyWith(
-        color: LightAppColors.grey600,
+        color: context.customAppColors.neutral700,
       ),
     );
   }
 }
 
-/// ---------------- Header: صورة + اسم + زرار تعديل ----------------
 class _ProfileHeaderCard extends StatelessWidget {
   const _ProfileHeaderCard();
 
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    // بيانات تجريبية - استبدليها ببيانات المستخدمة الحقيقية
-    const userName = 'Sara Ahmed';
-    const userEmail = 'sara.ahmed@email.com';
+    const userName = 'Romisaa Fadel';
+    const userEmail = 'romisaafadel@email.com';
 
     return Container(
       padding: EdgeInsets.all(20.r),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [LightAppColors.primary900, LightAppColors.primary700],
+          colors: [
+            LightAppColors.primary900,
+            context.customAppColors.primary700,
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(26.r),
         boxShadow: [
           BoxShadow(
-            color: LightAppColors.primary700.withValues(alpha: 0.3),
+            color: context.customAppColors.primary700.withValues(alpha: 0.3),
             blurRadius: 22,
             offset: const Offset(0, 12),
           ),
@@ -148,16 +157,16 @@ class _ProfileHeaderCard extends StatelessWidget {
                 width: 64.w,
                 height: 64.w,
                 decoration: BoxDecoration(
-                  color: LightAppColors.white.withValues(alpha: 0.15),
+                  color: context.customAppColors.white.withValues(alpha: 0.15),
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: LightAppColors.white.withValues(alpha: 0.4),
+                    color: context.customAppColors.white.withValues(alpha: 0.4),
                     width: 2,
                   ),
                 ),
                 child: Icon(
                   Icons.person_rounded,
-                  color: LightAppColors.white,
+                  color: context.customAppColors.white,
                   size: 32.sp,
                 ),
               ),
@@ -167,17 +176,17 @@ class _ProfileHeaderCard extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(5.r),
                   decoration: BoxDecoration(
-                    color: LightAppColors.white,
+                    color: context.customAppColors.white,
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: LightAppColors.primary700,
+                      color: context.customAppColors.primary700,
                       width: 1.5,
                     ),
                   ),
                   child: Icon(
                     Icons.edit_rounded,
                     size: 12.sp,
-                    color: LightAppColors.primary700,
+                    color: context.customAppColors.primary700,
                   ),
                 ),
               ),
@@ -191,14 +200,16 @@ class _ProfileHeaderCard extends StatelessWidget {
                 Text(
                   userName,
                   style: AppTextStyles.font16Bold.copyWith(
-                    color: LightAppColors.white,
+                    color: context.customAppColors.white,
                   ),
                 ),
                 SizedBox(height: 4.h),
                 Text(
                   userEmail,
                   style: AppTextStyles.font12Regular.copyWith(
-                    color: LightAppColors.white.withValues(alpha: 0.75),
+                    color: context.customAppColors.white.withValues(
+                      alpha: 0.75,
+                    ),
                   ),
                 ),
                 SizedBox(height: 10.h),
@@ -208,13 +219,15 @@ class _ProfileHeaderCard extends StatelessWidget {
                     vertical: 5.h,
                   ),
                   decoration: BoxDecoration(
-                    color: LightAppColors.white.withValues(alpha: 0.15),
+                    color: context.customAppColors.white.withValues(
+                      alpha: 0.15,
+                    ),
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: Text(
                     s.profileEditProfile,
                     style: AppTextStyles.font12SemiBold.copyWith(
-                      color: LightAppColors.white,
+                      color: context.customAppColors.white,
                     ),
                   ),
                 ),
@@ -227,7 +240,6 @@ class _ProfileHeaderCard extends StatelessWidget {
   }
 }
 
-/// ---------------- Language switcher card ----------------
 class _LanguageCard extends StatelessWidget {
   const _LanguageCard();
 
@@ -245,12 +257,12 @@ class _LanguageCard extends StatelessWidget {
                 width: 40.w,
                 height: 40.w,
                 decoration: BoxDecoration(
-                  color: LightAppColors.primary100,
+                  color: context.customAppColors.primary100,
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Icon(
                   Icons.language_rounded,
-                  color: LightAppColors.primary700,
+                  color: context.customAppColors.primary700,
                   size: 20.sp,
                 ),
               ),
@@ -262,14 +274,14 @@ class _LanguageCard extends StatelessWidget {
                     Text(
                       s.profileLanguageTitle,
                       style: AppTextStyles.font14Bold.copyWith(
-                        color: LightAppColors.neutral900,
+                        color: context.customAppColors.neutral900,
                       ),
                     ),
                     SizedBox(height: 2.h),
                     Text(
                       s.profileLanguageSubtitle,
                       style: AppTextStyles.font12Regular.copyWith(
-                        color: LightAppColors.grey600,
+                        color: context.customAppColors.neutral700,
                       ),
                     ),
                   ],
@@ -300,7 +312,7 @@ class _LanguageSegmentedControl extends StatelessWidget {
             height: 52.h,
             padding: EdgeInsets.all(4.r),
             decoration: BoxDecoration(
-              color: LightAppColors.grey100,
+              color: context.customAppColors.neutral100,
               borderRadius: BorderRadius.circular(16.r),
             ),
             child: Stack(
@@ -315,13 +327,12 @@ class _LanguageSegmentedControl extends StatelessWidget {
                     widthFactor: 0.5,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: LightAppColors.primary500,
+                        color: context.customAppColors.primary500,
                         borderRadius: BorderRadius.circular(12.r),
                         boxShadow: [
                           BoxShadow(
-                            color: LightAppColors.primary500.withValues(
-                              alpha: 0.35,
-                            ),
+                            color: context.customAppColors.primary500
+                                .withValues(alpha: 0.35),
                             blurRadius: 10,
                             offset: const Offset(0, 4),
                           ),
@@ -376,7 +387,9 @@ class _LangOption extends StatelessWidget {
       child: AnimatedDefaultTextStyle(
         duration: const Duration(milliseconds: 200),
         style: AppTextStyles.font14SemiBold.copyWith(
-          color: selected ? LightAppColors.white : LightAppColors.grey600,
+          color: selected
+              ? context.customAppColors.white
+              : context.customAppColors.neutral700,
         ),
         child: Center(child: Text(label)),
       ),
@@ -384,7 +397,6 @@ class _LangOption extends StatelessWidget {
   }
 }
 
-/// ---------------- Theme switcher card ----------------
 class _ThemeCard extends StatelessWidget {
   const _ThemeCard();
 
@@ -402,13 +414,13 @@ class _ThemeCard extends StatelessWidget {
                 width: 40.w,
                 height: 40.w,
                 decoration: BoxDecoration(
-                  color: LightAppColors.primary100,
+                  color: context.customAppColors.primary100,
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: BlocBuilder<ThemeCubit, ThemeMode>(
                   builder: (context, mode) => Icon(
                     context.read<ThemeCubit>().currentThemeIcon,
-                    color: LightAppColors.primary700,
+                    color: context.customAppColors.primary700,
                     size: 20.sp,
                   ),
                 ),
@@ -421,14 +433,14 @@ class _ThemeCard extends StatelessWidget {
                     Text(
                       s.profileThemeTitle,
                       style: AppTextStyles.font14Bold.copyWith(
-                        color: LightAppColors.neutral900,
+                        color: context.customAppColors.neutral900,
                       ),
                     ),
                     SizedBox(height: 2.h),
                     Text(
                       s.profileThemeSubtitle,
                       style: AppTextStyles.font12Regular.copyWith(
-                        color: LightAppColors.grey600,
+                        color: context.customAppColors.neutral700,
                       ),
                     ),
                   ],
@@ -444,8 +456,6 @@ class _ThemeCard extends StatelessWidget {
   }
 }
 
-/// سويتش بتلات خيارات (فاتح / غامق / تلقائي) بنفس فكرة سويتش اللغة
-/// بس بيميل لتلات مواقع بدل موقعين، وترتيبه ثابت زي ما هو.
 class _ThemeSegmentedControl extends StatelessWidget {
   const _ThemeSegmentedControl();
 
@@ -468,7 +478,6 @@ class _ThemeSegmentedControl extends StatelessWidget {
     return BlocBuilder<ThemeCubit, ThemeMode>(
       builder: (context, mode) {
         final selectedIndex = _modes.indexOf(mode);
-        // -1 = شمال، 0 = نص، 1 = يمين
         final alignmentX = selectedIndex - 1;
 
         return Directionality(
@@ -477,7 +486,7 @@ class _ThemeSegmentedControl extends StatelessWidget {
             height: 60.h,
             padding: EdgeInsets.all(4.r),
             decoration: BoxDecoration(
-              color: LightAppColors.grey100,
+              color: context.customAppColors.neutral100,
               borderRadius: BorderRadius.circular(16.r),
             ),
             child: Stack(
@@ -490,13 +499,12 @@ class _ThemeSegmentedControl extends StatelessWidget {
                     widthFactor: 1 / 3,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: LightAppColors.primary500,
+                        color: context.customAppColors.primary500,
                         borderRadius: BorderRadius.circular(12.r),
                         boxShadow: [
                           BoxShadow(
-                            color: LightAppColors.primary500.withValues(
-                              alpha: 0.35,
-                            ),
+                            color: context.customAppColors.primary500
+                                .withValues(alpha: 0.35),
                             blurRadius: 10,
                             offset: const Offset(0, 4),
                           ),
@@ -542,13 +550,16 @@ class _ThemeOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = selected ? LightAppColors.white : LightAppColors.grey600;
+    final color = selected
+        ? context.customAppColors.white
+        : context.customAppColors.neutral700;
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          4.h.ph,
           AnimatedSwitcher(
             duration: const Duration(milliseconds: 200),
             child: Icon(icon, key: ValueKey(icon), size: 18.sp, color: color),
@@ -565,7 +576,6 @@ class _ThemeOption extends StatelessWidget {
   }
 }
 
-/// ---------------- Settings row عادي (إشعارات / عن التطبيق / خروج) ----------------
 class _SettingsRow extends StatelessWidget {
   final IconData icon;
   final String label;
@@ -588,20 +598,24 @@ class _SettingsRow extends StatelessWidget {
       borderRadius: BorderRadius.circular(12.r),
       child: Row(
         children: [
-          Icon(icon, size: 20.sp, color: iconColor ?? LightAppColors.grey700),
+          Icon(
+            icon,
+            size: 20.sp,
+            color: iconColor ?? context.customAppColors.neutral700,
+          ),
           SizedBox(width: 12.w),
           Expanded(
             child: Text(
               label,
               style: AppTextStyles.font14Regular.copyWith(
-                color: labelColor ?? LightAppColors.neutral800,
+                color: labelColor ?? context.customAppColors.neutral800,
               ),
             ),
           ),
           Icon(
             Icons.arrow_forward_ios_rounded,
             size: 14.sp,
-            color: LightAppColors.grey400,
+            color: context.customAppColors.grey400,
           ),
         ],
       ),

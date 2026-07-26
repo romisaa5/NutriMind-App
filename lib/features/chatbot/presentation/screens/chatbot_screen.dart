@@ -4,8 +4,9 @@ import 'package:animate_do/animate_do.dart';
 import 'package:nutri_mind/core/common/models/app_models.dart';
 import 'package:nutri_mind/core/common/widgets/shared_widgets.dart';
 import 'package:nutri_mind/core/helpers/extensions.dart';
-import 'package:nutri_mind/core/theme/app_colors/light_app_colors.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
+import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
+import 'package:nutri_mind/features/chatbot/presentation/widgets/chat_bubble.dart';
 import 'package:nutri_mind/generated/l10n.dart';
 
 class ChatbotScreen extends StatefulWidget {
@@ -83,9 +84,9 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     ];
 
     return Scaffold(
-      backgroundColor: LightAppColors.background,
+      backgroundColor: context.customAppColors.background,
       appBar: AppBar(
-        backgroundColor: LightAppColors.background,
+        backgroundColor: context.customAppColors.background,
         elevation: 0,
         title: Row(
           mainAxisSize: MainAxisSize.min,
@@ -94,11 +95,15 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
               width: 36.w,
               height: 36.w,
               decoration: BoxDecoration(
-                gradient: LinearGradient(colors: LightAppColors.greenGradient),
+                gradient: LinearGradient(
+                  colors: context.customAppColors.greenGradient,
+                ),
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: LightAppColors.primary500.withValues(alpha: 0.35),
+                    color: context.customAppColors.primary500.withValues(
+                      alpha: 0.35,
+                    ),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -106,7 +111,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
               ),
               child: Icon(
                 Icons.smart_toy_rounded,
-                color: LightAppColors.white,
+                color: context.customAppColors.white,
                 size: 19.sp,
               ),
             ),
@@ -118,7 +123,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 Text(
                   s.chatbotAppBarTitle,
                   style: AppTextStyles.font16Bold.copyWith(
-                    color: LightAppColors.neutral900,
+                    color: context.customAppColors.neutral900,
                   ),
                 ),
                 Row(
@@ -128,7 +133,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                       width: 6.w,
                       height: 6.w,
                       decoration: BoxDecoration(
-                        color: LightAppColors.primary500,
+                        color: context.customAppColors.primary500,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -136,7 +141,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                     Text(
                       s.chatbotOnlineStatus,
                       style: AppTextStyles.font12Regular.copyWith(
-                        color: LightAppColors.grey600,
+                        color: context.customAppColors.neutral700,
                       ),
                     ),
                   ],
@@ -165,7 +170,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                           vertical: 12.h,
                         ),
                         decoration: BoxDecoration(
-                          color: LightAppColors.grey100,
+                          color: context.customAppColors.neutral100,
                           borderRadius: BorderRadiusDirectional.only(
                             topStart: Radius.circular(18.r),
                             topEnd: Radius.circular(18.r),
@@ -181,7 +186,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 final msg = _messages[index];
                 return FadeInUp(
                   duration: const Duration(milliseconds: 350),
-                  child: _ChatBubble(message: msg),
+                  child: ChatBubble(message: msg),
                 );
               },
             ),
@@ -195,21 +200,21 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   itemCount: suggestions.length,
-                  separatorBuilder: (_, __) => SizedBox(width: 8.w),
+                  separatorBuilder: (_, a) => SizedBox(width: 8.w),
                   itemBuilder: (context, i) => ActionChip(
                     onPressed: () => _send(suggestions[i]),
                     avatar: Icon(
                       Icons.auto_awesome_rounded,
                       size: 14.sp,
-                      color: LightAppColors.primary700,
+                      color: context.customAppColors.primary700,
                     ),
                     label: Text(
                       suggestions[i],
                       style: AppTextStyles.font12Regular.copyWith(
-                        color: LightAppColors.primary800,
+                        color: context.customAppColors.primary800,
                       ),
                     ),
-                    backgroundColor: LightAppColors.primary100,
+                    backgroundColor: context.customAppColors.primary100,
                     side: BorderSide.none,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.r),
@@ -218,8 +223,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 ),
               ),
             ),
-
-          // ---------- Input ----------
           SafeArea(
             top: false,
             child: Padding(
@@ -230,18 +233,18 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       decoration: BoxDecoration(
-                        color: LightAppColors.grey100,
+                        color: context.customAppColors.neutral100,
                         borderRadius: BorderRadius.circular(26.r),
                       ),
                       child: TextField(
                         controller: _controller,
                         style: AppTextStyles.font14Regular.copyWith(
-                          color: LightAppColors.neutral900,
+                          color: context.customAppColors.neutral900,
                         ),
                         decoration: InputDecoration(
                           hintText: s.chatbotInputHint,
                           hintStyle: AppTextStyles.font14Regular.copyWith(
-                            color: LightAppColors.grey500,
+                            color: context.customAppColors.neutral700,
                           ),
                           border: InputBorder.none,
                           isDense: true,
@@ -253,7 +256,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                   ),
                   SizedBox(width: 8.w),
                   Material(
-                    color: LightAppColors.primary500,
+                    color: context.customAppColors.primary500,
                     shape: const CircleBorder(),
                     child: InkWell(
                       customBorder: const CircleBorder(),
@@ -262,7 +265,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                         padding: EdgeInsets.all(12.r),
                         child: Icon(
                           Icons.send_rounded,
-                          color: LightAppColors.white,
+                          color: context.customAppColors.white,
                           size: 20.sp,
                         ),
                       ),
@@ -273,51 +276,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _ChatBubble extends StatelessWidget {
-  final ChatMessageModel message;
-  const _ChatBubble({required this.message});
-
-  @override
-  Widget build(BuildContext context) {
-    final isUser = message.isUser;
-    return Align(
-      alignment: isUser
-          ? AlignmentDirectional.centerEnd
-          : AlignmentDirectional.centerStart,
-      child: Container(
-        margin: EdgeInsets.only(bottom: 12.h),
-        constraints: BoxConstraints(maxWidth: 0.75.sw),
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-        decoration: BoxDecoration(
-          color: isUser ? LightAppColors.primary500 : LightAppColors.grey100,
-          borderRadius: BorderRadiusDirectional.only(
-            topStart: Radius.circular(18.r),
-            topEnd: Radius.circular(18.r),
-            bottomStart: Radius.circular(isUser ? 18.r : 4.r),
-            bottomEnd: Radius.circular(isUser ? 4.r : 18.r),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color:
-                  (isUser ? LightAppColors.primary500 : LightAppColors.grey300)
-                      .withValues(alpha: 0.18),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Text(
-          message.text,
-          style: AppTextStyles.font14Regular.copyWith(
-            color: isUser ? LightAppColors.white : LightAppColors.neutral800,
-            height: 1.5,
-          ),
-        ),
       ),
     );
   }
