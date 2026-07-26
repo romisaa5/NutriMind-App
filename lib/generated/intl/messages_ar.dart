@@ -230,7 +230,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "scanRetryButton": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "scanSaveButton": MessageLookupByLibrary.simpleMessage("حفظ الوجبة"),
-    "scanTitle": MessageLookupByLibrary.simpleMessage("سكان الوجبة"),
+    "scanTitle": MessageLookupByLibrary.simpleMessage("مسح الوجبة"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "signUpHeader": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
