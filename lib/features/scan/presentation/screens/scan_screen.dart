@@ -4,7 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:nutri_mind/core/common/models/app_models.dart';
 import 'package:nutri_mind/core/di/service_locator.dart';
 import 'package:nutri_mind/core/services/firebase/firebase_auth_service.dart';
-import 'package:nutri_mind/core/services/gemini/gemini_nutrition_service.dart';
+import 'package:nutri_mind/core/services/gemini/groq_nutrition_service.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
 import 'package:nutri_mind/features/scan/data/models/meal_analysis_result.dart';
