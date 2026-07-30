@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nutri_mind/core/di/service_locator.dart';
 import 'package:nutri_mind/core/helpers/bloc_observer.dart';
@@ -12,6 +13,7 @@ import 'my_app.dart';
 void main() async {
   Bloc.observer = AppBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await initServiceLocator();
   await Firebase.initializeApp();
   await ScreenUtil.ensureScreenSize();
