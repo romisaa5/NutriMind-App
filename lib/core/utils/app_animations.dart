@@ -1,3 +1,0 @@
-class AppAnimations {
-  AppAnimations._();
-}
