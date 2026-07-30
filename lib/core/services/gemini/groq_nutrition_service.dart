@@ -72,8 +72,6 @@ class GroqNutritionService {
         );
       }
 
-      print('📝 Groq raw content: $rawText');
-
       final jsonMap = _extractJson(rawText);
       if (jsonMap == null) {
         return const ResultError(
@@ -121,7 +119,6 @@ class GroqNutritionService {
           .replaceAll('```', '')
           .trim();
     }
-
     final firstBrace = text.indexOf('{');
     final lastBrace = text.lastIndexOf('}');
     if (firstBrace != -1 && lastBrace != -1 && lastBrace > firstBrace) {
