@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nutri_mind/core/common/models/user_model.dart';
 import 'package:nutri_mind/features/auth/data/repos/auth_repository.dart';
-import '../../../../core/utils/app_result.dart';
+import '../../../../core/utils/app_result_auth.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {

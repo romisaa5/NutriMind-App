@@ -3,6 +3,7 @@ import 'package:nutri_mind/core/common/widgets/shared_widgets.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
 import 'package:nutri_mind/core/utils/common_imports.dart';
+import 'package:nutri_mind/features/home/presentation/screens/meal_details_screen.dart';
 import 'package:nutri_mind/features/home/presentation/widgets/mini_macro_chip.dart';
 import 'package:nutri_mind/features/scan/presentation/screens/scan_screen.dart';
 import 'package:nutri_mind/generated/l10n.dart';
@@ -15,10 +16,17 @@ class MealCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SoftCard(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const ScanScreen()),
-        );
+        if (meal.isLogged) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => MealDetailsScreen(meal: meal)),
+          );
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const ScanScreen()),
+          );
+        }
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +61,7 @@ class MealCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      S.of(context).mealLabel(meal.type.labelKey),
+                      S.of(context).mealLabel(meal.type.label(context)),
                       style: AppTextStyles.font14Bold.copyWith(
                         color: context.customAppColors.neutral900,
                       ),

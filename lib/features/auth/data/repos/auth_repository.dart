@@ -1,11 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:nutri_mind/core/utils/app_result.dart';
 
 import '../../../../core/common/models/user_model.dart';
 import '../../../../core/config/firestore_collections.dart';
 import '../../../../core/error/failures.dart';
 import '../../../../core/services/firebase/firebase_auth_service.dart';
 import '../../../../core/services/firebase/firestore_service.dart';
-import '../../../../core/utils/app_result.dart';
+import '../../../../core/utils/app_result_auth.dart';
 
 class AuthRepository {
   final FirebaseAuthService authService;
@@ -13,7 +14,7 @@ class AuthRepository {
 
   AuthRepository({required this.authService, required this.firestore});
 
-  Future<AppResult<UserModel>> register({
+  Future<AppResultAuth<UserModel>> register({
     required String name,
     required String email,
     required String password,
@@ -30,10 +31,10 @@ class AuthRepository {
         email: email,
       );
 
-      await firestore.set(
-        collection: FirestoreCollections.users,
-        documentId: user.uid,
+      await firestore.setDoc(
         data: user.toJson(),
+        path: FirestoreCollections.users,
+        docId: user.uid,
       );
 
       return Success(user);
@@ -44,7 +45,7 @@ class AuthRepository {
     }
   }
 
-  Future<AppResult<UserModel>> login({
+  Future<AppResultAuth<UserModel>> login({
     required String email,
     required String password,
   }) async {
@@ -54,14 +55,25 @@ class AuthRepository {
         password: password,
       );
 
-      final doc = await firestore.getDocument(
-        collection: FirestoreCollections.users,
-        documentId: credential.user!.uid,
+      final result = await firestore.getDoc<UserModel>(
+        path: FirestoreCollections.users,
+        docId: credential.user!.uid,
+        fromJson: (data, id) => UserModel.fromJson(data),
       );
 
-      final user = UserModel.fromJson(doc.data()!);
+      switch (result) {
+        case ResultSuccess<UserModel?>():
+          final user = result.data;
 
-      return Success(user);
+          if (user == null) {
+            return const Error(FirestoreFailure("User data not found"));
+          }
+
+          return Success(user);
+
+        case ResultError():
+          return Error(result.failure);
+      }
     } on FirebaseAuthException catch (e) {
       return Error(AuthFailure(e.message ?? "Login Failed"));
     } catch (_) {
@@ -69,7 +81,7 @@ class AuthRepository {
     }
   }
 
-  Future<AppResult<void>> logout() async {
+  Future<AppResultAuth<void>> logout() async {
     try {
       await authService.logout();
       return const Success(null);
@@ -78,7 +90,7 @@ class AuthRepository {
     }
   }
 
-  Future<AppResult<void>> forgotPassword(String email) async {
+  Future<AppResultAuth<void>> forgotPassword(String email) async {
     try {
       await authService.sendResetPassword(email);
 
@@ -88,7 +100,7 @@ class AuthRepository {
     }
   }
 
-  Future<AppResult<void>> sendVerificationEmail() async {
+  Future<AppResultAuth<void>> sendVerificationEmail() async {
     try {
       await authService.verifyEmail();
 
@@ -98,7 +110,7 @@ class AuthRepository {
     }
   }
 
-  Future<AppResult<bool>> isEmailVerified() async {
+  Future<AppResultAuth<bool>> isEmailVerified() async {
     try {
       await authService.reloadUser();
 

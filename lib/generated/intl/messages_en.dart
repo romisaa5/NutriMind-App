@@ -35,6 +35,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
+    "analyzingMessage": MessageLookupByLibrary.simpleMessage(
+      "Analyzing your meal...",
+    ),
+    "analyzingSubtitle": MessageLookupByLibrary.simpleMessage(
+      "A few seconds and you\'ll get the nutrition values",
+    ),
+    "approxEstimateNote": MessageLookupByLibrary.simpleMessage(
+      "Approximate estimate based on the photo",
+    ),
     "avoidScreensBeforeBed": MessageLookupByLibrary.simpleMessage(
       "Avoid screens before bed",
     ),
@@ -47,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "caloriesUnit": MessageLookupByLibrary.simpleMessage("kcal"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "carbs": MessageLookupByLibrary.simpleMessage("Carbs"),
+    "changeMealType": MessageLookupByLibrary.simpleMessage("Change Meal Type"),
     "chat": MessageLookupByLibrary.simpleMessage("Chat"),
     "chat_answer_intro": MessageLookupByLibrary.simpleMessage(
       "Here are some healthy\nhigh-protein snack ideas:",
@@ -78,6 +88,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "chatbotWelcomeMessage": MessageLookupByLibrary.simpleMessage(
       "Hi 🌱 I\'m here to help with any question about your food or how you\'re feeling today. Ask me anything.",
+    ),
+    "chooseFromGallery": MessageLookupByLibrary.simpleMessage(
+      "Choose from Gallery",
+    ),
+    "chooseMealTypeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "So we can classify your meal correctly",
+    ),
+    "chooseMealTypeTitle": MessageLookupByLibrary.simpleMessage(
+      "Choose Meal Type",
     ),
     "consistentSleepSchedule": MessageLookupByLibrary.simpleMessage(
       "Keep a consistent sleep schedule",
@@ -121,7 +140,71 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerified": MessageLookupByLibrary.simpleMessage(
       "Email verified successfully",
     ),
+    "errorAnalysis": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while analyzing the photo",
+    ),
+    "errorDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while deleting your account",
+    ),
+    "errorEmailAlreadyInUse": MessageLookupByLibrary.simpleMessage(
+      "This email is already in use",
+    ),
+    "errorEmptyAnalysisResponse": MessageLookupByLibrary.simpleMessage(
+      "We couldn\'t analyze the photo, try a clearer one",
+    ),
+    "errorEmptyImage": MessageLookupByLibrary.simpleMessage(
+      "The image isn\'t clear, please try again",
+    ),
+    "errorFirestoreAdd": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while adding data",
+    ),
+    "errorFirestoreDelete": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while deleting data",
+    ),
+    "errorFirestoreFetch": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while fetching data",
+    ),
+    "errorFirestoreSave": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while saving data",
+    ),
+    "errorFirestoreUpdate": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while updating data",
+    ),
+    "errorInvalidAnalysisFormat": MessageLookupByLibrary.simpleMessage(
+      "We got an unexpected response, please try again",
+    ),
+    "errorInvalidEmail": MessageLookupByLibrary.simpleMessage(
+      "Invalid email format",
+    ),
+    "errorLogoutFailed": MessageLookupByLibrary.simpleMessage(
+      "An error occurred while signing out",
+    ),
+    "errorNetwork": MessageLookupByLibrary.simpleMessage(
+      "Please check your internet connection",
+    ),
+    "errorRequiresRecentLogin": MessageLookupByLibrary.simpleMessage(
+      "Please sign in again before this action",
+    ),
+    "errorTooManyRequests": MessageLookupByLibrary.simpleMessage(
+      "Too many attempts, please try again later",
+    ),
+    "errorUnknown": MessageLookupByLibrary.simpleMessage(
+      "Something went wrong, please try again",
+    ),
+    "errorUserDisabled": MessageLookupByLibrary.simpleMessage(
+      "This account has been disabled",
+    ),
+    "errorVerificationEmailFailed": MessageLookupByLibrary.simpleMessage(
+      "Failed to send verification email",
+    ),
+    "errorWeakPassword": MessageLookupByLibrary.simpleMessage(
+      "Password is too weak, try a stronger one",
+    ),
+    "errorWrongCredentials": MessageLookupByLibrary.simpleMessage(
+      "Incorrect email or password",
+    ),
     "fat": MessageLookupByLibrary.simpleMessage("Fat"),
+    "fiber": MessageLookupByLibrary.simpleMessage("Fiber"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "forgotPasswordHeader": MessageLookupByLibrary.simpleMessage(
       "Forgot Password",
@@ -151,9 +234,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "Are you sure you want to log out?",
     ),
     "mealBreakfast": MessageLookupByLibrary.simpleMessage("Breakfast"),
+    "mealDetailsAdviceTitle": MessageLookupByLibrary.simpleMessage("Advice"),
+    "mealDetailsMoreInfo": MessageLookupByLibrary.simpleMessage("More Info"),
     "mealDinner": MessageLookupByLibrary.simpleMessage("Dinner"),
     "mealLunch": MessageLookupByLibrary.simpleMessage("Lunch"),
+    "mealSavedSuccess": MessageLookupByLibrary.simpleMessage(
+      "Meal saved successfully",
+    ),
     "mentalCategory": MessageLookupByLibrary.simpleMessage("Mental Health"),
+    "mustBeLoggedIn": MessageLookupByLibrary.simpleMessage(
+      "You need to sign in first",
+    ),
     "name": MessageLookupByLibrary.simpleMessage("Name"),
     "newDayNewStep": MessageLookupByLibrary.simpleMessage(
       "A new day, a new step towards your health",
@@ -220,6 +311,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "resendVerificationEmail": MessageLookupByLibrary.simpleMessage(
       "Resend Verification Email",
     ),
+    "retryButton": MessageLookupByLibrary.simpleMessage("Retry"),
+    "saveMealButton": MessageLookupByLibrary.simpleMessage("Save Meal"),
+    "savingButton": MessageLookupByLibrary.simpleMessage("Saving..."),
     "scan": MessageLookupByLibrary.simpleMessage("Scan"),
     "scanAiBadge": MessageLookupByLibrary.simpleMessage("Analyzing with AI"),
     "scanAnalyzingSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -230,6 +324,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "scanCaloriesLabel": MessageLookupByLibrary.simpleMessage("Calories"),
     "scanCaloriesValue": m2,
+    "scanCaptureHint": MessageLookupByLibrary.simpleMessage(
+      "Take a photo of your meal and we\'ll calculate calories, protein and carbs automatically",
+    ),
     "scanCarbsLabel": MessageLookupByLibrary.simpleMessage("Carbs"),
     "scanFatLabel": MessageLookupByLibrary.simpleMessage("Fat"),
     "scanGramValue": m3,
@@ -279,6 +376,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "snack_protein_smoothie": MessageLookupByLibrary.simpleMessage(
       "Protein smoothie",
     ),
+    "sodium": MessageLookupByLibrary.simpleMessage("Sodium"),
     "sportCategory": MessageLookupByLibrary.simpleMessage("Fitness"),
     "spreadProtein": MessageLookupByLibrary.simpleMessage(
       "Spread protein across meals",
@@ -296,10 +394,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "stretchDailyDesc": MessageLookupByLibrary.simpleMessage(
       "A few minutes of stretching improves flexibility and reduces muscle tension.",
     ),
+    "sugar": MessageLookupByLibrary.simpleMessage("Sugar"),
     "takeBreaks": MessageLookupByLibrary.simpleMessage("Take short breaks"),
     "takeBreaksDesc": MessageLookupByLibrary.simpleMessage(
       "A five-minute pause every hour helps you focus and lowers stress.",
     ),
+    "takePhoto": MessageLookupByLibrary.simpleMessage("Take Photo"),
     "tips": MessageLookupByLibrary.simpleMessage("Tips"),
     "tipsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Simple things that make a difference every day",

@@ -1,17 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:nutri_mind/generated/l10n.dart';
 
-/// ------------------- Meal Model -------------------
 enum MealType { breakfast, lunch, dinner }
 
 extension MealTypeX on MealType {
-  String get labelKey {
+  String label(BuildContext context) {
     switch (this) {
       case MealType.breakfast:
-        return 'mealBreakfast';
+        return S.of(context).mealBreakfast;
       case MealType.lunch:
-        return 'mealLunch';
+        return S.of(context).mealLunch;
       case MealType.dinner:
-        return 'mealDinner';
+        return S.of(context).mealDinner;
     }
   }
 
@@ -28,6 +29,7 @@ extension MealTypeX on MealType {
 }
 
 class MealModel {
+  final String? id;
   final MealType type;
   final String? name;
   final String? imageUrl;
@@ -35,9 +37,14 @@ class MealModel {
   final int? protein;
   final int? carbs;
   final int? fat;
+  final int? fiber;
+  final int? sugar;
+  final int? sodium;
+  final String? advice;
   final DateTime? loggedAt;
 
   const MealModel({
+    this.id,
     required this.type,
     this.name,
     this.imageUrl,
@@ -45,10 +52,51 @@ class MealModel {
     this.protein,
     this.carbs,
     this.fat,
+    this.fiber,
+    this.sugar,
+    this.sodium,
+    this.advice,
     this.loggedAt,
   });
 
   bool get isLogged => calories != null;
+
+  Map<String, dynamic> toMap() {
+    return {
+      'type': type.name,
+      'name': name,
+      'imageUrl': imageUrl,
+      'calories': calories,
+      'protein': protein,
+      'carbs': carbs,
+      'fat': fat,
+      'fiber': fiber,
+      'sugar': sugar,
+      'sodium': sodium,
+      'advice': advice,
+      'loggedAt': loggedAt != null
+          ? Timestamp.fromDate(loggedAt!)
+          : FieldValue.serverTimestamp(),
+    };
+  }
+
+  factory MealModel.fromMap(Map<String, dynamic> map, String id) {
+    return MealModel(
+      id: id,
+      type: MealType.values.byName(map['type'] as String? ?? 'breakfast'),
+      name: map['name'] as String?,
+      imageUrl: map['imageUrl'] as String?,
+      calories: (map['calories'] as num?)?.toInt(),
+      protein: (map['protein'] as num?)?.toInt(),
+      carbs: (map['carbs'] as num?)?.toInt(),
+      fat: (map['fat'] as num?)?.toInt(),
+      fiber: (map['fiber'] as num?)?.toInt(),
+      sugar: (map['sugar'] as num?)?.toInt(),
+      sodium: (map['sodium'] as num?)?.toInt(),
+      advice: map['advice'] as String?,
+      loggedAt: (map['loggedAt'] as Timestamp?)?.toDate(),
+    );
+  }
 }
 
 /// ------------------- Chat Model -------------------

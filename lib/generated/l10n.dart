@@ -1303,6 +1303,376 @@ class S {
       args: [],
     );
   }
+
+  /// `Choose Meal Type`
+  String get chooseMealTypeTitle {
+    return Intl.message(
+      'Choose Meal Type',
+      name: 'chooseMealTypeTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `So we can classify your meal correctly`
+  String get chooseMealTypeSubtitle {
+    return Intl.message(
+      'So we can classify your meal correctly',
+      name: 'chooseMealTypeSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take a photo of your meal and we'll calculate calories, protein and carbs automatically`
+  String get scanCaptureHint {
+    return Intl.message(
+      'Take a photo of your meal and we\'ll calculate calories, protein and carbs automatically',
+      name: 'scanCaptureHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take Photo`
+  String get takePhoto {
+    return Intl.message('Take Photo', name: 'takePhoto', desc: '', args: []);
+  }
+
+  /// `Choose from Gallery`
+  String get chooseFromGallery {
+    return Intl.message(
+      'Choose from Gallery',
+      name: 'chooseFromGallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Meal Type`
+  String get changeMealType {
+    return Intl.message(
+      'Change Meal Type',
+      name: 'changeMealType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Analyzing your meal...`
+  String get analyzingMessage {
+    return Intl.message(
+      'Analyzing your meal...',
+      name: 'analyzingMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A few seconds and you'll get the nutrition values`
+  String get analyzingSubtitle {
+    return Intl.message(
+      'A few seconds and you\'ll get the nutrition values',
+      name: 'analyzingSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Retry`
+  String get retryButton {
+    return Intl.message('Retry', name: 'retryButton', desc: '', args: []);
+  }
+
+  /// `Save Meal`
+  String get saveMealButton {
+    return Intl.message(
+      'Save Meal',
+      name: 'saveMealButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Saving...`
+  String get savingButton {
+    return Intl.message('Saving...', name: 'savingButton', desc: '', args: []);
+  }
+
+  /// `Meal saved successfully`
+  String get mealSavedSuccess {
+    return Intl.message(
+      'Meal saved successfully',
+      name: 'mealSavedSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You need to sign in first`
+  String get mustBeLoggedIn {
+    return Intl.message(
+      'You need to sign in first',
+      name: 'mustBeLoggedIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approximate estimate based on the photo`
+  String get approxEstimateNote {
+    return Intl.message(
+      'Approximate estimate based on the photo',
+      name: 'approxEstimateNote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This email is already in use`
+  String get errorEmailAlreadyInUse {
+    return Intl.message(
+      'This email is already in use',
+      name: 'errorEmailAlreadyInUse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email format`
+  String get errorInvalidEmail {
+    return Intl.message(
+      'Invalid email format',
+      name: 'errorInvalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is too weak, try a stronger one`
+  String get errorWeakPassword {
+    return Intl.message(
+      'Password is too weak, try a stronger one',
+      name: 'errorWeakPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incorrect email or password`
+  String get errorWrongCredentials {
+    return Intl.message(
+      'Incorrect email or password',
+      name: 'errorWrongCredentials',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This account has been disabled`
+  String get errorUserDisabled {
+    return Intl.message(
+      'This account has been disabled',
+      name: 'errorUserDisabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Too many attempts, please try again later`
+  String get errorTooManyRequests {
+    return Intl.message(
+      'Too many attempts, please try again later',
+      name: 'errorTooManyRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your internet connection`
+  String get errorNetwork {
+    return Intl.message(
+      'Please check your internet connection',
+      name: 'errorNetwork',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please sign in again before this action`
+  String get errorRequiresRecentLogin {
+    return Intl.message(
+      'Please sign in again before this action',
+      name: 'errorRequiresRecentLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while signing out`
+  String get errorLogoutFailed {
+    return Intl.message(
+      'An error occurred while signing out',
+      name: 'errorLogoutFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to send verification email`
+  String get errorVerificationEmailFailed {
+    return Intl.message(
+      'Failed to send verification email',
+      name: 'errorVerificationEmailFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while deleting your account`
+  String get errorDeleteAccountFailed {
+    return Intl.message(
+      'An error occurred while deleting your account',
+      name: 'errorDeleteAccountFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while saving data`
+  String get errorFirestoreSave {
+    return Intl.message(
+      'An error occurred while saving data',
+      name: 'errorFirestoreSave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while adding data`
+  String get errorFirestoreAdd {
+    return Intl.message(
+      'An error occurred while adding data',
+      name: 'errorFirestoreAdd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while updating data`
+  String get errorFirestoreUpdate {
+    return Intl.message(
+      'An error occurred while updating data',
+      name: 'errorFirestoreUpdate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while deleting data`
+  String get errorFirestoreDelete {
+    return Intl.message(
+      'An error occurred while deleting data',
+      name: 'errorFirestoreDelete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while fetching data`
+  String get errorFirestoreFetch {
+    return Intl.message(
+      'An error occurred while fetching data',
+      name: 'errorFirestoreFetch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The image isn't clear, please try again`
+  String get errorEmptyImage {
+    return Intl.message(
+      'The image isn\'t clear, please try again',
+      name: 'errorEmptyImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We couldn't analyze the photo, try a clearer one`
+  String get errorEmptyAnalysisResponse {
+    return Intl.message(
+      'We couldn\'t analyze the photo, try a clearer one',
+      name: 'errorEmptyAnalysisResponse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We got an unexpected response, please try again`
+  String get errorInvalidAnalysisFormat {
+    return Intl.message(
+      'We got an unexpected response, please try again',
+      name: 'errorInvalidAnalysisFormat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while analyzing the photo`
+  String get errorAnalysis {
+    return Intl.message(
+      'An error occurred while analyzing the photo',
+      name: 'errorAnalysis',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong, please try again`
+  String get errorUnknown {
+    return Intl.message(
+      'Something went wrong, please try again',
+      name: 'errorUnknown',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fiber`
+  String get fiber {
+    return Intl.message('Fiber', name: 'fiber', desc: '', args: []);
+  }
+
+  /// `More Info`
+  String get mealDetailsMoreInfo {
+    return Intl.message(
+      'More Info',
+      name: 'mealDetailsMoreInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sugar`
+  String get sugar {
+    return Intl.message('Sugar', name: 'sugar', desc: '', args: []);
+  }
+
+  /// `Sodium`
+  String get sodium {
+    return Intl.message('Sodium', name: 'sodium', desc: '', args: []);
+  }
+
+  /// `Advice`
+  String get mealDetailsAdviceTitle {
+    return Intl.message(
+      'Advice',
+      name: 'mealDetailsAdviceTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

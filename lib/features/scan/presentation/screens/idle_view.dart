@@ -1,22 +1,71 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nutri_mind/core/common/models/app_models.dart';
+import 'package:nutri_mind/core/helpers/extensions.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
-import 'package:nutri_mind/core/utils/common_imports.dart';
-import 'package:nutri_mind/features/scan/presentation/widgets/round_icon_button.dart';
 import 'package:nutri_mind/generated/l10n.dart';
 
 class IdleView extends StatelessWidget {
-  final VoidCallback onScan;
-  const IdleView({super.key, required this.onScan});
+  final MealType mealType;
+  final VoidCallback onCameraTap;
+  final VoidCallback onGalleryTap;
+  final VoidCallback onChangeMealType;
+
+  const IdleView({
+    super.key,
+    required this.mealType,
+    required this.onCameraTap,
+    required this.onGalleryTap,
+    required this.onChangeMealType,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 24.w),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          70.h.ph,
+          FadeInDown(
+            duration: const Duration(milliseconds: 400),
+            child: GestureDetector(
+              onTap: onChangeMealType,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
+                decoration: BoxDecoration(
+                  color: context.customAppColors.primary100,
+                  borderRadius: BorderRadius.circular(20.r),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      mealType.icon,
+                      size: 16.sp,
+                      color: context.customAppColors.primary700,
+                    ),
+                    SizedBox(width: 6.w),
+                    Text(
+                      mealType.label(context),
+                      style: AppTextStyles.font12SemiBold.copyWith(
+                        color: context.customAppColors.primary700,
+                      ),
+                    ),
+                    SizedBox(width: 6.w),
+                    Icon(
+                      Icons.edit_rounded,
+                      size: 14.sp,
+                      color: context.customAppColors.primary700,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 28.h),
           ZoomIn(
             duration: const Duration(milliseconds: 500),
             child: Container(
@@ -28,9 +77,8 @@ class IdleView extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(28.r),
                 border: Border.all(
-                  color: context.customAppColors.primary200,
+                  color: context.customAppColors.primary300,
                   width: 2,
-                  style: BorderStyle.solid,
                 ),
               ),
               child: Column(
@@ -39,12 +87,13 @@ class IdleView extends StatelessWidget {
                   Icon(
                     Icons.photo_camera_outlined,
                     size: 64.sp,
-                    color: context.customAppColors.primary500,
+                    color: context.customAppColors.primary600,
                   ),
                   SizedBox(height: 12.h),
                   Text(
-                    s.scanIdleHint,
-                    style: AppTextStyles.font14SemiBold.copyWith(
+                    S.of(context).scanCaptureHint,
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.font12SemiBold.copyWith(
                       color: context.customAppColors.primary800,
                     ),
                   ),
@@ -55,45 +104,59 @@ class IdleView extends StatelessWidget {
           SizedBox(height: 36.h),
           FadeInUp(
             delay: const Duration(milliseconds: 200),
-            child: Text(
-              s.scanIdleDescription,
-              textAlign: TextAlign.center,
-              style: AppTextStyles.font14Regular.copyWith(
-                color: context.customAppColors.neutral700,
-                height: 1.6,
-              ),
-            ),
-          ),
-          SizedBox(height: 32.h),
-          FadeInUp(
-            delay: const Duration(milliseconds: 300),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                RoundIconButton(
-                  icon: Icons.image_outlined,
-                  onTap: onScan,
-                  background: context.customAppColors.neutral100,
-                  iconColor: context.customAppColors.neutral700,
-                ),
-                SizedBox(width: 20.w),
-                Pulse(
-                  infinite: true,
-                  duration: const Duration(seconds: 2),
-                  child: RoundIconButton(
-                    icon: Icons.camera_alt_rounded,
-                    onTap: onScan,
-                    background: context.customAppColors.primary500,
-                    iconColor: context.customAppColors.white,
-                    size: 72,
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: onGalleryTap,
+                    icon: Icon(
+                      Icons.image_outlined,
+                      color: context.customAppColors.grey700,
+                      size: 18.sp,
+                    ),
+                    label: Text(
+                      S.of(context).chooseFromGallery,
+                      style: AppTextStyles.font12SemiBold.copyWith(
+                        color: context.customAppColors.grey700,
+                      ),
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(vertical: 14.h),
+                      side: BorderSide(color: context.customAppColors.grey300),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.r),
+                      ),
+                    ),
                   ),
                 ),
-                SizedBox(width: 20.w),
-                RoundIconButton(
-                  icon: Icons.flash_on_rounded,
-                  onTap: () {},
-                  background: context.customAppColors.neutral100,
-                  iconColor: context.customAppColors.neutral700,
+                SizedBox(width: 12.w),
+                Expanded(
+                  child: Pulse(
+                    infinite: false,
+                    duration: const Duration(seconds: 2),
+                    child: ElevatedButton.icon(
+                      onPressed: onCameraTap,
+                      icon: Icon(
+                        Icons.camera_alt_rounded,
+                        color: context.customAppColors.white,
+                        size: 18.sp,
+                      ),
+                      label: Text(
+                        S.of(context).takePhoto,
+                        style: AppTextStyles.font12Bold.copyWith(
+                          color: context.customAppColors.white,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: context.customAppColors.primary500,
+                        padding: EdgeInsets.symmetric(vertical: 14.h),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.r),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

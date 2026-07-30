@@ -3,7 +3,7 @@ import 'package:nutri_mind/core/theme/app_colors/light_app_colors.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import '../../../../core/utils/common_imports.dart';
 
-class MacroMiniDonut extends StatefulWidget {
+class MacroMiniDonut extends StatelessWidget {
   final String label;
   final int value;
   final int goal;
@@ -20,27 +20,11 @@ class MacroMiniDonut extends StatefulWidget {
   });
 
   @override
-  State<MacroMiniDonut> createState() => _MacroMiniDonutState();
-}
-
-class _MacroMiniDonutState extends State<MacroMiniDonut> {
-  double _progress = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
-      setState(() {
-        _progress = widget.goal == 0
-            ? 0
-            : (widget.value / widget.goal).clamp(0, 1).toDouble();
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final double progress = goal == 0
+        ? 0
+        : (value / goal).clamp(0, 1).toDouble();
+
     return Row(
       children: [
         SizedBox(
@@ -56,23 +40,23 @@ class _MacroMiniDonutState extends State<MacroMiniDonut> {
                   centerSpaceRadius: 11.r,
                   sections: [
                     PieChartSectionData(
-                      value: _progress * 100,
-                      color: widget.color,
+                      value: progress * 100,
+                      color: color,
                       radius: 6.r,
                       showTitle: false,
                     ),
                     PieChartSectionData(
-                      value: (1 - _progress) * 100,
+                      value: (1 - progress) * 100,
                       color: LightAppColors.white.withValues(alpha: 0.15),
                       radius: 6.r,
                       showTitle: false,
                     ),
                   ],
                 ),
-                duration: const Duration(milliseconds: 900),
+                duration: const Duration(milliseconds: 700),
                 curve: Curves.easeOutCubic,
               ),
-              Icon(widget.icon, color: widget.color, size: 14.sp),
+              Icon(icon, color: color, size: 14.sp),
             ],
           ),
         ),
@@ -82,13 +66,13 @@ class _MacroMiniDonutState extends State<MacroMiniDonut> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.label,
+                label,
                 style: AppTextStyles.font12Regular.copyWith(
                   color: LightAppColors.white.withValues(alpha: 0.7),
                 ),
               ),
               Text(
-                '${widget.value}g / ${widget.goal}g',
+                '${value}g / ${goal}g',
                 style: AppTextStyles.font12SemiBold.copyWith(
                   color: LightAppColors.white,
                 ),

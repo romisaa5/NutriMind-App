@@ -6,7 +6,7 @@ import 'package:nutri_mind/core/utils/common_imports.dart';
 import 'package:nutri_mind/features/home/presentation/widgets/macro_mini_donut.dart';
 import 'package:nutri_mind/generated/l10n.dart';
 
-class NutritionOverviewCard extends StatefulWidget {
+class NutritionOverviewCard extends StatelessWidget {
   final int consumed;
   final int calorieGoal;
   final int protein;
@@ -29,31 +29,12 @@ class NutritionOverviewCard extends StatefulWidget {
   });
 
   @override
-  State<NutritionOverviewCard> createState() => _NutritionOverviewCardState();
-}
-
-class _NutritionOverviewCardState extends State<NutritionOverviewCard> {
-  double _progress = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
-      setState(() {
-        _progress = widget.calorieGoal == 0
-            ? 0
-            : (widget.consumed / widget.calorieGoal).clamp(0, 1).toDouble();
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final int remaining = (widget.calorieGoal - widget.consumed).clamp(
-      0,
-      widget.calorieGoal,
-    );
+    final double progress = calorieGoal == 0
+        ? 0
+        : (consumed / calorieGoal).clamp(0, 1).toDouble();
+
+    final int remaining = (calorieGoal - consumed).clamp(0, calorieGoal);
 
     return Container(
       padding: EdgeInsets.all(22.r),
@@ -111,13 +92,13 @@ class _NutritionOverviewCardState extends State<NutritionOverviewCard> {
                             centerSpaceRadius: 44.r,
                             sections: [
                               PieChartSectionData(
-                                value: _progress * 100,
+                                value: progress * 100,
                                 color: LightAppColors.white,
                                 radius: 16.r,
                                 showTitle: false,
                               ),
                               PieChartSectionData(
-                                value: (1 - _progress) * 100,
+                                value: (1 - progress) * 100,
                                 color: LightAppColors.white.withValues(
                                   alpha: 0.15,
                                 ),
@@ -126,14 +107,14 @@ class _NutritionOverviewCardState extends State<NutritionOverviewCard> {
                               ),
                             ],
                           ),
-                          duration: const Duration(milliseconds: 900),
+                          duration: const Duration(milliseconds: 700),
                           curve: Curves.easeOutCubic,
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              '${widget.consumed}',
+                              '$consumed',
                               style: AppTextStyles.font24Bold.copyWith(
                                 color: context.customAppColors.white,
                               ),
@@ -158,24 +139,24 @@ class _NutritionOverviewCardState extends State<NutritionOverviewCard> {
                       children: [
                         MacroMiniDonut(
                           label: S.of(context).protein,
-                          value: widget.protein,
-                          goal: widget.proteinGoal,
+                          value: protein,
+                          goal: proteinGoal,
                           color: context.customAppColors.secondary300,
                           icon: Icons.egg_alt_rounded,
                         ),
                         SizedBox(height: 12.h),
                         MacroMiniDonut(
                           label: S.of(context).carbs,
-                          value: widget.carbs,
-                          goal: widget.carbsGoal,
+                          value: carbs,
+                          goal: carbsGoal,
                           color: context.customAppColors.warning500,
                           icon: Icons.grain_rounded,
                         ),
                         SizedBox(height: 12.h),
                         MacroMiniDonut(
                           label: S.of(context).fat,
-                          value: widget.fat,
-                          goal: widget.fatGoal,
+                          value: fat,
+                          goal: fatGoal,
                           color: context.customAppColors.accent700,
                           icon: Icons.water_drop_rounded,
                         ),

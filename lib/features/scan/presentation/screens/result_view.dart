@@ -1,46 +1,81 @@
+import 'dart:typed_data';
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nutri_mind/core/common/models/app_models.dart';
 import 'package:nutri_mind/core/common/widgets/shared_widgets.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
-import 'package:nutri_mind/core/utils/common_imports.dart';
-import 'package:nutri_mind/features/scan/presentation/widgets/nutrient_pill.dart';
+import 'package:nutri_mind/features/scan/data/models/meal_analysis_result.dart';
 import 'package:nutri_mind/generated/l10n.dart';
 
 class ResultView extends StatelessWidget {
+  final MealAnalysisResult analysis;
+  final MealType mealType;
+  final Uint8List imageBytes;
+  final bool isSaving;
   final VoidCallback onReset;
-  const ResultView({super.key, required this.onReset});
+  final VoidCallback onSave;
+
+  const ResultView({
+    super.key,
+    required this.analysis,
+    required this.mealType,
+    required this.imageBytes,
+    required this.isSaving,
+    required this.onReset,
+    required this.onSave,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
-    const calories = 480;
-    const protein = 28;
-    const carbs = 52;
-    const fat = 16;
-
     return ListView(
       padding: EdgeInsets.fromLTRB(20.w, 10.h, 20.w, 40.h),
       children: [
         FadeInDown(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(24.r),
-            child: Container(
+            child: Image.memory(
+              imageBytes,
               height: 200.h,
               width: double.infinity,
-              color: context.customAppColors.neutral100.withValues(alpha: 0.5),
-              child: Icon(
-                Icons.set_meal_rounded,
-                size: 70.sp,
-                color: context.customAppColors.neutral500,
-              ),
+              fit: BoxFit.cover,
             ),
           ),
         ),
-        SizedBox(height: 20.h),
+        SizedBox(height: 16.h),
+        FadeInUp(
+          delay: const Duration(milliseconds: 80),
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+            decoration: BoxDecoration(
+              color: context.customAppColors.primary100,
+              borderRadius: BorderRadius.circular(10.r),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  mealType.icon,
+                  size: 14.sp,
+                  color: context.customAppColors.primary700,
+                ),
+                SizedBox(width: 6.w),
+                Text(
+                  mealType.label(context),
+                  style: AppTextStyles.font12SemiBold.copyWith(
+                    color: context.customAppColors.primary700,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: 12.h),
         FadeInUp(
           delay: const Duration(milliseconds: 100),
           child: Text(
-            s.scanResultMealName,
+            analysis.name,
             style: AppTextStyles.font18Bold.copyWith(
               color: context.customAppColors.neutral900,
             ),
@@ -50,9 +85,9 @@ class ResultView extends StatelessWidget {
         FadeInUp(
           delay: const Duration(milliseconds: 150),
           child: Text(
-            s.scanResultEstimateNote,
+            S.of(context).approxEstimateNote,
             style: AppTextStyles.font12Regular.copyWith(
-              color: context.customAppColors.neutral700,
+              color: context.customAppColors.grey600,
             ),
           ),
         ),
@@ -66,13 +101,13 @@ class ResultView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      s.scanCaloriesLabel,
+                      S.of(context).caloriesUnit,
                       style: AppTextStyles.font14SemiBold.copyWith(
                         color: context.customAppColors.neutral800,
                       ),
                     ),
                     Text(
-                      s.scanCaloriesValue(calories),
+                      '${analysis.calories}',
                       style: AppTextStyles.font18Bold.copyWith(
                         color: context.customAppColors.primary700,
                       ),
@@ -83,25 +118,25 @@ class ResultView extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                      child: NutrientPill(
-                        label: s.scanProteinLabel,
-                        value: protein,
+                      child: _NutrientPill(
+                        label: S.of(context).protein,
+                        value: analysis.protein,
                         color: context.customAppColors.info700,
                       ),
                     ),
                     SizedBox(width: 10.w),
                     Expanded(
-                      child: NutrientPill(
-                        label: s.scanCarbsLabel,
-                        value: carbs,
+                      child: _NutrientPill(
+                        label: S.of(context).carbs,
+                        value: analysis.carbs,
                         color: context.customAppColors.warning500,
                       ),
                     ),
                     SizedBox(width: 10.w),
                     Expanded(
-                      child: NutrientPill(
-                        label: s.scanFatLabel,
-                        value: fat,
+                      child: _NutrientPill(
+                        label: S.of(context).fat,
+                        value: analysis.fat,
                         color: context.customAppColors.accent700,
                       ),
                     ),
@@ -118,7 +153,7 @@ class ResultView extends StatelessWidget {
             children: [
               Expanded(
                 child: OutlinedButton(
-                  onPressed: onReset,
+                  onPressed: isSaving ? null : onReset,
                   style: OutlinedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 16.h),
                     side: BorderSide(color: context.customAppColors.grey300),
@@ -127,9 +162,9 @@ class ResultView extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    s.scanRetryButton,
+                    S.of(context).retryButton,
                     style: AppTextStyles.font14SemiBold.copyWith(
-                      color: context.customAppColors.neutral700,
+                      color: context.customAppColors.grey700,
                     ),
                   ),
                 ),
@@ -138,7 +173,7 @@ class ResultView extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: isSaving ? null : onSave,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: context.customAppColors.primary500,
                     padding: EdgeInsets.symmetric(vertical: 16.h),
@@ -147,18 +182,66 @@ class ResultView extends StatelessWidget {
                     ),
                     elevation: 0,
                   ),
-                  child: Text(
-                    s.scanSaveButton,
-                    style: AppTextStyles.font14Bold.copyWith(
-                      color: context.customAppColors.white,
-                    ),
-                  ),
+                  child: isSaving
+                      ? SizedBox(
+                          height: 18.h,
+                          width: 18.h,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2.2,
+                            valueColor: AlwaysStoppedAnimation(
+                              context.customAppColors.white,
+                            ),
+                          ),
+                        )
+                      : Text(
+                          S.of(context).saveMealButton,
+                          style: AppTextStyles.font14Bold.copyWith(
+                            color: context.customAppColors.white,
+                          ),
+                        ),
                 ),
               ),
             ],
           ),
         ),
       ],
+    );
+  }
+}
+
+class _NutrientPill extends StatelessWidget {
+  final String label;
+  final int value;
+  final Color color;
+  const _NutrientPill({
+    required this.label,
+    required this.value,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 12.h),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(14.r),
+      ),
+      child: Column(
+        children: [
+          Text(
+            '${value}g',
+            style: AppTextStyles.font16Bold.copyWith(color: color),
+          ),
+          SizedBox(height: 4.h),
+          Text(
+            label,
+            style: AppTextStyles.font12Regular.copyWith(
+              color: context.customAppColors.grey700,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

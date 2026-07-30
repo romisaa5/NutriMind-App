@@ -7,8 +7,11 @@ import 'package:nutri_mind/core/helpers/secure_storage_helper.dart';
 import 'package:nutri_mind/core/helpers/shared_pref_helper.dart';
 import 'package:nutri_mind/core/services/firebase/firebase_auth_service.dart';
 import 'package:nutri_mind/core/services/firebase/firestore_service.dart';
+import 'package:nutri_mind/core/services/gemini/gemini_nutrition_service.dart';
 import 'package:nutri_mind/features/auth/data/repos/auth_repository.dart';
 import 'package:nutri_mind/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:nutri_mind/features/scan/data/repos/meal_repository.dart';
+import 'package:nutri_mind/features/scan/data/repos/meal_repository_impl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
@@ -42,4 +45,14 @@ Future<void> initServiceLocator() async {
   );
 
   getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt()));
+  getIt.registerLazySingleton<MealRepository>(
+    () => MealRepositoryImpl(getIt<FirestoreService>()),
+  );
+
+  getIt.registerLazySingleton<GroqNutritionService>(
+    () => GroqNutritionService(
+      apiKey: GroqConfig.apiKey,
+      model: GroqConfig.model,
+    ),
+  );
 }

@@ -1,5 +1,7 @@
-abstract final class FirestoreCollections {
-  static const String users = "users";
-  static const String meals = "meals";
-  static const String history = "history";
+class FirestoreCollections {
+  const FirestoreCollections._();
+  static const String users = 'users';
+  static String userMeals(String uid) => '$users/$uid/meals';
+  static String userChats(String uid) => '$users/$uid/chats';
+  static String userWeeklyStats(String uid) => '$users/$uid/weekly_stats';
 }

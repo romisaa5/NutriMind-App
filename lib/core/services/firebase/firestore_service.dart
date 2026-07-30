@@ -1,54 +1,113 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../error/failures.dart';
+import '../../utils/app_result.dart';
 
 class FirestoreService {
-  final FirebaseFirestore firestore;
+  final FirebaseFirestore _firestore;
+  FirestoreService(this._firestore);
 
-  FirestoreService(this.firestore);
+  CollectionReference<Map<String, dynamic>> collection(String path) =>
+      _firestore.collection(path);
+  Future<AppResult<void>> setDoc({
+    required String path,
+    required String docId,
+    required Map<String, dynamic> data,
+    bool merge = true,
+  }) async {
+    try {
+      await _firestore
+          .collection(path)
+          .doc(docId)
+          .set(data, SetOptions(merge: merge));
+      return const ResultSuccess(null);
+    } on FirebaseException catch (e) {
+      return ResultError(
+        FirestoreFailure(e.message ?? 'حصل خطأ أثناء حفظ البيانات'),
+      );
+    } catch (_) {
+      return const ResultError(UnknownFailure('حصل خطأ غير متوقع'));
+    }
+  }
 
-  Future<void> set({
-    required String collection,
-    required String documentId,
+  Future<AppResult<String>> addDoc({
+    required String path,
     required Map<String, dynamic> data,
   }) async {
-    await firestore.collection(collection).doc(documentId).set(data);
+    try {
+      final ref = await _firestore.collection(path).add(data);
+      return ResultSuccess(ref.id);
+    } on FirebaseException catch (e) {
+      return ResultError(
+        FirestoreFailure(e.message ?? 'حصل خطأ أثناء إضافة البيانات'),
+      );
+    } catch (_) {
+      return const ResultError(UnknownFailure('حصل خطأ غير متوقع'));
+    }
   }
 
-  Future<void> update({
-    required String collection,
-    required String documentId,
+  Future<AppResult<void>> updateDoc({
+    required String path,
+    required String docId,
     required Map<String, dynamic> data,
   }) async {
-    await firestore.collection(collection).doc(documentId).update(data);
+    try {
+      await _firestore.collection(path).doc(docId).update(data);
+      return const ResultSuccess(null);
+    } on FirebaseException catch (e) {
+      return ResultError(
+        FirestoreFailure(e.message ?? 'حصل خطأ أثناء تعديل البيانات'),
+      );
+    } catch (_) {
+      return const ResultError(UnknownFailure('حصل خطأ غير متوقع'));
+    }
   }
 
-  Future<void> delete({
-    required String collection,
-    required String documentId,
+  Future<AppResult<void>> deleteDoc({
+    required String path,
+    required String docId,
   }) async {
-    await firestore.collection(collection).doc(documentId).delete();
+    try {
+      await _firestore.collection(path).doc(docId).delete();
+      return const ResultSuccess(null);
+    } on FirebaseException catch (e) {
+      return ResultError(
+        FirestoreFailure(e.message ?? 'حصل خطأ أثناء حذف البيانات'),
+      );
+    } catch (_) {
+      return const ResultError(UnknownFailure('حصل خطأ غير متوقع'));
+    }
   }
 
-  Future<DocumentSnapshot<Map<String, dynamic>>> getDocument({
-    required String collection,
-    required String documentId,
+  Future<AppResult<T?>> getDoc<T>({
+    required String path,
+    required String docId,
+    required T Function(Map<String, dynamic> data, String id) fromJson,
+  }) async {
+    try {
+      final snap = await _firestore.collection(path).doc(docId).get();
+      if (!snap.exists || snap.data() == null) return const ResultSuccess(null);
+      return ResultSuccess(fromJson(snap.data()!, snap.id));
+    } on FirebaseException catch (e) {
+      return ResultError(
+        FirestoreFailure(e.message ?? 'حصل خطأ أثناء جلب البيانات'),
+      );
+    } catch (_) {
+      return const ResultError(UnknownFailure('حصل خطأ غير متوقع'));
+    }
+  }
+
+  Stream<List<T>> streamCollection<T>({
+    required String path,
+    required T Function(Map<String, dynamic> data, String id) fromJson,
+    Query<Map<String, dynamic>> Function(Query<Map<String, dynamic>> query)?
+    queryBuilder,
   }) {
-    return firestore.collection(collection).doc(documentId).get();
-  }
+    Query<Map<String, dynamic>> query = _firestore.collection(path);
+    if (queryBuilder != null) query = queryBuilder(query);
 
-  Future<QuerySnapshot<Map<String, dynamic>>> getCollection(String collection) {
-    return firestore.collection(collection).get();
-  }
-
-  Stream<DocumentSnapshot<Map<String, dynamic>>> streamDocument({
-    required String collection,
-    required String documentId,
-  }) {
-    return firestore.collection(collection).doc(documentId).snapshots();
-  }
-
-  Stream<QuerySnapshot<Map<String, dynamic>>> streamCollection(
-    String collection,
-  ) {
-    return firestore.collection(collection).snapshots();
+    return query.snapshots().map(
+      (snapshot) =>
+          snapshot.docs.map((doc) => fromJson(doc.data(), doc.id)).toList(),
+    );
   }
 }

@@ -34,6 +34,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       " هل لديك حساب بالفعل؟",
     ),
+    "analyzingMessage": MessageLookupByLibrary.simpleMessage(
+      "بنحلل الوجبة دلوقتي...",
+    ),
+    "analyzingSubtitle": MessageLookupByLibrary.simpleMessage(
+      "ثواني وهتلاقي القيم الغذائية",
+    ),
+    "approxEstimateNote": MessageLookupByLibrary.simpleMessage(
+      "تقدير تقريبي بناءً على الصورة",
+    ),
     "avoidScreensBeforeBed": MessageLookupByLibrary.simpleMessage(
       "ابعدي عن الشاشات قبل النوم",
     ),
@@ -46,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "caloriesUnit": MessageLookupByLibrary.simpleMessage("سعر حراري"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "carbs": MessageLookupByLibrary.simpleMessage("الكربوهيدرات"),
+    "changeMealType": MessageLookupByLibrary.simpleMessage("تغيير نوع الوجبة"),
     "chat": MessageLookupByLibrary.simpleMessage("الدردشة"),
     "chat_answer_intro": MessageLookupByLibrary.simpleMessage(
       "إليك بعض الوجبات\nالخفيفة الصحية الغنية بالبروتين:",
@@ -75,6 +85,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "chatbotWelcomeMessage": MessageLookupByLibrary.simpleMessage(
       "أهلاً بيكي 🌱 أنا هنا أساعدك في أي سؤال عن أكلك أو حالتك النفسية اليوم. اسأليني براحتك.",
+    ),
+    "chooseFromGallery": MessageLookupByLibrary.simpleMessage(
+      "اختاري من المعرض",
+    ),
+    "chooseMealTypeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "عشان نصنف الوجبة صح في السجل بتاعك",
+    ),
+    "chooseMealTypeTitle": MessageLookupByLibrary.simpleMessage(
+      "اختاري نوع الوجبة",
     ),
     "consistentSleepSchedule": MessageLookupByLibrary.simpleMessage(
       "حافظي على معاد نوم ثابت",
@@ -112,7 +131,69 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerified": MessageLookupByLibrary.simpleMessage(
       "تم التحقق من البريد الإلكتروني بنجاح",
     ),
+    "errorAnalysis": MessageLookupByLibrary.simpleMessage(
+      "حصل خطأ أثناء تحليل الصورة",
+    ),
+    "errorDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
+      "حصل خطأ أثناء حذف الحساب",
+    ),
+    "errorEmailAlreadyInUse": MessageLookupByLibrary.simpleMessage(
+      "الإيميل ده مستخدم قبل كده",
+    ),
+    "errorEmptyAnalysisResponse": MessageLookupByLibrary.simpleMessage(
+      "معرفناش نحلل الصورة، جربي تاني بصورة أوضح",
+    ),
+    "errorEmptyImage": MessageLookupByLibrary.simpleMessage(
+      "الصورة مش واضحة، جربي تاني",
+    ),
+    "errorFirestoreAdd": MessageLookupByLibrary.simpleMessage(
+      "حصل خطأ أثناء إضافة البيانات",
+    ),
+    "errorFirestoreDelete": MessageLookupByLibrary.simpleMessage(
+      "حصل خطأ أثناء حذف البيانات",
+    ),
+    "errorFirestoreFetch": MessageLookupByLibrary.simpleMessage(
+      "حصل خطأ أثناء جلب البيانات",
+    ),
+    "errorFirestoreSave": MessageLookupByLibrary.simpleMessage(
+      "حصل خطأ أثناء حفظ البيانات",
+    ),
+    "errorFirestoreUpdate": MessageLookupByLibrary.simpleMessage(
+      "حصل خطأ أثناء تعديل البيانات",
+    ),
+    "errorInvalidAnalysisFormat": MessageLookupByLibrary.simpleMessage(
+      "الرد جالنا بصيغة غير متوقعة، جربي تاني",
+    ),
+    "errorInvalidEmail": MessageLookupByLibrary.simpleMessage(
+      "صيغة الإيميل مش صحيحة",
+    ),
+    "errorLogoutFailed": MessageLookupByLibrary.simpleMessage(
+      "حصل خطأ أثناء تسجيل الخروج",
+    ),
+    "errorNetwork": MessageLookupByLibrary.simpleMessage(
+      "تأكدي إنك متصلة بالإنترنت",
+    ),
+    "errorRequiresRecentLogin": MessageLookupByLibrary.simpleMessage(
+      "محتاجة تسجلي دخول تاني قبل العملية دي",
+    ),
+    "errorTooManyRequests": MessageLookupByLibrary.simpleMessage(
+      "محاولات كتير، حاولي تاني بعد شوية",
+    ),
+    "errorUnknown": MessageLookupByLibrary.simpleMessage("حصل خطأ، حاولي تاني"),
+    "errorUserDisabled": MessageLookupByLibrary.simpleMessage(
+      "الحساب ده متوقف حاليًا",
+    ),
+    "errorVerificationEmailFailed": MessageLookupByLibrary.simpleMessage(
+      "حصل خطأ أثناء إرسال رسالة التفعيل",
+    ),
+    "errorWeakPassword": MessageLookupByLibrary.simpleMessage(
+      "كلمة السر ضعيفة، جربي كلمة أقوى",
+    ),
+    "errorWrongCredentials": MessageLookupByLibrary.simpleMessage(
+      "الإيميل أو كلمة السر غلط",
+    ),
     "fat": MessageLookupByLibrary.simpleMessage("الدهون"),
+    "fiber": MessageLookupByLibrary.simpleMessage("الألياف"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
     "forgotPasswordHeader": MessageLookupByLibrary.simpleMessage(
       "نسيت كلمة المرور",
@@ -142,9 +223,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل أنت متأكد أنك تريد تسجيل الخروج؟",
     ),
     "mealBreakfast": MessageLookupByLibrary.simpleMessage("فطار"),
+    "mealDetailsAdviceTitle": MessageLookupByLibrary.simpleMessage("نصايح"),
+    "mealDetailsMoreInfo": MessageLookupByLibrary.simpleMessage("معلومات أكتر"),
     "mealDinner": MessageLookupByLibrary.simpleMessage("عشاء"),
     "mealLunch": MessageLookupByLibrary.simpleMessage("غداء"),
+    "mealSavedSuccess": MessageLookupByLibrary.simpleMessage(
+      "تم حفظ الوجبة بنجاح",
+    ),
     "mentalCategory": MessageLookupByLibrary.simpleMessage("نفسية"),
+    "mustBeLoggedIn": MessageLookupByLibrary.simpleMessage(
+      "لازم تسجلي دخول الأول",
+    ),
     "name": MessageLookupByLibrary.simpleMessage("الاسم"),
     "newDayNewStep": MessageLookupByLibrary.simpleMessage(
       "يوم جديد، خطوة جديدة نحو صحتك",
@@ -213,6 +302,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "resendVerificationEmail": MessageLookupByLibrary.simpleMessage(
       "إعادة إرسال بريد التحقق",
     ),
+    "retryButton": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
+    "saveMealButton": MessageLookupByLibrary.simpleMessage("حفظ الوجبة"),
+    "savingButton": MessageLookupByLibrary.simpleMessage("بيتم الحفظ..."),
     "scan": MessageLookupByLibrary.simpleMessage("المسح"),
     "scanAiBadge": MessageLookupByLibrary.simpleMessage(
       "بيتحلل بالذكاء الاصطناعي",
@@ -227,6 +319,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "السعرات الحرارية",
     ),
     "scanCaloriesValue": m2,
+    "scanCaptureHint": MessageLookupByLibrary.simpleMessage(
+      "التقطي صورة للوجبة عشان نحسبلك السعرات والبروتين والكارب أوتوماتيك",
+    ),
     "scanCarbsLabel": MessageLookupByLibrary.simpleMessage("كارب"),
     "scanFatLabel": MessageLookupByLibrary.simpleMessage("دهون"),
     "scanGramValue": m3,
@@ -276,6 +371,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "snack_protein_smoothie": MessageLookupByLibrary.simpleMessage(
       "سموثي بروتين",
     ),
+    "sodium": MessageLookupByLibrary.simpleMessage("الصوديوم"),
     "sportCategory": MessageLookupByLibrary.simpleMessage("رياضة"),
     "spreadProtein": MessageLookupByLibrary.simpleMessage(
       "وزعي البروتين على وجباتك",
@@ -293,10 +389,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "stretchDailyDesc": MessageLookupByLibrary.simpleMessage(
       "كام دقيقة مطّ بتحسن مرونة جسمك وتقلل شد العضلات",
     ),
+    "sugar": MessageLookupByLibrary.simpleMessage("السكر"),
     "takeBreaks": MessageLookupByLibrary.simpleMessage("خدي بريكات قصيرة"),
     "takeBreaksDesc": MessageLookupByLibrary.simpleMessage(
       "وقفة ٥ دقايق كل ساعة بتساعدك تركزي أكتر وتقللي التوتر",
     ),
+    "takePhoto": MessageLookupByLibrary.simpleMessage("التقطي صورة"),
     "tips": MessageLookupByLibrary.simpleMessage("النصائح"),
     "tipsSubtitle": MessageLookupByLibrary.simpleMessage(
       "حاجات بسيطة تفرق معاكي كل يوم",
