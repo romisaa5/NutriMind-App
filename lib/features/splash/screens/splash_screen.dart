@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:nutri_mind/core/common/widgets/app_images.dart';
+import 'package:nutri_mind/core/helpers/shared_pref_helper.dart';
 import 'package:nutri_mind/core/routing/routes.dart';
 import 'package:nutri_mind/core/theme/app_colors/light_app_colors.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
@@ -16,6 +18,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   static const _splashDuration = Duration(seconds: 4);
+  static const String _onboardingSeenKey = 'has_seen_onboarding';
 
   @override
   void initState() {
@@ -23,9 +26,20 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(_splashDuration, _goNext);
   }
 
-  void _goNext() {
+  Future<void> _goNext() async {
     if (!mounted) return;
-    GoRouter.of(context).go(Routes.onboardingScreen);
+
+    final firebaseUser = FirebaseAuth.instance.currentUser;
+    final hasSeenOnboarding =
+        SharedPrefHelper.getBool(key: _onboardingSeenKey) ?? false;
+    if (!mounted) return;
+    if (firebaseUser != null) {
+      GoRouter.of(context).go(Routes.mainNavScreen);
+    } else if (hasSeenOnboarding) {
+      GoRouter.of(context).go(Routes.loginScreen);
+    } else {
+      GoRouter.of(context).go(Routes.onboardingScreen);
+    }
   }
 
   @override

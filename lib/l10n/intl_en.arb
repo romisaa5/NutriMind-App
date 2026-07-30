@@ -163,5 +163,15 @@
     "smallStepsCountDesc": "Consistent small changes lead to lasting results more than drastic ones.",
     "sleepCategory": "Sleep",
     "habitsCategory": "Habits",
-    "noTipsInCategory": "No tips in this category yet"
+    "noTipsInCategory": "No tips in this category yet",
+    "name": "Name",
+    "verificationEmailSent": "Verification email sent",
+    "emailVerified": "Email verified successfully",
+    "verifyEmailHeader": "Verify Your Email",
+    "verifyEmailMessage": "A verification email has been sent to your email address. Please check your inbox and click the link to verify your email.",
+    "resendVerificationEmail": "Resend Verification Email",
+    "backToLogin": "Back to Login",
+    "cancel": "Cancel",
+    "logoutConfirmTitle": "Are you sure you want to log out?",
+    "logoutConfirmMessage": "You will need to log in again to access your account."
 }

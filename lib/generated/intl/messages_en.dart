@@ -41,9 +41,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "avoidScreensBeforeBedDesc": MessageLookupByLibrary.simpleMessage(
       "Put your phone away 30 minutes before sleeping to fall asleep faster.",
     ),
+    "backToLogin": MessageLookupByLibrary.simpleMessage("Back to Login"),
     "calories": MessageLookupByLibrary.simpleMessage("Calories"),
     "caloriesTooltip": m0,
     "caloriesUnit": MessageLookupByLibrary.simpleMessage("kcal"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "carbs": MessageLookupByLibrary.simpleMessage("Carbs"),
     "chat": MessageLookupByLibrary.simpleMessage("Chat"),
     "chat_answer_intro": MessageLookupByLibrary.simpleMessage(
@@ -116,6 +118,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Aim to fill half your plate with vegetables at each meal for more fiber and nutrients.",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailVerified": MessageLookupByLibrary.simpleMessage(
+      "Email verified successfully",
+    ),
     "fat": MessageLookupByLibrary.simpleMessage("Fat"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "forgotPasswordHeader": MessageLookupByLibrary.simpleMessage(
@@ -139,10 +144,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginMessage": MessageLookupByLibrary.simpleMessage(
       "Please enter your email and password to login",
     ),
+    "logoutConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "You will need to log in again to access your account.",
+    ),
+    "logoutConfirmTitle": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to log out?",
+    ),
     "mealBreakfast": MessageLookupByLibrary.simpleMessage("Breakfast"),
     "mealDinner": MessageLookupByLibrary.simpleMessage("Dinner"),
     "mealLunch": MessageLookupByLibrary.simpleMessage("Lunch"),
     "mentalCategory": MessageLookupByLibrary.simpleMessage("Mental Health"),
+    "name": MessageLookupByLibrary.simpleMessage("Name"),
     "newDayNewStep": MessageLookupByLibrary.simpleMessage(
       "A new day, a new step towards your health",
     ),
@@ -205,6 +217,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "profileTitle": MessageLookupByLibrary.simpleMessage("Profile"),
     "protein": MessageLookupByLibrary.simpleMessage("Protein"),
     "remainingCaloriesMessage": m1,
+    "resendVerificationEmail": MessageLookupByLibrary.simpleMessage(
+      "Resend Verification Email",
+    ),
     "scan": MessageLookupByLibrary.simpleMessage("Scan"),
     "scanAiBadge": MessageLookupByLibrary.simpleMessage("Analyzing with AI"),
     "scanAnalyzingSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -297,6 +312,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "trackYourMeals": MessageLookupByLibrary.simpleMessage("Track your meals"),
     "trackYourMealsDesc": MessageLookupByLibrary.simpleMessage(
       "Logging what you eat builds awareness and makes healthy choices easier.",
+    ),
+    "verificationEmailSent": MessageLookupByLibrary.simpleMessage(
+      "Verification email sent",
+    ),
+    "verifyEmailHeader": MessageLookupByLibrary.simpleMessage(
+      "Verify Your Email",
+    ),
+    "verifyEmailMessage": MessageLookupByLibrary.simpleMessage(
+      "A verification email has been sent to your email address. Please check your inbox and click the link to verify your email.",
     ),
     "weeklyOverview": MessageLookupByLibrary.simpleMessage("Weekly Overview"),
   };

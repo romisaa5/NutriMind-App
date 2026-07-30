@@ -1213,6 +1213,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Name`
+  String get name {
+    return Intl.message('Name', name: 'name', desc: '', args: []);
+  }
+
+  /// `Verification email sent`
+  String get verificationEmailSent {
+    return Intl.message(
+      'Verification email sent',
+      name: 'verificationEmailSent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email verified successfully`
+  String get emailVerified {
+    return Intl.message(
+      'Email verified successfully',
+      name: 'emailVerified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify Your Email`
+  String get verifyEmailHeader {
+    return Intl.message(
+      'Verify Your Email',
+      name: 'verifyEmailHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A verification email has been sent to your email address. Please check your inbox and click the link to verify your email.`
+  String get verifyEmailMessage {
+    return Intl.message(
+      'A verification email has been sent to your email address. Please check your inbox and click the link to verify your email.',
+      name: 'verifyEmailMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend Verification Email`
+  String get resendVerificationEmail {
+    return Intl.message(
+      'Resend Verification Email',
+      name: 'resendVerificationEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back to Login`
+  String get backToLogin {
+    return Intl.message(
+      'Back to Login',
+      name: 'backToLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Are you sure you want to log out?`
+  String get logoutConfirmTitle {
+    return Intl.message(
+      'Are you sure you want to log out?',
+      name: 'logoutConfirmTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You will need to log in again to access your account.`
+  String get logoutConfirmMessage {
+    return Intl.message(
+      'You will need to log in again to access your account.',
+      name: 'logoutConfirmMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

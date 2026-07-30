@@ -38,6 +38,7 @@ class AuthCubit extends Cubit<AuthState> {
 
     switch (result) {
       case Success():
+        await repository.sendVerificationEmail();
         emit(AuthSuccess(result.data));
 
       case Error():

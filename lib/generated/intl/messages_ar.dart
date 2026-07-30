@@ -40,9 +40,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "avoidScreensBeforeBedDesc": MessageLookupByLibrary.simpleMessage(
       "سيبي الموبايل ٣٠ دقيقة قبل النوم عشان تنامي أسرع",
     ),
+    "backToLogin": MessageLookupByLibrary.simpleMessage("العودة لتسجيل الدخول"),
     "calories": MessageLookupByLibrary.simpleMessage("السعرات"),
     "caloriesTooltip": m0,
     "caloriesUnit": MessageLookupByLibrary.simpleMessage("سعر حراري"),
+    "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "carbs": MessageLookupByLibrary.simpleMessage("الكربوهيدرات"),
     "chat": MessageLookupByLibrary.simpleMessage("الدردشة"),
     "chat_answer_intro": MessageLookupByLibrary.simpleMessage(
@@ -107,6 +109,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "حاولي نص طبقك يبقى خضار في كل وجبة عشان تاخدي ألياف وفيتامينات أكتر",
     ),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "emailVerified": MessageLookupByLibrary.simpleMessage(
+      "تم التحقق من البريد الإلكتروني بنجاح",
+    ),
     "fat": MessageLookupByLibrary.simpleMessage("الدهون"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
     "forgotPasswordHeader": MessageLookupByLibrary.simpleMessage(
@@ -130,10 +135,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginMessage": MessageLookupByLibrary.simpleMessage(
       "الرجاء إدخال بريدك الإلكتروني وكلمة المرور لتسجيل الدخول",
     ),
+    "logoutConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "ستحتاج إلى تسجيل الدخول مرة أخرى للوصول إلى حسابك.",
+    ),
+    "logoutConfirmTitle": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    ),
     "mealBreakfast": MessageLookupByLibrary.simpleMessage("فطار"),
     "mealDinner": MessageLookupByLibrary.simpleMessage("عشاء"),
     "mealLunch": MessageLookupByLibrary.simpleMessage("غداء"),
     "mentalCategory": MessageLookupByLibrary.simpleMessage("نفسية"),
+    "name": MessageLookupByLibrary.simpleMessage("الاسم"),
     "newDayNewStep": MessageLookupByLibrary.simpleMessage(
       "يوم جديد، خطوة جديدة نحو صحتك",
     ),
@@ -198,6 +210,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "profileTitle": MessageLookupByLibrary.simpleMessage("البروفايل"),
     "protein": MessageLookupByLibrary.simpleMessage("البروتين"),
     "remainingCaloriesMessage": m1,
+    "resendVerificationEmail": MessageLookupByLibrary.simpleMessage(
+      "إعادة إرسال بريد التحقق",
+    ),
     "scan": MessageLookupByLibrary.simpleMessage("المسح"),
     "scanAiBadge": MessageLookupByLibrary.simpleMessage(
       "بيتحلل بالذكاء الاصطناعي",
@@ -294,6 +309,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "trackYourMeals": MessageLookupByLibrary.simpleMessage("سجّلي وجباتك"),
     "trackYourMealsDesc": MessageLookupByLibrary.simpleMessage(
       "تسجيل اللي بتاكليه بيخلّيكي واعية أكتر وبيسهّل الاختيارات الصحية",
+    ),
+    "verificationEmailSent": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال بريد التحقق",
+    ),
+    "verifyEmailHeader": MessageLookupByLibrary.simpleMessage(
+      "تحقق من بريدك الإلكتروني",
+    ),
+    "verifyEmailMessage": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال بريد تحقق إلى عنوان بريدك الإلكتروني. يرجى التحقق من صندوق الوارد الخاص بك والنقر على الرابط للتحقق من بريدك الإلكتروني.",
     ),
     "weeklyOverview": MessageLookupByLibrary.simpleMessage("نظرة على الأسبوع"),
   };

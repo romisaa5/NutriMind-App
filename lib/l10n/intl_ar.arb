@@ -163,5 +163,15 @@
     "smallStepsCountDesc": "التغييرات الصغيرة الثابتة بتدي نتيجة أطول من التغييرات الجذرية المفاجئة",
     "sleepCategory": "النوم",
     "habitsCategory": "العادات",
-    "noTipsInCategory": "لسه مفيش نصايح في القسم ده"
+    "noTipsInCategory": "لسه مفيش نصايح في القسم ده",
+    "name": "الاسم",
+    "verificationEmailSent": "تم إرسال بريد التحقق",
+    "emailVerified": "تم التحقق من البريد الإلكتروني بنجاح",
+    "verifyEmailHeader": "تحقق من بريدك الإلكتروني",
+    "verifyEmailMessage": "تم إرسال بريد تحقق إلى عنوان بريدك الإلكتروني. يرجى التحقق من صندوق الوارد الخاص بك والنقر على الرابط للتحقق من بريدك الإلكتروني.",
+    "resendVerificationEmail": "إعادة إرسال بريد التحقق",
+    "backToLogin": "العودة لتسجيل الدخول",
+    "cancel": "إلغاء",
+    "logoutConfirmTitle": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "logoutConfirmMessage": "ستحتاج إلى تسجيل الدخول مرة أخرى للوصول إلى حسابك."
 }

@@ -1,4 +1,5 @@
 import 'package:nutri_mind/core/common/widgets/custom_button.dart';
+import 'package:nutri_mind/core/helpers/shared_pref_helper.dart';
 import 'package:nutri_mind/core/routing/routes.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
 import 'package:nutri_mind/features/onboarding/widgets/onboarding_header.dart';
@@ -93,6 +94,10 @@ class OnboardingPage3 extends StatelessWidget {
               padding: EdgeInsets.all(16.w),
               child: CustomButton(
                 onTap: () {
+                  SharedPrefHelper.setData(
+                    key: 'has_seen_onboarding',
+                    value: true,
+                  );
                   GoRouter.of(context).go(Routes.loginScreen);
                 },
                 text: S.of(context).get_started,
