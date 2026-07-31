@@ -62,7 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthError) {
-          _showTopBar(message: state.message, isError: true);
+          _showTopBar(message: state.failure.debugMessage ?? '', isError: true);
         } else if (state is AuthSuccess) {
           _showTopBar(message: S.of(context).signUp, isError: false);
           GoRouter.of(context).go(Routes.verifyEmailScreen);

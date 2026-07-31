@@ -9,6 +9,7 @@ import 'package:nutri_mind/features/auth/presentation/screens/register_screen.da
 import 'package:nutri_mind/features/auth/presentation/screens/verify_email_screen.dart';
 import 'package:nutri_mind/features/nav_bar/main_nav_screen.dart';
 import 'package:nutri_mind/features/onboarding/screens/onboarding_screen.dart';
+import 'package:nutri_mind/features/profile/presentation/screens/about_screen.dart';
 import 'package:nutri_mind/features/splash/screens/splash_screen.dart';
 
 abstract class AppRouter {
@@ -55,6 +56,10 @@ abstract class AppRouter {
               builder: (context, state) => const MainNavScreen(),
             ),
           ],
+        ),
+        GoRoute(
+          path: Routes.aboutScreen,
+          builder: (context, state) => const AboutScreen(),
         ),
       ],
     );

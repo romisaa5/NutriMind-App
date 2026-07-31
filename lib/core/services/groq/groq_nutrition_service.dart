@@ -19,7 +19,7 @@ class GroqNutritionService {
     required MealType mealType,
   }) async {
     if (imageBytes.isEmpty) {
-      return const ResultError(UnknownFailure('الصورة مش واضحة، جربي تاني'));
+      return const Err(UnknownFailure('الصورة مش واضحة، جربي تاني'));
     }
 
     try {
@@ -56,7 +56,7 @@ class GroqNutritionService {
           .timeout(const Duration(seconds: 40));
 
       if (response.statusCode != 200) {
-        return ResultError(
+        return Err(
           UnknownFailure(
             'حصل خطأ من السيرفر (${response.statusCode}): ${response.body}',
           ),
@@ -67,21 +67,21 @@ class GroqNutritionService {
       final rawText = decoded['choices']?[0]?['message']?['content'] as String?;
 
       if (rawText == null || rawText.trim().isEmpty) {
-        return const ResultError(
+        return const Err(
           UnknownFailure('معرفناش نحلل الصورة، جربي تاني بصورة أوضح'),
         );
       }
 
       final jsonMap = _extractJson(rawText);
       if (jsonMap == null) {
-        return const ResultError(
+        return const Err(
           UnknownFailure('الرد جالنا بصيغة غير متوقعة، جربي تاني'),
         );
       }
 
-      return ResultSuccess(MealAnalysisResult.fromJson(jsonMap));
+      return Success(MealAnalysisResult.fromJson(jsonMap));
     } catch (e) {
-      return ResultError(UnknownFailure('حصل خطأ أثناء تحليل الصورة: $e'));
+      return Err(UnknownFailure('حصل خطأ أثناء تحليل الصورة: $e'));
     }
   }
 

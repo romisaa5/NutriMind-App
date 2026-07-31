@@ -8,9 +8,11 @@ import 'package:nutri_mind/core/helpers/secure_storage_helper.dart';
 import 'package:nutri_mind/core/helpers/shared_pref_helper.dart';
 import 'package:nutri_mind/core/services/firebase/firebase_auth_service.dart';
 import 'package:nutri_mind/core/services/firebase/firestore_service.dart';
-import 'package:nutri_mind/core/services/gemini/groq_nutrition_service.dart';
+import 'package:nutri_mind/core/services/groq/groq_chat_service.dart';
+import 'package:nutri_mind/core/services/groq/groq_nutrition_service.dart';
 import 'package:nutri_mind/features/auth/data/repos/auth_repository.dart';
 import 'package:nutri_mind/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:nutri_mind/features/chatbot/data/repo/chat_repository.dart';
 import 'package:nutri_mind/features/scan/data/repos/meal_repository.dart';
 import 'package:nutri_mind/features/scan/data/repos/meal_repository_impl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -55,5 +57,15 @@ Future<void> initServiceLocator() async {
       apiKey: GroqConfig.apiKey,
       model: GroqConfig.model,
     ),
+  );
+  getIt.registerLazySingleton<GroqChatService>(
+    () => GroqChatService(
+      apiKey: GroqConfig.apiKey,
+      model: GroqConfig.model,
+      baseUrl: GroqConfig.baseUrl,
+    ),
+  );
+  getIt.registerLazySingleton<ChatRepository>(
+    () => ChatRepository(getIt<GroqChatService>()),
   );
 }

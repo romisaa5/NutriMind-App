@@ -19,8 +19,8 @@ class MealRepositoryImpl implements MealRepository {
       data: meal.toMap(),
     );
     return result.when(
-      success: (_) => const ResultSuccess(null),
-      error: (failure) => ResultError(failure),
+      success: (_) => const Success(null),
+      error: (failure) => Err(failure),
     );
   }
 

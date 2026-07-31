@@ -65,7 +65,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthError) {
-          _showTopBar(message: state.message, isError: true);
+          _showTopBar(message: state.failure.debugMessage ?? '', isError: true);
         } else if (state is VerificationEmailSent) {
           _showTopBar(
             message: S.of(context).verificationEmailSent,

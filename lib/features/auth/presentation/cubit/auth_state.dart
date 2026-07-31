@@ -4,28 +4,29 @@ sealed class AuthState {
   const AuthState();
 }
 
-final class AuthInitial extends AuthState {}
+class AuthInitial extends AuthState {}
 
-final class AuthLoading extends AuthState {}
+class AuthLoading extends AuthState {}
 
-final class AuthSuccess extends AuthState {
+class AuthSuccess extends AuthState {
   final UserModel user;
-
   const AuthSuccess(this.user);
 }
 
-final class AuthLoggedOut extends AuthState {}
+class AuthLoggedOut extends AuthState {}
 
-final class PasswordResetSent extends AuthState {}
+class PasswordResetSent extends AuthState {}
 
-final class VerificationEmailSent extends AuthState {}
+class VerificationEmailSent extends AuthState {}
 
-final class EmailVerified extends AuthState {}
+class EmailVerified extends AuthState {}
 
-final class EmailNotVerified extends AuthState {}
+class EmailNotVerified extends AuthState {}
 
-final class AuthError extends AuthState {
-  final String message;
-
-  const AuthError(this.message);
+/// بيحمل الـ Failure الخام مش نص جاهز - الترجمة بتحصل في الـ UI بس
+/// (الـ Cubit نفسه معندوش BuildContext يترجم بيه)
+/// في الشاشة: if (state is AuthError) Text(state.failure.localizedMessage(context))
+class AuthError extends AuthState {
+  final Failure failure;
+  const AuthError(this.failure);
 }

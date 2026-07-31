@@ -31,6 +31,31 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "aboutDescription": MessageLookupByLibrary.simpleMessage(
+      "NutriMind helps you track your daily meals effortlessly, get calories, protein, and carbs from a single photo, while caring for your mental wellbeing through daily tips and a smart assistant that understands you.",
+    ),
+    "aboutDeveloperRole": MessageLookupByLibrary.simpleMessage("App Developer"),
+    "aboutDeveloperSectionTitle": MessageLookupByLibrary.simpleMessage(
+      "Developed by",
+    ),
+    "aboutFeatureChat": MessageLookupByLibrary.simpleMessage(
+      "Smart assistant that answers your questions",
+    ),
+    "aboutFeatureHistory": MessageLookupByLibrary.simpleMessage(
+      "Full history of your daily meals",
+    ),
+    "aboutFeatureScan": MessageLookupByLibrary.simpleMessage(
+      "Instantly scan and analyze your meal",
+    ),
+    "aboutFeatureTips": MessageLookupByLibrary.simpleMessage(
+      "Daily tips for a healthier life",
+    ),
+    "aboutFeaturesTitle": MessageLookupByLibrary.simpleMessage("App Features"),
+    "aboutFooterMadeWith": MessageLookupByLibrary.simpleMessage(
+      "Made with love in Egypt",
+    ),
+    "aboutTitle": MessageLookupByLibrary.simpleMessage("About"),
+    "aboutVersionLabel": MessageLookupByLibrary.simpleMessage("Version"),
     "all": MessageLookupByLibrary.simpleMessage("All"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
@@ -40,6 +65,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "analyzingSubtitle": MessageLookupByLibrary.simpleMessage(
       "A few seconds and you\'ll get the nutrition values",
+    ),
+    "appTagline": MessageLookupByLibrary.simpleMessage(
+      "Your daily companion for tracking food and mental wellbeing",
     ),
     "approxEstimateNote": MessageLookupByLibrary.simpleMessage(
       "Approximate estimate based on the photo",
@@ -115,6 +143,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "dayThursdayShort": MessageLookupByLibrary.simpleMessage("Thu"),
     "dayTuesdayShort": MessageLookupByLibrary.simpleMessage("Tue"),
     "dayWednesdayShort": MessageLookupByLibrary.simpleMessage("Wed"),
+    "developerName": MessageLookupByLibrary.simpleMessage(
+      "Romaissa Mohamed Fadel",
+    ),
     "dontCompareYourself": MessageLookupByLibrary.simpleMessage(
       "Don\'t compare yourself",
     ),
@@ -142,6 +173,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "errorAnalysis": MessageLookupByLibrary.simpleMessage(
       "An error occurred while analyzing the photo",
+    ),
+    "errorChatEmptyResponse": MessageLookupByLibrary.simpleMessage(
+      "We couldn\'t generate a reply right now, please try again",
+    ),
+    "errorChatRequestFailed": MessageLookupByLibrary.simpleMessage(
+      "Something went wrong while contacting the assistant, please try again",
     ),
     "errorDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "An error occurred while deleting your account",
@@ -190,6 +227,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "errorUnknown": MessageLookupByLibrary.simpleMessage(
       "Something went wrong, please try again",
+    ),
+    "errorUserDataNotFound": MessageLookupByLibrary.simpleMessage(
+      "User data not found, please log in again",
     ),
     "errorUserDisabled": MessageLookupByLibrary.simpleMessage(
       "This account has been disabled",

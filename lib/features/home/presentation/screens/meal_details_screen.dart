@@ -262,7 +262,7 @@ class MealDetailsScreen extends StatelessWidget {
                             Text(
                               meal.advice ?? '',
                               style: AppTextStyles.font13Regular.copyWith(
-                                color: context.customAppColors.neutral800,
+                                color: context.customAppColors.grey900,
                                 height: 1.5,
                               ),
                             ),

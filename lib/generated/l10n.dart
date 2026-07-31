@@ -1673,6 +1673,161 @@ class S {
       args: [],
     );
   }
+
+  /// `Something went wrong while contacting the assistant, please try again`
+  String get errorChatRequestFailed {
+    return Intl.message(
+      'Something went wrong while contacting the assistant, please try again',
+      name: 'errorChatRequestFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We couldn't generate a reply right now, please try again`
+  String get errorChatEmptyResponse {
+    return Intl.message(
+      'We couldn\'t generate a reply right now, please try again',
+      name: 'errorChatEmptyResponse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User data not found, please log in again`
+  String get errorUserDataNotFound {
+    return Intl.message(
+      'User data not found, please log in again',
+      name: 'errorUserDataNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About`
+  String get aboutTitle {
+    return Intl.message('About', name: 'aboutTitle', desc: '', args: []);
+  }
+
+  /// `Your daily companion for tracking food and mental wellbeing`
+  String get appTagline {
+    return Intl.message(
+      'Your daily companion for tracking food and mental wellbeing',
+      name: 'appTagline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `NutriMind helps you track your daily meals effortlessly, get calories, protein, and carbs from a single photo, while caring for your mental wellbeing through daily tips and a smart assistant that understands you.`
+  String get aboutDescription {
+    return Intl.message(
+      'NutriMind helps you track your daily meals effortlessly, get calories, protein, and carbs from a single photo, while caring for your mental wellbeing through daily tips and a smart assistant that understands you.',
+      name: 'aboutDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version`
+  String get aboutVersionLabel {
+    return Intl.message(
+      'Version',
+      name: 'aboutVersionLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App Features`
+  String get aboutFeaturesTitle {
+    return Intl.message(
+      'App Features',
+      name: 'aboutFeaturesTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Instantly scan and analyze your meal`
+  String get aboutFeatureScan {
+    return Intl.message(
+      'Instantly scan and analyze your meal',
+      name: 'aboutFeatureScan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full history of your daily meals`
+  String get aboutFeatureHistory {
+    return Intl.message(
+      'Full history of your daily meals',
+      name: 'aboutFeatureHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily tips for a healthier life`
+  String get aboutFeatureTips {
+    return Intl.message(
+      'Daily tips for a healthier life',
+      name: 'aboutFeatureTips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Smart assistant that answers your questions`
+  String get aboutFeatureChat {
+    return Intl.message(
+      'Smart assistant that answers your questions',
+      name: 'aboutFeatureChat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Developed by`
+  String get aboutDeveloperSectionTitle {
+    return Intl.message(
+      'Developed by',
+      name: 'aboutDeveloperSectionTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Romaissa Mohamed Fadel`
+  String get developerName {
+    return Intl.message(
+      'Romaissa Mohamed Fadel',
+      name: 'developerName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App Developer`
+  String get aboutDeveloperRole {
+    return Intl.message(
+      'App Developer',
+      name: 'aboutDeveloperRole',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Made with love in Egypt`
+  String get aboutFooterMadeWith {
+    return Intl.message(
+      'Made with love in Egypt',
+      name: 'aboutFooterMadeWith',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,12 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:nutri_mind/core/utils/app_result.dart';
 
 import '../../../../core/common/models/user_model.dart';
 import '../../../../core/config/firestore_collections.dart';
 import '../../../../core/error/failures.dart';
 import '../../../../core/services/firebase/firebase_auth_service.dart';
 import '../../../../core/services/firebase/firestore_service.dart';
-import '../../../../core/utils/app_result_auth.dart';
+import '../../../../core/utils/app_result.dart';
 
 class AuthRepository {
   final FirebaseAuthService authService;
@@ -14,7 +13,11 @@ class AuthRepository {
 
   AuthRepository({required this.authService, required this.firestore});
 
-  Future<AppResultAuth<UserModel>> register({
+  User? get currentUser => authService.currentUser;
+
+  Stream<User?> get authStateChanges => authService.authStateChanges;
+
+  Future<AppResult<UserModel>> register({
     required String name,
     required String email,
     required String password,
@@ -31,21 +34,24 @@ class AuthRepository {
         email: email,
       );
 
-      await firestore.setDoc(
+      final saveResult = await firestore.setDoc(
         data: user.toJson(),
         path: FirestoreCollections.users,
         docId: user.uid,
       );
 
-      return Success(user);
+      return saveResult.when(
+        success: (_) => Success(user),
+        error: (failure) => Err(failure),
+      );
     } on FirebaseAuthException catch (e) {
-      return Error(AuthFailure(e.message ?? "Registration Failed"));
-    } catch (_) {
-      return const Error(UnknownFailure("Something went wrong"));
+      return Err(AuthFailure(_mapAuthErrorCode(e.code), e.message));
+    } catch (e) {
+      return Err(UnknownFailure(e.toString()));
     }
   }
 
-  Future<AppResultAuth<UserModel>> login({
+  Future<AppResult<UserModel>> login({
     required String email,
     required String password,
   }) async {
@@ -54,71 +60,102 @@ class AuthRepository {
         email: email,
         password: password,
       );
+      final uid = credential.user!.uid;
 
-      final result = await firestore.getDoc<UserModel>(
+      final docResult = await firestore.getDoc<UserModel>(
         path: FirestoreCollections.users,
-        docId: credential.user!.uid,
-        fromJson: (data, id) => UserModel.fromJson(data),
+        docId: uid,
+        fromJson: UserModel.fromJson,
       );
 
-      switch (result) {
-        case ResultSuccess<UserModel?>():
-          final user = result.data;
-
-          if (user == null) {
-            return const Error(FirestoreFailure("User data not found"));
-          }
-
-          return Success(user);
-
-        case ResultError():
-          return Error(result.failure);
-      }
+      return docResult.when(
+        success: (user) => user != null
+            ? Success(user)
+            : const Err(FirestoreFailure(FailureCode.userDataNotFound)),
+        error: (failure) => Err(failure),
+      );
     } on FirebaseAuthException catch (e) {
-      return Error(AuthFailure(e.message ?? "Login Failed"));
-    } catch (_) {
-      return const Error(UnknownFailure("Something went wrong"));
+      return Err(AuthFailure(_mapAuthErrorCode(e.code), e.message));
+    } catch (e) {
+      return Err(UnknownFailure(e.toString()));
     }
   }
 
-  Future<AppResultAuth<void>> logout() async {
+  Future<AppResult<void>> logout() async {
     try {
       await authService.logout();
       return const Success(null);
-    } catch (_) {
-      return const Error(UnknownFailure("Logout Failed"));
+    } catch (e) {
+      return Err(AuthFailure(FailureCode.logoutFailed, e.toString()));
     }
   }
 
-  Future<AppResultAuth<void>> forgotPassword(String email) async {
+  Future<AppResult<void>> forgotPassword(String email) async {
     try {
       await authService.sendResetPassword(email);
-
       return const Success(null);
     } on FirebaseAuthException catch (e) {
-      return Error(AuthFailure(e.message ?? "Failed"));
+      return Err(AuthFailure(_mapAuthErrorCode(e.code), e.message));
+    } catch (e) {
+      return Err(UnknownFailure(e.toString()));
     }
   }
 
-  Future<AppResultAuth<void>> sendVerificationEmail() async {
+  Future<AppResult<void>> sendVerificationEmail() async {
     try {
       await authService.verifyEmail();
-
       return const Success(null);
-    } catch (_) {
-      return const Error(UnknownFailure("Failed"));
+    } catch (e) {
+      return Err(
+        AuthFailure(FailureCode.verificationEmailFailed, e.toString()),
+      );
     }
   }
 
-  Future<AppResultAuth<bool>> isEmailVerified() async {
+  Future<AppResult<bool>> isEmailVerified() async {
     try {
       await authService.reloadUser();
-
-      return Success(authService.currentUser!.emailVerified);
-    } catch (_) {
-      return const Error(UnknownFailure("Failed"));
+      return Success(authService.currentUser?.emailVerified ?? false);
+    } catch (e) {
+      return Err(UnknownFailure(e.toString()));
     }
   }
 
-  User? get currentUser => authService.currentUser;
+  Future<AppResult<void>> deleteAccount() async {
+    try {
+      await authService.deleteAccount();
+      return const Success(null);
+    } on FirebaseAuthException catch (e) {
+      return Err(AuthFailure(_mapAuthErrorCode(e.code), e.message));
+    } catch (e) {
+      return Err(AuthFailure(FailureCode.deleteAccountFailed, e.toString()));
+    }
+  }
+
+  /// تحويل أكواد أخطاء Firebase التقنية لـ FailureCode
+  /// الترجمة الفعلية بتحصل بعدين في الـ UI عن طريق failure.localizedMessage(context)
+  FailureCode _mapAuthErrorCode(String code) {
+    switch (code) {
+      case 'email-already-in-use':
+        return FailureCode.emailAlreadyInUse;
+      case 'invalid-email':
+        return FailureCode.invalidEmail;
+      case 'weak-password':
+        return FailureCode.weakPassword;
+      case 'user-not-found':
+      case 'wrong-password':
+      case 'invalid-credential':
+        return FailureCode.wrongCredentials;
+      case 'user-disabled':
+        return FailureCode.userDisabled;
+      case 'too-many-requests':
+        return FailureCode.tooManyRequests;
+      case 'network-request-failed':
+        return FailureCode.networkError;
+      case 'requires-recent-login':
+        return FailureCode.requiresRecentLogin;
+      default:
+        return FailureCode.unknown;
+    }
+  }
 }

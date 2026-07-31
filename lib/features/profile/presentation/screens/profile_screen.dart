@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
           context.go(Routes.loginScreen);
         }
         if (state is AuthError) {
-          _showTopBar(message: state.message, isError: true);
+          _showTopBar(message: state.failure.debugMessage ?? '', isError: true);
         }
       },
       child: Scaffold(
@@ -117,7 +117,9 @@ class ProfileScreen extends StatelessWidget {
                       _SettingsRow(
                         icon: Icons.info_outline_rounded,
                         label: s.profileAboutTitle,
-                        onTap: () {},
+                        onTap: () {
+                          GoRouter.of(context).push(Routes.aboutScreen);
+                        },
                       ),
 
                       Divider(

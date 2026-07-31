@@ -213,5 +213,21 @@
     "mealDetailsMoreInfo": "More Info",
     "sugar": "Sugar",
     "sodium": "Sodium",
-    "mealDetailsAdviceTitle": "Advice"
+    "mealDetailsAdviceTitle": "Advice",
+    "errorChatRequestFailed": "Something went wrong while contacting the assistant, please try again",
+    "errorChatEmptyResponse": "We couldn't generate a reply right now, please try again",
+    "errorUserDataNotFound": "User data not found, please log in again",
+    "aboutTitle": "About",
+    "appTagline": "Your daily companion for tracking food and mental wellbeing",
+    "aboutDescription": "NutriMind helps you track your daily meals effortlessly, get calories, protein, and carbs from a single photo, while caring for your mental wellbeing through daily tips and a smart assistant that understands you.",
+    "aboutVersionLabel": "Version",
+    "aboutFeaturesTitle": "App Features",
+    "aboutFeatureScan": "Instantly scan and analyze your meal",
+    "aboutFeatureHistory": "Full history of your daily meals",
+    "aboutFeatureTips": "Daily tips for a healthier life",
+    "aboutFeatureChat": "Smart assistant that answers your questions",
+    "aboutDeveloperSectionTitle": "Developed by",
+    "developerName": "Romaissa Mohamed Fadel",
+    "aboutDeveloperRole": "App Developer",
+    "aboutFooterMadeWith": "Made with love in Egypt"
 }

@@ -3,9 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:nutri_mind/core/common/models/app_models.dart';
 import 'package:nutri_mind/core/common/widgets/shared_widgets.dart';
+import 'package:nutri_mind/core/di/service_locator.dart';
+import 'package:nutri_mind/core/error/failure_localization.dart';
 import 'package:nutri_mind/core/helpers/extensions.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
+import 'package:nutri_mind/features/chatbot/data/repo/chat_repository.dart';
 import 'package:nutri_mind/features/chatbot/presentation/widgets/chat_bubble.dart';
 import 'package:nutri_mind/generated/l10n.dart';
 
@@ -23,28 +26,40 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   bool _isTyping = false;
   bool _initialized = false;
 
-  void _send(String text) {
-    if (text.trim().isEmpty) return;
+  Future<void> _send(String text) async {
+    final trimmed = text.trim();
+    if (trimmed.isEmpty || _isTyping) return;
+    final history = List<ChatMessageModel>.from(_messages);
+
     setState(() {
-      _messages.add(ChatMessageModel(text: text.trim(), isUser: true));
+      _messages.add(ChatMessageModel(text: trimmed, isUser: true));
       _isTyping = true;
     });
     _controller.clear();
     _scrollToEnd();
 
-    Future.delayed(const Duration(milliseconds: 1400), () {
-      if (!mounted) return;
-      setState(() {
-        _isTyping = false;
-        _messages.add(
-          ChatMessageModel(
-            text: S.of(context).chatbotSampleReply,
-            isUser: false,
-          ),
+    final result = await getIt<ChatRepository>().sendMessage(
+      history: history,
+      newMessage: trimmed,
+    );
+
+    if (!mounted) return;
+
+    result.when(
+      success: (reply) {
+        setState(() {
+          _isTyping = false;
+          _messages.add(ChatMessageModel(text: reply, isUser: false));
+        });
+        _scrollToEnd();
+      },
+      error: (failure) {
+        setState(() => _isTyping = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(failure.localizedMessage(context))),
         );
-      });
-      _scrollToEnd();
-    });
+      },
+    );
   }
 
   void _scrollToEnd() {
@@ -260,7 +275,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                     shape: const CircleBorder(),
                     child: InkWell(
                       customBorder: const CircleBorder(),
-                      onTap: () => _send(_controller.text),
+                      onTap: _isTyping ? null : () => _send(_controller.text),
                       child: Padding(
                         padding: EdgeInsets.all(12.r),
                         child: Icon(

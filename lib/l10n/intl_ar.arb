@@ -213,5 +213,21 @@
     "mealDetailsMoreInfo": "معلومات أكتر",
     "sugar": "السكر",
     "sodium": "الصوديوم",
-    "mealDetailsAdviceTitle": "نصايح"
+    "mealDetailsAdviceTitle": "نصايح",
+    "errorChatRequestFailed": "حصل خطأ أثناء التواصل مع المساعد، حاولي تاني",
+    "errorChatEmptyResponse": "معرفناش نرد عليكي دلوقتي، جربي تاني",
+    "errorUserDataNotFound": "بيانات المستخدم مش موجودة، رجاءً سجلي دخول تاني",
+    "aboutTitle": "عن التطبيق",
+    "appTagline": "رفيقك اليومي لتتبع أكلك وصحتك النفسية",
+    "aboutDescription": "نيوتري مايند بيساعدك تتابعي وجباتك اليومية بسهولة، تعرفي السعرات والبروتين والكارب من صورة واحدة بس، وفي نفس الوقت بيهتم بحالتك النفسية من خلال نصايح ومساعد ذكي يفهمك.",
+    "aboutVersionLabel": "الإصدار",
+    "aboutFeaturesTitle": "مميزات التطبيق",
+    "aboutFeatureScan": "تصوير الوجبة وتحليلها فورًا",
+    "aboutFeatureHistory": "سجل كامل لوجباتك اليومية",
+    "aboutFeatureTips": "نصايح يومية لحياة أصح",
+    "aboutFeatureChat": "مساعد ذكي يرد على أسئلتك",
+    "aboutDeveloperSectionTitle": "تم التطوير بواسطة",
+    "developerName": "روميساء محمد فاضل",
+    "aboutDeveloperRole": "مطورة التطبيق",
+    "aboutFooterMadeWith": "اتعملت بحب في مصر"
 }

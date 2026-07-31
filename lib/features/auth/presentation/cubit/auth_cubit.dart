@@ -1,7 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nutri_mind/core/common/models/user_model.dart';
-import 'package:nutri_mind/features/auth/data/repos/auth_repository.dart';
-import '../../../../core/utils/app_result_auth.dart';
+import 'package:nutri_mind/core/utils/app_result.dart';
+
+import '../../../../core/common/models/user_model.dart';
+import '../../../../core/error/failures.dart';
+import '../../data/repos/auth_repository.dart';
+
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -14,13 +17,10 @@ class AuthCubit extends Cubit<AuthState> {
 
     final result = await repository.login(email: email, password: password);
 
-    switch (result) {
-      case Success():
-        emit(AuthSuccess(result.data));
-
-      case Error():
-        emit(AuthError(result.failure.message));
-    }
+    result.when(
+      success: (user) => emit(AuthSuccess(user)),
+      error: (failure) => emit(AuthError(failure)),
+    );
   }
 
   Future<void> register({
@@ -36,13 +36,14 @@ class AuthCubit extends Cubit<AuthState> {
       password: password,
     );
 
-    switch (result) {
-      case Success():
-        await repository.sendVerificationEmail();
-        emit(AuthSuccess(result.data));
+    result.when(
+      success: (user) => emit(AuthSuccess(user)),
+      error: (failure) => emit(AuthError(failure)),
+    );
 
-      case Error():
-        emit(AuthError(result.failure.message));
+    // بنبعت رسالة التفعيل بس لو التسجيل نجح فعلًا
+    if (result is Success<UserModel>) {
+      await repository.sendVerificationEmail();
     }
   }
 
@@ -51,13 +52,10 @@ class AuthCubit extends Cubit<AuthState> {
 
     final result = await repository.logout();
 
-    switch (result) {
-      case Success():
-        emit(AuthLoggedOut());
-
-      case Error():
-        emit(AuthError(result.failure.message));
-    }
+    result.when(
+      success: (_) => emit(AuthLoggedOut()),
+      error: (failure) => emit(AuthError(failure)),
+    );
   }
 
   Future<void> forgotPassword(String email) async {
@@ -65,13 +63,10 @@ class AuthCubit extends Cubit<AuthState> {
 
     final result = await repository.forgotPassword(email);
 
-    switch (result) {
-      case Success():
-        emit(PasswordResetSent());
-
-      case Error():
-        emit(AuthError(result.failure.message));
-    }
+    result.when(
+      success: (_) => emit(PasswordResetSent()),
+      error: (failure) => emit(AuthError(failure)),
+    );
   }
 
   Future<void> sendVerificationEmail() async {
@@ -79,28 +74,19 @@ class AuthCubit extends Cubit<AuthState> {
 
     final result = await repository.sendVerificationEmail();
 
-    switch (result) {
-      case Success():
-        emit(VerificationEmailSent());
-
-      case Error():
-        emit(AuthError(result.failure.message));
-    }
+    result.when(
+      success: (_) => emit(VerificationEmailSent()),
+      error: (failure) => emit(AuthError(failure)),
+    );
   }
 
   Future<void> checkEmailVerification() async {
     final result = await repository.isEmailVerified();
 
-    switch (result) {
-      case Success():
-        if (result.data) {
-          emit(EmailVerified());
-        } else {
-          emit(EmailNotVerified());
-        }
-
-      case Error():
-        emit(AuthError(result.failure.message));
-    }
+    result.when(
+      success: (verified) =>
+          emit(verified ? EmailVerified() : EmailNotVerified()),
+      error: (failure) => emit(AuthError(failure)),
+    );
   }
 }

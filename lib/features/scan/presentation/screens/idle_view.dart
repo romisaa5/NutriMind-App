@@ -73,7 +73,7 @@ class IdleView extends StatelessWidget {
               height: 300.h,
               decoration: BoxDecoration(
                 color: context.customAppColors.primary100.withValues(
-                  alpha: 0.5,
+                  alpha: 0.7,
                 ),
                 borderRadius: BorderRadius.circular(28.r),
                 border: Border.all(
@@ -93,7 +93,7 @@ class IdleView extends StatelessWidget {
                   Text(
                     S.of(context).scanCaptureHint,
                     textAlign: TextAlign.center,
-                    style: AppTextStyles.font12SemiBold.copyWith(
+                    style: AppTextStyles.font14SemiBold.copyWith(
                       color: context.customAppColors.primary800,
                     ),
                   ),
@@ -111,18 +111,20 @@ class IdleView extends StatelessWidget {
                     onPressed: onGalleryTap,
                     icon: Icon(
                       Icons.image_outlined,
-                      color: context.customAppColors.grey700,
+                      color: context.customAppColors.neutral900,
                       size: 18.sp,
                     ),
                     label: Text(
                       S.of(context).chooseFromGallery,
                       style: AppTextStyles.font12SemiBold.copyWith(
-                        color: context.customAppColors.grey700,
+                        color: context.customAppColors.neutral900,
                       ),
                     ),
                     style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 14.h),
-                      side: BorderSide(color: context.customAppColors.grey300),
+                      side: BorderSide(
+                        color: context.customAppColors.neutral700,
+                      ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16.r),
                       ),

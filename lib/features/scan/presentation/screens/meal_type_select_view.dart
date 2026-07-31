@@ -53,7 +53,7 @@ class MealTypeSelectView extends StatelessWidget {
               S.of(context).chooseMealTypeSubtitle,
               textAlign: TextAlign.center,
               style: AppTextStyles.font13Regular.copyWith(
-                color: context.customAppColors.grey600,
+                color: context.customAppColors.neutral700,
               ),
             ),
           ),
@@ -83,7 +83,7 @@ class _MealTypeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: context.customAppColors.white,
+      color: context.customAppColors.neutral100,
       borderRadius: BorderRadius.circular(20.r),
       child: InkWell(
         onTap: onTap,

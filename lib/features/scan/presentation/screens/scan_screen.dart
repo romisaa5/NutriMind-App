@@ -4,7 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:nutri_mind/core/common/models/app_models.dart';
 import 'package:nutri_mind/core/di/service_locator.dart';
 import 'package:nutri_mind/core/services/firebase/firebase_auth_service.dart';
-import 'package:nutri_mind/core/services/gemini/groq_nutrition_service.dart';
+import 'package:nutri_mind/core/services/groq/groq_nutrition_service.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
 import 'package:nutri_mind/features/scan/data/models/meal_analysis_result.dart';
@@ -99,7 +99,7 @@ class _ScanScreenState extends State<ScanScreen> with TickerProviderStateMixin {
       debugPrint('$stack');
 
       if (!mounted) return;
-      _showError('مقدرناش نفتح الصورة، جربي تاني');
+      _showError(S.of(context).errorInvalidAnalysisFormat);
     }
   }
 
@@ -131,13 +131,17 @@ class _ScanScreenState extends State<ScanScreen> with TickerProviderStateMixin {
           });
         },
         error: (failure) {
-          debugPrint('❌ Groq error: ${failure.message}');
+          debugPrint(
+            '❌ Groq error: ${failure.code} - ${failure.debugMessage ?? S.of(context).errorUnknown}',
+          );
 
           setState(() {
             _state = ScanState.idle;
           });
 
-          _showError(failure.message);
+          _showError(
+            failure.debugMessage ?? S.of(context).errorInvalidAnalysisFormat,
+          );
         },
       );
     } catch (e, stack) {
@@ -189,9 +193,10 @@ class _ScanScreenState extends State<ScanScreen> with TickerProviderStateMixin {
         ScaffoldMessenger.of(
           context,
         ).showSnackBar(SnackBar(content: Text(S.of(context).mealSavedSuccess)));
-        Navigator.pop(context);
+        _resetToIdle();
       },
-      error: (failure) => _showError(failure.message),
+      error: (failure) =>
+          _showError(failure.debugMessage ?? S.of(context).errorFirestoreSave),
     );
   }
 

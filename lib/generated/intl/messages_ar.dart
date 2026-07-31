@@ -30,6 +30,33 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "aboutDescription": MessageLookupByLibrary.simpleMessage(
+      "نيوتري مايند بيساعدك تتابعي وجباتك اليومية بسهولة، تعرفي السعرات والبروتين والكارب من صورة واحدة بس، وفي نفس الوقت بيهتم بحالتك النفسية من خلال نصايح ومساعد ذكي يفهمك.",
+    ),
+    "aboutDeveloperRole": MessageLookupByLibrary.simpleMessage("مطورة التطبيق"),
+    "aboutDeveloperSectionTitle": MessageLookupByLibrary.simpleMessage(
+      "تم التطوير بواسطة",
+    ),
+    "aboutFeatureChat": MessageLookupByLibrary.simpleMessage(
+      "مساعد ذكي يرد على أسئلتك",
+    ),
+    "aboutFeatureHistory": MessageLookupByLibrary.simpleMessage(
+      "سجل كامل لوجباتك اليومية",
+    ),
+    "aboutFeatureScan": MessageLookupByLibrary.simpleMessage(
+      "تصوير الوجبة وتحليلها فورًا",
+    ),
+    "aboutFeatureTips": MessageLookupByLibrary.simpleMessage(
+      "نصايح يومية لحياة أصح",
+    ),
+    "aboutFeaturesTitle": MessageLookupByLibrary.simpleMessage(
+      "مميزات التطبيق",
+    ),
+    "aboutFooterMadeWith": MessageLookupByLibrary.simpleMessage(
+      "اتعملت بحب في مصر",
+    ),
+    "aboutTitle": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
+    "aboutVersionLabel": MessageLookupByLibrary.simpleMessage("الإصدار"),
     "all": MessageLookupByLibrary.simpleMessage("الكل"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       " هل لديك حساب بالفعل؟",
@@ -39,6 +66,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "analyzingSubtitle": MessageLookupByLibrary.simpleMessage(
       "ثواني وهتلاقي القيم الغذائية",
+    ),
+    "appTagline": MessageLookupByLibrary.simpleMessage(
+      "رفيقك اليومي لتتبع أكلك وصحتك النفسية",
     ),
     "approxEstimateNote": MessageLookupByLibrary.simpleMessage(
       "تقدير تقريبي بناءً على الصورة",
@@ -112,6 +142,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dayThursdayShort": MessageLookupByLibrary.simpleMessage("خميس"),
     "dayTuesdayShort": MessageLookupByLibrary.simpleMessage("تلات"),
     "dayWednesdayShort": MessageLookupByLibrary.simpleMessage("أربع"),
+    "developerName": MessageLookupByLibrary.simpleMessage("روميساء محمد فاضل"),
     "dontCompareYourself": MessageLookupByLibrary.simpleMessage(
       "بلاش تقارني نفسك بحد",
     ),
@@ -133,6 +164,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "errorAnalysis": MessageLookupByLibrary.simpleMessage(
       "حصل خطأ أثناء تحليل الصورة",
+    ),
+    "errorChatEmptyResponse": MessageLookupByLibrary.simpleMessage(
+      "معرفناش نرد عليكي دلوقتي، جربي تاني",
+    ),
+    "errorChatRequestFailed": MessageLookupByLibrary.simpleMessage(
+      "حصل خطأ أثناء التواصل مع المساعد، حاولي تاني",
     ),
     "errorDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "حصل خطأ أثناء حذف الحساب",
@@ -180,6 +217,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "محاولات كتير، حاولي تاني بعد شوية",
     ),
     "errorUnknown": MessageLookupByLibrary.simpleMessage("حصل خطأ، حاولي تاني"),
+    "errorUserDataNotFound": MessageLookupByLibrary.simpleMessage(
+      "بيانات المستخدم مش موجودة، رجاءً سجلي دخول تاني",
+    ),
     "errorUserDisabled": MessageLookupByLibrary.simpleMessage(
       "الحساب ده متوقف حاليًا",
     ),

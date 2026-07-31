@@ -3,17 +3,17 @@ import '../error/failures.dart';
 sealed class AppResult<T> {
   const AppResult();
 
-  bool get isSuccess => this is ResultSuccess<T>;
-  bool get isError => this is ResultError<T>;
+  bool get isSuccess => this is Success<T>;
+  bool get isError => this is Err<T>;
 
   T? get dataOrNull => switch (this) {
-    ResultSuccess<T>(data: final d) => d,
-    ResultError<T>() => null,
+    Success<T>(data: final d) => d,
+    Err<T>() => null,
   };
 
   Failure? get failureOrNull => switch (this) {
-    ResultSuccess<T>() => null,
-    ResultError<T>(failure: final f) => f,
+    Success<T>() => null,
+    Err<T>(failure: final f) => f,
   };
 
   R when<R>({
@@ -21,18 +21,18 @@ sealed class AppResult<T> {
     required R Function(Failure failure) error,
   }) {
     return switch (this) {
-      ResultSuccess<T>(data: final d) => success(d),
-      ResultError<T>(failure: final f) => error(f),
+      Success<T>(data: final d) => success(d),
+      Err<T>(failure: final f) => error(f),
     };
   }
 }
 
-final class ResultSuccess<T> extends AppResult<T> {
+final class Success<T> extends AppResult<T> {
   final T data;
-  const ResultSuccess(this.data);
+  const Success(this.data);
 }
 
-final class ResultError<T> extends AppResult<T> {
+final class Err<T> extends AppResult<T> {
   final Failure failure;
-  const ResultError(this.failure);
+  const Err(this.failure);
 }

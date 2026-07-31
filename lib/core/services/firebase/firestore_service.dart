@@ -1,13 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../error/failures.dart';
 import '../../utils/app_result.dart';
 
+/// طبقة وسيطة عامة بين التطبيق و Firestore
+/// أي Feature (meals, chat, tips) بيستخدم دي بدل ما يتكلم مع Firestore مباشرة
 class FirestoreService {
   final FirebaseFirestore _firestore;
   FirestoreService(this._firestore);
 
   CollectionReference<Map<String, dynamic>> collection(String path) =>
       _firestore.collection(path);
+
   Future<AppResult<void>> setDoc({
     required String path,
     required String docId,
@@ -19,13 +23,11 @@ class FirestoreService {
           .collection(path)
           .doc(docId)
           .set(data, SetOptions(merge: merge));
-      return const ResultSuccess(null);
+      return const Success(null);
     } on FirebaseException catch (e) {
-      return ResultError(
-        FirestoreFailure(e.message ?? 'حصل خطأ أثناء حفظ البيانات'),
-      );
-    } catch (_) {
-      return const ResultError(UnknownFailure('حصل خطأ غير متوقع'));
+      return Err(FirestoreFailure(FailureCode.firestoreSaveFailed, e.message));
+    } catch (e) {
+      return Err(UnknownFailure(e.toString()));
     }
   }
 
@@ -35,13 +37,11 @@ class FirestoreService {
   }) async {
     try {
       final ref = await _firestore.collection(path).add(data);
-      return ResultSuccess(ref.id);
+      return Success(ref.id);
     } on FirebaseException catch (e) {
-      return ResultError(
-        FirestoreFailure(e.message ?? 'حصل خطأ أثناء إضافة البيانات'),
-      );
-    } catch (_) {
-      return const ResultError(UnknownFailure('حصل خطأ غير متوقع'));
+      return Err(FirestoreFailure(FailureCode.firestoreAddFailed, e.message));
+    } catch (e) {
+      return Err(UnknownFailure(e.toString()));
     }
   }
 
@@ -52,13 +52,11 @@ class FirestoreService {
   }) async {
     try {
       await _firestore.collection(path).doc(docId).update(data);
-      return const ResultSuccess(null);
+      return const Success(null);
     } on FirebaseException catch (e) {
-      return ResultError(
-        FirestoreFailure(e.message ?? 'حصل خطأ أثناء تعديل البيانات'),
-      );
-    } catch (_) {
-      return const ResultError(UnknownFailure('حصل خطأ غير متوقع'));
+      return Err(FirestoreFailure(FailureCode.firestoreUpdateFailed, e.message));
+    } catch (e) {
+      return Err(UnknownFailure(e.toString()));
     }
   }
 
@@ -68,13 +66,11 @@ class FirestoreService {
   }) async {
     try {
       await _firestore.collection(path).doc(docId).delete();
-      return const ResultSuccess(null);
+      return const Success(null);
     } on FirebaseException catch (e) {
-      return ResultError(
-        FirestoreFailure(e.message ?? 'حصل خطأ أثناء حذف البيانات'),
-      );
-    } catch (_) {
-      return const ResultError(UnknownFailure('حصل خطأ غير متوقع'));
+      return Err(FirestoreFailure(FailureCode.firestoreDeleteFailed, e.message));
+    } catch (e) {
+      return Err(UnknownFailure(e.toString()));
     }
   }
 
@@ -85,14 +81,12 @@ class FirestoreService {
   }) async {
     try {
       final snap = await _firestore.collection(path).doc(docId).get();
-      if (!snap.exists || snap.data() == null) return const ResultSuccess(null);
-      return ResultSuccess(fromJson(snap.data()!, snap.id));
+      if (!snap.exists || snap.data() == null) return const Success(null);
+      return Success(fromJson(snap.data()!, snap.id));
     } on FirebaseException catch (e) {
-      return ResultError(
-        FirestoreFailure(e.message ?? 'حصل خطأ أثناء جلب البيانات'),
-      );
-    } catch (_) {
-      return const ResultError(UnknownFailure('حصل خطأ غير متوقع'));
+      return Err(FirestoreFailure(FailureCode.firestoreFetchFailed, e.message));
+    } catch (e) {
+      return Err(UnknownFailure(e.toString()));
     }
   }
 
@@ -100,14 +94,14 @@ class FirestoreService {
     required String path,
     required T Function(Map<String, dynamic> data, String id) fromJson,
     Query<Map<String, dynamic>> Function(Query<Map<String, dynamic>> query)?
-    queryBuilder,
+        queryBuilder,
   }) {
     Query<Map<String, dynamic>> query = _firestore.collection(path);
     if (queryBuilder != null) query = queryBuilder(query);
 
     return query.snapshots().map(
-      (snapshot) =>
-          snapshot.docs.map((doc) => fromJson(doc.data(), doc.id)).toList(),
-    );
+          (snapshot) =>
+              snapshot.docs.map((doc) => fromJson(doc.data(), doc.id)).toList(),
+        );
   }
 }

@@ -1,40 +1,32 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class UserModel {
   final String uid;
-  final String name;
   final String email;
-  final String? image;
+  final String? name;
+  final DateTime? createdAt;
 
   const UserModel({
     required this.uid,
-    required this.name,
     required this.email,
-    this.image,
+    this.name,
+    this.createdAt,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) {
+  factory UserModel.fromJson(Map<String, dynamic> json, String id) {
     return UserModel(
-      uid: json["uid"],
-      name: json["name"],
-      email: json["email"],
-      image: json["image"],
+      uid: id,
+      email: json['email'] as String? ?? '',
+      name: json['name'] as String?,
+      createdAt: (json['createdAt'] as Timestamp?)?.toDate(),
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {"uid": uid, "name": name, "email": email, "image": image};
-  }
-
-  UserModel copyWith({
-    String? uid,
-    String? name,
-    String? email,
-    String? image,
-  }) {
-    return UserModel(
-      uid: uid ?? this.uid,
-      name: name ?? this.name,
-      email: email ?? this.email,
-      image: image ?? this.image,
-    );
+    return {
+      'email': email,
+      'name': name,
+      'createdAt': FieldValue.serverTimestamp(),
+    };
   }
 }
