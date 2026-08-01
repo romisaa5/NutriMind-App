@@ -1,5 +1,5 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:nutri_mind/core/helpers/enums.dart';
 import 'package:nutri_mind/generated/l10n.dart';
 
 extension EmptyPadding on num {
@@ -181,6 +181,30 @@ extension LocalizationExtensions on S {
 
       default:
         return '';
+    }
+  }
+}
+
+extension MealTypeX on MealType {
+  String label(BuildContext context) {
+    switch (this) {
+      case MealType.breakfast:
+        return S.of(context).mealBreakfast;
+      case MealType.lunch:
+        return S.of(context).mealLunch;
+      case MealType.dinner:
+        return S.of(context).mealDinner;
+    }
+  }
+
+  IconData get icon {
+    switch (this) {
+      case MealType.breakfast:
+        return Icons.wb_sunny_rounded;
+      case MealType.lunch:
+        return Icons.lunch_dining_rounded;
+      case MealType.dinner:
+        return Icons.nightlight_round;
     }
   }
 }

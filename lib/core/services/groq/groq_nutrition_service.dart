@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
+import 'package:nutri_mind/core/helpers/enums.dart';
 import 'package:nutri_mind/core/utils/app_result.dart';
 import 'package:nutri_mind/features/scan/data/models/meal_analysis_result.dart';
-import '../../common/models/app_models.dart';
 import '../../error/failures.dart';
 
 class GroqNutritionService {

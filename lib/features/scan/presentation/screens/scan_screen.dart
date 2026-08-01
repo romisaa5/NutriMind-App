@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nutri_mind/core/common/models/app_models.dart';
 import 'package:nutri_mind/core/di/service_locator.dart';
+import 'package:nutri_mind/core/helpers/enums.dart';
 import 'package:nutri_mind/core/services/firebase/firebase_auth_service.dart';
 import 'package:nutri_mind/core/services/groq/groq_nutrition_service.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
@@ -14,8 +15,6 @@ import 'package:nutri_mind/features/scan/presentation/screens/meal_type_select_v
 import 'package:nutri_mind/features/scan/presentation/screens/result_view.dart';
 import 'package:nutri_mind/features/scan/presentation/screens/scanning_view.dart';
 import 'package:nutri_mind/generated/l10n.dart';
-
-enum ScanState { mealTypeSelect, idle, scanning, result }
 
 class ScanScreen extends StatefulWidget {
   const ScanScreen({super.key});

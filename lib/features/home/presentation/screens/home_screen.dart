@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:nutri_mind/core/common/models/app_models.dart';
 import 'package:nutri_mind/core/di/service_locator.dart';
+import 'package:nutri_mind/core/helpers/enums.dart';
 import 'package:nutri_mind/core/services/firebase/firebase_auth_service.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';

@@ -1,6 +1,5 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:nutri_mind/core/common/models/app_models.dart';
 import 'package:nutri_mind/core/common/widgets/shared_widgets.dart';
