@@ -57,6 +57,21 @@ Supports **Arabic 🇪🇬 & English 🇬🇧** · **Light ☀️ & Dark 🌙** 
 <td><img src="https://github.com/user-attachments/assets/554712af-320b-4871-87f9-cfed5a5c81c9" width="160" /></td>
 <td><img src="https://github.com/user-attachments/assets/fba9aa90-3be9-40c4-b019-0a2dee9c1424" width="160" /></td>
 </tr>
+ <tr>
+<td><img src="https://github.com/user-attachments/assets/3b7b40b1-6984-4b15-8c36-3991bcc32118" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/2251303c-1100-4c07-897c-cf88a60a5b91" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/584bbccd-2f4f-4a88-a9c4-04d6f6734e84" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/845051df-5353-43e9-99c2-00d0b24297d4" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/3270ff29-1fe6-43a7-a303-00df15a2c1fa" width="160" /></td>
+</tr>
+   <tr>
+
+<td><img src="https://github.com/user-attachments/assets/13d930b5-6a9d-41fb-aad5-38dd2bf98a7a" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/e439a58d-1a3b-4fe3-8513-d201575376b6" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/df4ad89c-afa5-49a5-b9c8-54f6cb3012dc" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/6edb8eb6-dfec-42e5-b843-bd42f681c7da" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/60863552-8229-4de8-a8cb-a54a7bf6fe26" width="160" /></td>
+</tr>
 </table>
 
 ### ☀️ Light Mode — English
@@ -85,7 +100,8 @@ Supports **Arabic 🇪🇬 & English 🇬🇧** · **Light ☀️ & Dark 🌙** 
 </tr>
 <tr>
 <td><img src="https://github.com/user-attachments/assets/efa3c4e7-084b-422f-b1f3-579eb53f477d" width="160" /></td>
-<td><img src="https://github.com/user-attachments/assets/39375e04-a63e-43f7-80b4-a2c696df4696" width="160" /></td>
+   <td><img src="https://github.com/user-attachments/assets/39375e04-a63e-43f7-80b4-a2c696df4696" width="160" /></td>
+
 <td><img src="https://github.com/user-attachments/assets/13686497-97ea-495d-856f-d47b9dab2d00" width="160" /></td>
 <td><img src="https://github.com/user-attachments/assets/2e27729a-1cc1-4508-90b0-000b7ecd7b90" width="160" /></td>
 <td><img src="https://github.com/user-attachments/assets/76395fd6-bed3-407a-b4bc-f1651d796b00" width="160" /></td>
@@ -266,3 +282,6 @@ The app ships with full **light/dark** support via a custom `ThemeExtension` (`c
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/romisaa5/NutriMind-App/issues).
 
 
+<img width="1080" height="2340" alt="Screenshot_1785593963" src="https://github.com/user-attachments/assets/df4ad89c-afa5-49a5-b9c8-54f6cb3012dc" />
+<img width="1080" height="2340" alt="Screenshot_1785593985" src="https://github.com/user-attachments/assets/6edb8eb6-dfec-42e5-b843-bd42f681c7da" />
+<img width="1080" height="2340" alt="Screenshot_1785593992" src="https://github.com/user-attachments/assets/60863552-8229-4de8-a8cb-a54a7bf6fe26" />
