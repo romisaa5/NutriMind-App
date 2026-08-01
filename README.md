@@ -31,7 +31,7 @@ Supports **Arabic 🇪🇬 & English 🇬🇧** · **Light ☀️ & Dark 🌙** 
 
 ## ✨ About
 
-**NutriMind** is a Flutter app that combines **nutrition tracking** with **mental wellbeing support**. Instead of manually logging every ingredient, users simply snap a photo of their meal — a Groq-hosted vision model analyzes it and instantly returns calories, protein, carbs, and fat. Alongside tracking, the app offers daily wellness tips and an in-app AI assistant that keeps users company and answers nutrition-related questions, all while staying strictly within the app's supportive, judgment-free scope.
+**NutriMind** is a Flutter app that combines **nutrition tracking** with **mental wellbeing support**. Instead of manually logging every ingredient, users simply snap a photo of their meal a Groq-hosted vision model analyzes it and instantly returns calories, protein, carbs, and fat. Alongside tracking, the app offers daily wellness tips and an in-app AI assistant that keeps users company and answers nutrition-related questions, all while staying strictly within the app's supportive, judgment-free scope.
 
 <br>
 
@@ -43,11 +43,19 @@ Supports **Arabic 🇪🇬 & English 🇬🇧** · **Light ☀️ & Dark 🌙** 
 
 <table>
 <tr>
-<td><img src="screenshots/ar_dark_1.png" width="160" /></td>
-<td><img src="screenshots/ar_dark_2.png" width="160" /></td>
-<td><img src="screenshots/ar_dark_3.png" width="160" /></td>
-<td><img src="screenshots/ar_dark_4.png" width="160" /></td>
-<td><img src="screenshots/ar_dark_5.png" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/703347c8-8349-4a15-872a-6c10d8b325b9" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/f6345190-9900-4c1c-82da-572350492900" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/1f29b455-4076-4e83-be62-f9c40f62f535" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/df3b4647-3476-4fe2-a9ee-e47910606213" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/61f8907d-b159-480b-bbcc-5587b108d5e6" width="160" /></td>
+</tr>
+   <tr>
+
+<td><img src="https://github.com/user-attachments/assets/e46693b5-5a32-4ae1-984b-06b9531d1a44" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/cc2036b9-174a-47a5-8ea7-139409e2f1a6" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/e15afbe1-72ef-4633-8ee0-192bed3be897" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/554712af-320b-4871-87f9-cfed5a5c81c9" width="160" /></td>
+<td><img src="https://github.com/user-attachments/assets/fba9aa90-3be9-40c4-b019-0a2dee9c1424" width="160" /></td>
 </tr>
 </table>
 
@@ -256,4 +264,5 @@ The app ships with full **light/dark** support via a custom `ThemeExtension` (`c
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/romisaa5/NutriMind-App/issues).
+
 
