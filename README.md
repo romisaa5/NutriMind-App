@@ -282,6 +282,3 @@ The app ships with full **light/dark** support via a custom `ThemeExtension` (`c
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/romisaa5/NutriMind-App/issues).
 
 
-<img width="1080" height="2340" alt="Screenshot_1785593963" src="https://github.com/user-attachments/assets/df4ad89c-afa5-49a5-b9c8-54f6cb3012dc" />
-<img width="1080" height="2340" alt="Screenshot_1785593985" src="https://github.com/user-attachments/assets/6edb8eb6-dfec-42e5-b843-bd42f681c7da" />
-<img width="1080" height="2340" alt="Screenshot_1785593992" src="https://github.com/user-attachments/assets/60863552-8229-4de8-a8cb-a54a7bf6fe26" />
