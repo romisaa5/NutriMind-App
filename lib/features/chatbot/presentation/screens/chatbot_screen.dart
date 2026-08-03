@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:nutri_mind/core/common/models/app_models.dart';
 import 'package:nutri_mind/core/common/widgets/shared_widgets.dart';
 import 'package:nutri_mind/core/di/service_locator.dart';
 import 'package:nutri_mind/core/error/failure_localization.dart';
@@ -9,57 +9,38 @@ import 'package:nutri_mind/core/helpers/extensions.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
 import 'package:nutri_mind/features/chatbot/data/repo/chat_repository.dart';
+import 'package:nutri_mind/features/chatbot/presentation/cubit/chat_cubit.dart';
 import 'package:nutri_mind/features/chatbot/presentation/widgets/chat_bubble.dart';
 import 'package:nutri_mind/generated/l10n.dart';
 
-class ChatbotScreen extends StatefulWidget {
+class ChatbotScreen extends StatelessWidget {
   const ChatbotScreen({super.key});
 
   @override
-  State<ChatbotScreen> createState() => _ChatbotScreenState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => ChatCubit(getIt<ChatRepository>()),
+      child: const _ChatbotView(),
+    );
+  }
 }
 
-class _ChatbotScreenState extends State<ChatbotScreen> {
+class _ChatbotView extends StatefulWidget {
+  const _ChatbotView();
+
+  @override
+  State<_ChatbotView> createState() => _ChatbotViewState();
+}
+
+class _ChatbotViewState extends State<_ChatbotView> {
   final TextEditingController _controller = TextEditingController();
   final ScrollController _scrollController = ScrollController();
-  late final List<ChatMessageModel> _messages;
-  bool _isTyping = false;
-  bool _initialized = false;
+  bool _welcomeInitialized = false;
 
-  Future<void> _send(String text) async {
-    final trimmed = text.trim();
-    if (trimmed.isEmpty || _isTyping) return;
-    final history = List<ChatMessageModel>.from(_messages);
-
-    setState(() {
-      _messages.add(ChatMessageModel(text: trimmed, isUser: true));
-      _isTyping = true;
-    });
+  void _send(String text) {
+    if (text.trim().isEmpty) return;
+    context.read<ChatCubit>().sendMessage(text);
     _controller.clear();
-    _scrollToEnd();
-
-    final result = await getIt<ChatRepository>().sendMessage(
-      history: history,
-      newMessage: trimmed,
-    );
-
-    if (!mounted) return;
-
-    result.when(
-      success: (reply) {
-        setState(() {
-          _isTyping = false;
-          _messages.add(ChatMessageModel(text: reply, isUser: false));
-        });
-        _scrollToEnd();
-      },
-      error: (failure) {
-        setState(() => _isTyping = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(failure.localizedMessage(context))),
-        );
-      },
-    );
   }
 
   void _scrollToEnd() {
@@ -84,12 +65,9 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-
-    if (!_initialized) {
-      _initialized = true;
-      _messages = [
-        ChatMessageModel(text: s.chatbotWelcomeMessage, isUser: false),
-      ];
+    if (!_welcomeInitialized) {
+      _welcomeInitialized = true;
+      context.read<ChatCubit>().initWelcomeMessage(s.chatbotWelcomeMessage);
     }
 
     final suggestions = [
@@ -166,131 +144,149 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              controller: _scrollController,
-              padding: EdgeInsets.fromLTRB(16.w, 12.h, 16.w, 12.h),
-              itemCount: _messages.length + (_isTyping ? 1 : 0),
-              itemBuilder: (context, index) {
-                if (_isTyping && index == _messages.length) {
-                  return FadeIn(
-                    child: Align(
-                      alignment: AlignmentDirectional.centerStart,
-                      child: Container(
-                        margin: EdgeInsets.only(bottom: 10.h),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 16.w,
-                          vertical: 12.h,
-                        ),
-                        decoration: BoxDecoration(
-                          color: context.customAppColors.neutral100,
-                          borderRadius: BorderRadiusDirectional.only(
-                            topStart: Radius.circular(18.r),
-                            topEnd: Radius.circular(18.r),
-                            bottomEnd: Radius.circular(18.r),
-                            bottomStart: Radius.circular(4.r),
+      body: BlocConsumer<ChatCubit, ChatState>(
+        listener: (context, state) {
+          _scrollToEnd();
+          final failure = state.error;
+          if (failure != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(failure.localizedMessage(context))),
+            );
+            context.read<ChatCubit>().clearError();
+          }
+        },
+        builder: (context, state) {
+          return Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  controller: _scrollController,
+                  padding: EdgeInsets.fromLTRB(16.w, 12.h, 16.w, 12.h),
+                  itemCount: state.messages.length + (state.isTyping ? 1 : 0),
+                  itemBuilder: (context, index) {
+                    if (state.isTyping && index == state.messages.length) {
+                      return FadeIn(
+                        child: Align(
+                          alignment: AlignmentDirectional.centerStart,
+                          child: Container(
+                            margin: EdgeInsets.only(bottom: 10.h),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 16.w,
+                              vertical: 12.h,
+                            ),
+                            decoration: BoxDecoration(
+                              color: context.customAppColors.neutral100,
+                              borderRadius: BorderRadiusDirectional.only(
+                                topStart: Radius.circular(18.r),
+                                topEnd: Radius.circular(18.r),
+                                bottomEnd: Radius.circular(18.r),
+                                bottomStart: Radius.circular(4.r),
+                              ),
+                            ),
+                            child: const TypingDots(),
                           ),
                         ),
-                        child: const TypingDots(),
+                      );
+                    }
+                    final msg = state.messages[index];
+                    return FadeInUp(
+                      duration: const Duration(milliseconds: 350),
+                      child: ChatBubble(message: msg),
+                    );
+                  },
+                ),
+              ),
+              if (state.messages.length <= 1)
+                FadeInUp(
+                  delay: const Duration(milliseconds: 200),
+                  child: SizedBox(
+                    height: 42.h,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      itemCount: suggestions.length,
+                      separatorBuilder: (_, a) => SizedBox(width: 8.w),
+                      itemBuilder: (context, i) => ActionChip(
+                        onPressed: () => _send(suggestions[i]),
+                        avatar: Icon(
+                          Icons.auto_awesome_rounded,
+                          size: 14.sp,
+                          color: context.customAppColors.primary700,
+                        ),
+                        label: Text(
+                          suggestions[i],
+                          style: AppTextStyles.font12Regular.copyWith(
+                            color: context.customAppColors.primary800,
+                          ),
+                        ),
+                        backgroundColor: context.customAppColors.primary100,
+                        side: BorderSide.none,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.r),
+                        ),
                       ),
-                    ),
-                  );
-                }
-                final msg = _messages[index];
-                return FadeInUp(
-                  duration: const Duration(milliseconds: 350),
-                  child: ChatBubble(message: msg),
-                );
-              },
-            ),
-          ),
-          if (_messages.length <= 1)
-            FadeInUp(
-              delay: const Duration(milliseconds: 200),
-              child: SizedBox(
-                height: 42.h,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  itemCount: suggestions.length,
-                  separatorBuilder: (_, a) => SizedBox(width: 8.w),
-                  itemBuilder: (context, i) => ActionChip(
-                    onPressed: () => _send(suggestions[i]),
-                    avatar: Icon(
-                      Icons.auto_awesome_rounded,
-                      size: 14.sp,
-                      color: context.customAppColors.primary700,
-                    ),
-                    label: Text(
-                      suggestions[i],
-                      style: AppTextStyles.font12Regular.copyWith(
-                        color: context.customAppColors.primary800,
-                      ),
-                    ),
-                    backgroundColor: context.customAppColors.primary100,
-                    side: BorderSide.none,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.r),
                     ),
                   ),
                 ),
-              ),
-            ),
-          SafeArea(
-            top: false,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(12.w, 10.h, 12.w, 10.h),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      decoration: BoxDecoration(
-                        color: context.customAppColors.neutral100,
-                        borderRadius: BorderRadius.circular(26.r),
-                      ),
-                      child: TextField(
-                        controller: _controller,
-                        style: AppTextStyles.font14Regular.copyWith(
-                          color: context.customAppColors.neutral900,
-                        ),
-                        decoration: InputDecoration(
-                          hintText: s.chatbotInputHint,
-                          hintStyle: AppTextStyles.font14Regular.copyWith(
-                            color: context.customAppColors.neutral700,
+              SafeArea(
+                top: false,
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(12.w, 10.h, 12.w, 10.h),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
+                          decoration: BoxDecoration(
+                            color: context.customAppColors.neutral100,
+                            borderRadius: BorderRadius.circular(26.r),
                           ),
-                          border: InputBorder.none,
-                          isDense: true,
-                          contentPadding: EdgeInsets.symmetric(vertical: 14.h),
-                        ),
-                        onSubmitted: _send,
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 8.w),
-                  Material(
-                    color: context.customAppColors.primary500,
-                    shape: const CircleBorder(),
-                    child: InkWell(
-                      customBorder: const CircleBorder(),
-                      onTap: _isTyping ? null : () => _send(_controller.text),
-                      child: Padding(
-                        padding: EdgeInsets.all(12.r),
-                        child: Icon(
-                          Icons.send_rounded,
-                          color: context.customAppColors.white,
-                          size: 20.sp,
+                          child: TextField(
+                            controller: _controller,
+                            style: AppTextStyles.font14Regular.copyWith(
+                              color: context.customAppColors.neutral900,
+                            ),
+                            decoration: InputDecoration(
+                              hintText: s.chatbotInputHint,
+                              hintStyle: AppTextStyles.font14Regular.copyWith(
+                                color: context.customAppColors.neutral700,
+                              ),
+                              border: InputBorder.none,
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                vertical: 14.h,
+                              ),
+                            ),
+                            onSubmitted: _send,
+                          ),
                         ),
                       ),
-                    ),
+                      SizedBox(width: 8.w),
+                      Material(
+                        color: context.customAppColors.primary500,
+                        shape: const CircleBorder(),
+                        child: InkWell(
+                          customBorder: const CircleBorder(),
+                          onTap: state.isTyping
+                              ? null
+                              : () => _send(_controller.text),
+                          child: Padding(
+                            padding: EdgeInsets.all(12.r),
+                            child: Icon(
+                              Icons.send_rounded,
+                              color: context.customAppColors.white,
+                              size: 20.sp,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }
