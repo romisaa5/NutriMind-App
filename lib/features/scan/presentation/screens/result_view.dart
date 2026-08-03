@@ -8,6 +8,7 @@ import 'package:nutri_mind/core/helpers/extensions.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
 import 'package:nutri_mind/features/scan/data/models/meal_analysis_result.dart';
+import 'package:nutri_mind/features/scan/presentation/widgets/nutrient_pill.dart';
 import 'package:nutri_mind/generated/l10n.dart';
 
 class ResultView extends StatelessWidget {
@@ -119,7 +120,7 @@ class ResultView extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                      child: _NutrientPill(
+                      child: NutrientPill(
                         label: S.of(context).protein,
                         value: analysis.protein,
                         color: context.customAppColors.info700,
@@ -127,7 +128,7 @@ class ResultView extends StatelessWidget {
                     ),
                     SizedBox(width: 10.w),
                     Expanded(
-                      child: _NutrientPill(
+                      child: NutrientPill(
                         label: S.of(context).carbs,
                         value: analysis.carbs,
                         color: context.customAppColors.warning500,
@@ -135,7 +136,7 @@ class ResultView extends StatelessWidget {
                     ),
                     SizedBox(width: 10.w),
                     Expanded(
-                      child: _NutrientPill(
+                      child: NutrientPill(
                         label: S.of(context).fat,
                         value: analysis.fat,
                         color: context.customAppColors.accent700,
@@ -206,43 +207,6 @@ class ResultView extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class _NutrientPill extends StatelessWidget {
-  final String label;
-  final int value;
-  final Color color;
-  const _NutrientPill({
-    required this.label,
-    required this.value,
-    required this.color,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 12.h),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(14.r),
-      ),
-      child: Column(
-        children: [
-          Text(
-            '${value}g',
-            style: AppTextStyles.font16Bold.copyWith(color: color),
-          ),
-          SizedBox(height: 4.h),
-          Text(
-            label,
-            style: AppTextStyles.font12Regular.copyWith(
-              color: context.customAppColors.grey700,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

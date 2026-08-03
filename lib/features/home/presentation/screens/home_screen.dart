@@ -188,16 +188,13 @@ class HomeScreen extends StatelessWidget {
                     fatGoal: fatGoal,
                   ),
                 ),
-
                 SizedBox(height: 20.h),
                 FadeInUp(
                   delay: const Duration(milliseconds: 200),
                   duration: const Duration(milliseconds: 550),
                   child: WeeklyTrendCard(data: DummyData.weeklyCalories),
                 ),
-
                 SizedBox(height: 28.h),
-
                 FadeInLeft(
                   delay: const Duration(milliseconds: 150),
                   child: Text(
@@ -219,7 +216,6 @@ class HomeScreen extends StatelessWidget {
                     ),
                   );
                 }),
-
                 SizedBox(height: 10.h),
               ],
             ),

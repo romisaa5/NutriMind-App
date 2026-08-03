@@ -6,6 +6,7 @@ import 'package:nutri_mind/core/common/widgets/shared_widgets.dart';
 import 'package:nutri_mind/core/theme/app_texts/app_text_styles.dart';
 import 'package:nutri_mind/core/theme/theme_manager/theme_extensions.dart';
 import 'package:nutri_mind/core/utils/common_imports.dart';
+import 'package:nutri_mind/features/home/presentation/widgets/detail_row.dart';
 import 'package:nutri_mind/features/home/presentation/widgets/mini_macro_chip.dart';
 import 'package:nutri_mind/generated/l10n.dart';
 
@@ -112,10 +113,7 @@ class MealDetailsScreen extends StatelessWidget {
                 ),
               ),
             ),
-
             SizedBox(height: 20.h),
-
-            // ---------------- Calories + main macros ----------------
             FadeInUp(
               delay: const Duration(milliseconds: 100),
               duration: const Duration(milliseconds: 500),
@@ -171,8 +169,6 @@ class MealDetailsScreen extends StatelessWidget {
             ),
 
             SizedBox(height: 16.h),
-
-            // ---------------- Extra nutrition details ----------------
             FadeInUp(
               delay: const Duration(milliseconds: 150),
               duration: const Duration(milliseconds: 500),
@@ -187,7 +183,7 @@ class MealDetailsScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 14.h),
-                    _DetailRow(
+                    DetailRow(
                       icon: Icons.grass_rounded,
                       label: s.fiber,
                       value: '${meal.fiber ?? 0}g',
@@ -197,7 +193,7 @@ class MealDetailsScreen extends StatelessWidget {
                       color: context.customAppColors.grey100,
                       height: 22.h,
                     ),
-                    _DetailRow(
+                    DetailRow(
                       icon: Icons.icecream_rounded,
                       label: s.sugar,
                       value: '${meal.sugar ?? 0}g',
@@ -207,7 +203,7 @@ class MealDetailsScreen extends StatelessWidget {
                       color: context.customAppColors.grey100,
                       height: 22.h,
                     ),
-                    _DetailRow(
+                    DetailRow(
                       icon: Icons.water_rounded,
                       label: s.sodium,
                       value: '${meal.sodium ?? 0}mg',
@@ -217,8 +213,6 @@ class MealDetailsScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-            // ---------------- Advice card ----------------
             if ((meal.advice ?? '').isNotEmpty) ...[
               SizedBox(height: 16.h),
               FadeInUp(
@@ -276,52 +270,6 @@ class MealDetailsScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _DetailRow extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final String value;
-  final Color color;
-
-  const _DetailRow({
-    required this.icon,
-    required this.label,
-    required this.value,
-    required this.color,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 34.w,
-          height: 34.w,
-          decoration: BoxDecoration(
-            color: color.withValues(alpha: 0.12),
-            borderRadius: BorderRadius.circular(10.r),
-          ),
-          child: Icon(icon, color: color, size: 18.sp),
-        ),
-        SizedBox(width: 12.w),
-        Expanded(
-          child: Text(
-            label,
-            style: AppTextStyles.font13Regular.copyWith(
-              color: context.customAppColors.neutral700,
-            ),
-          ),
-        ),
-        Text(
-          value,
-          style: AppTextStyles.font14Bold.copyWith(
-            color: context.customAppColors.neutral900,
-          ),
-        ),
-      ],
     );
   }
 }

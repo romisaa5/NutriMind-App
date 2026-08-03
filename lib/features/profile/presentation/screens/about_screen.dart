@@ -105,8 +105,6 @@ class AboutScreen extends StatelessWidget {
           ),
 
           SizedBox(height: 28.h),
-
-          // ---------- الوصف ----------
           FadeInUp(
             delay: const Duration(milliseconds: 220),
             child: SoftCard(
@@ -121,8 +119,6 @@ class AboutScreen extends StatelessWidget {
           ),
 
           SizedBox(height: 26.h),
-
-          // ---------- المميزات ----------
           FadeInLeft(
             delay: const Duration(milliseconds: 250),
             child: Text(
@@ -177,8 +173,6 @@ class AboutScreen extends StatelessWidget {
           }),
 
           SizedBox(height: 26.h),
-
-          // ---------- المطوّرة ----------
           FadeInLeft(
             delay: const Duration(milliseconds: 300),
             child: Text(
